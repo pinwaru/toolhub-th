@@ -204,3 +204,12 @@ color:#111;
     font-weight:700;
     color:white;
 }
+
+.tool h2{
+    margin-bottom:18px;
+}
+
+.tool p{
+    color:#666;
+    line-height:1.7;
+}
