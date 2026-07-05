@@ -192,39 +192,6 @@ color:#111;
 
 /* Hero */
 
-.hero-logo{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-gap:20px;
-
-margin-bottom:15px;
-
-}
-
-.hero-logo img{
-
-width:90px;
-
-height:90px;
-
-object-fit:contain;
-
-}
-
-.hero-logo h1{
-
-margin:0;
-
-font-size:56px;
-
-color:white;
-
-}
 .hero-title{
     text-align:center;
 }
