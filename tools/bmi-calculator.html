@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator | ToolHub TH</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    margin:0;
+    padding:40px;
+}
+
+.container{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+h1{
+    color:#2563eb;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin:15px 0;
+    font-size:18px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+#result{
+    margin-top:25px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>⚖️ BMI Calculator</h1>
+
+<p>คำนวณค่าดัชนีมวลกาย (BMI)</p>
+
+<input type="number" id="weight" placeholder="น้ำหนัก (กิโลกรัม)">
+
+<input type="number" id="height" placeholder="ส่วนสูง (เซนติเมตร)">
+
+<button onclick="calculateBMI()">
+คำนวณ BMI
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function calculateBMI(){
+
+const weight=parseFloat(document.getElementById("weight").value);
+const height=parseFloat(document.getElementById("height").value)/100;
+
+if(!weight || !height){
+    document.getElementById("result").innerHTML="กรุณากรอกข้อมูลให้ครบ";
+    return;
+}
+
+const bmi=(weight/(height*height)).toFixed(2);
+
+let status="";
+
+if(bmi<18.5){
+    status="น้ำหนักน้อย";
+}
+else if(bmi<25){
+    status="น้ำหนักปกติ";
+}
+else if(bmi<30){
+    status="น้ำหนักเกิน";
+}
+else{
+    status="โรคอ้วน";
+}
+
+document.getElementById("result").innerHTML=
+`BMI ของคุณคือ <br><br>${bmi}<br>${status}`;
+
+}
+
+</script>
+
+</body>
+</html>
