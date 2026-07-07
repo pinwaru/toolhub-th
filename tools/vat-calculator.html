@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAT Calculator | ToolHub TH</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+font-family:'Kanit',sans-serif;
+background:#f4f7fb;
+margin:0;
+}
+
+.container{
+max-width:600px;
+margin:60px auto;
+background:#fff;
+padding:30px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+h1{
+text-align:center;
+}
+
+input{
+width:100%;
+padding:15px;
+font-size:18px;
+margin:20px 0;
+border-radius:10px;
+border:1px solid #ccc;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:15px;
+font-size:18px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+.result{
+margin-top:25px;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+}
+
+.back{
+display:block;
+text-align:center;
+margin-top:25px;
+text-decoration:none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>💰 VAT Calculator</h1>
+
+<input type="number" id="price" placeholder="กรอกราคา">
+
+<button onclick="calculateVAT()">คำนวณ</button>
+
+<div class="result" id="result"></div>
+
+<a class="back" href="../index.html">← กลับหน้าแรก</a>
+
+</div>
+
+<script>
+
+function calculateVAT(){
+
+let price=parseFloat(document.getElementById("price").value);
+
+if(isNaN(price)){
+document.getElementById("result").innerHTML="กรุณากรอกราคา";
+return;
+}
+
+let vat=price*0.07;
+let total=price+vat;
+
+document.getElementById("result").innerHTML=
+"VAT = "+vat.toFixed(2)+" บาท<br><br>รวม = "+total.toFixed(2)+" บาท";
+
+}
+
+</script>
+
+</body>
+</html>
