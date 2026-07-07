@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Date Calculator | ToolHub TH</title>
+
+<meta name="description" content="คำนวณจำนวนวันระหว่างวันที่ฟรี">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="../images/logo.png" alt="Logo">
+
+<span>ToolHub TH</span>
+
+</div>
+
+<div class="menu">
+
+<a href="../index.html">หน้าแรก</a>
+
+<a href="../about.html">เกี่ยวกับ</a>
+
+<a href="../contact.html">ติดต่อ</a>
+
+<a href="../privacy.html">นโยบาย</a>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<h1>📅 Date Calculator</h1>
+
+<label>วันที่เริ่มต้น</label>
+
+<input type="date" id="start">
+
+<label>วันที่สิ้นสุด</label>
+
+<input type="date" id="end">
+
+<button onclick="calculate()">
+
+คำนวณ
+
+</button>
+
+<div class="result" id="result">
+
+ผลลัพธ์จะแสดงที่นี่
+
+</div>
+
+<a href="../index.html" class="back">
+
+← กลับหน้าแรก
+
+</a>
+
+</div>
+
+<script>
+
+function calculate(){
+
+const start=new Date(document.getElementById("start").value);
+
+const end=new Date(document.getElementById("end").value);
+
+if(isNaN(start)||isNaN(end)){
+
+document.getElementById("result").innerHTML="กรุณาเลือกวันที่ให้ครบ";
+
+return;
+
+}
+
+const diff=Math.abs(end-start);
+
+const days=Math.floor(diff/(1000*60*60*24));
+
+const weeks=(days/7).toFixed(1);
+
+const months=(days/30.44).toFixed(1);
+
+const years=(days/365.25).toFixed(2);
+
+document.getElementById("result").innerHTML=`
+
+<b>${days}</b> วัน
+
+<br><br>
+
+≈ ${weeks} สัปดาห์
+
+<br>
+
+≈ ${months} เดือน
+
+<br>
+
+≈ ${years} ปี
+
+`;
+
+}
+
+</script>
+
+</body>
+
+</html>
