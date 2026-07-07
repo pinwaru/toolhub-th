@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Temperature Converter | ToolHub TH</title>
+
+<meta name="description" content="แปลงอุณหภูมิระหว่าง Celsius, Fahrenheit และ Kelvin ฟรี">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+<img src="../images/logo.png" alt="Logo">
+<span>ToolHub TH</span>
+</div>
+
+<div class="menu">
+<a href="../index.html">หน้าแรก</a>
+<a href="../about.html">เกี่ยวกับ</a>
+<a href="../contact.html">ติดต่อ</a>
+<a href="../privacy.html">นโยบาย</a>
+</div>
+
+</nav>
+
+<div class="container">
+
+<h1>🌡️ Temperature Converter</h1>
+
+<input
+type="number"
+id="temp"
+placeholder="กรอกอุณหภูมิ">
+
+<select id="from">
+<option value="c">Celsius (°C)</option>
+<option value="f">Fahrenheit (°F)</option>
+<option value="k">Kelvin (K)</option>
+</select>
+
+<br><br>
+
+<select id="to">
+<option value="c">Celsius (°C)</option>
+<option value="f">Fahrenheit (°F)</option>
+<option value="k">Kelvin (K)</option>
+</select>
+
+<br><br>
+
+<button onclick="convert()">
+
+แปลงอุณหภูมิ
+
+</button>
+
+<div class="result" id="result">
+
+ผลลัพธ์จะแสดงที่นี่
+
+</div>
+
+<a href="../index.html" class="back">
+
+← กลับหน้าแรก
+
+</a>
+
+</div>
+
+<script>
+
+function convert(){
+
+let value=parseFloat(document.getElementById("temp").value);
+
+if(isNaN(value)){
+
+document.getElementById("result").innerHTML="กรุณากรอกตัวเลข";
+
+return;
+
+}
+
+let from=document.getElementById("from").value;
+let to=document.getElementById("to").value;
+
+let c;
+
+if(from=="c") c=value;
+if(from=="f") c=(value-32)*5/9;
+if(from=="k") c=value-273.15;
+
+let result;
+
+if(to=="c") result=c;
+if(to=="f") result=(c*9/5)+32;
+if(to=="k") result=c+273.15;
+
+document.getElementById("result").innerHTML=
+
+`<b>${result.toFixed(2)}</b>`;
+
+}
+
+</script>
+
+</body>
+</html>
