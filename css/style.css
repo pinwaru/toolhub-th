@@ -213,3 +213,73 @@ color:#111;
     color:#666;
     line-height:1.7;
 }
+/* ========================= */
+/* Tool Pages */
+/* ========================= */
+
+.container{
+    max-width:700px;
+    margin:60px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.container h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.container input,
+.container textarea{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    box-sizing:border-box;
+    margin-bottom:15px;
+    font-family:'Kanit',sans-serif;
+}
+
+.container textarea{
+    min-height:220px;
+    resize:vertical;
+}
+
+.container button{
+    width:100%;
+    padding:15px;
+    font-size:18px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.container button:hover{
+    background:#1d4ed8;
+}
+
+.result{
+    margin-top:20px;
+    text-align:center;
+    font-size:22px;
+    line-height:1.8;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:25px;
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:600;
+}
+
+.back:hover{
+    text-decoration:underline;
+}
