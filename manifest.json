@@ -1,0 +1,17 @@
+{
+  "name": "ToolHub TH",
+  "short_name": "ToolHub TH",
+  "description": "เว็บไซต์รวมเครื่องมือออนไลน์ฟรี",
+  "start_url": "/toolhub-th/",
+  "scope": "/toolhub-th/",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
