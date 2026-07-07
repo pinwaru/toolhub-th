@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unit Converter | ToolHub TH</title>
+
+<meta name="description" content="แปลงหน่วยความยาวและน้ำหนักฟรี">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="../images/logo.png" alt="Logo">
+
+<span>ToolHub TH</span>
+
+</div>
+
+<div class="menu">
+
+<a href="../index.html">หน้าแรก</a>
+
+<a href="../about.html">เกี่ยวกับ</a>
+
+<a href="../contact.html">ติดต่อ</a>
+
+<a href="../privacy.html">นโยบาย</a>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<h1>📏 Unit Converter</h1>
+
+<select id="type">
+
+<option value="length">ความยาว</option>
+
+<option value="weight">น้ำหนัก</option>
+
+</select>
+
+<br><br>
+
+<input
+type="number"
+id="value"
+placeholder="กรอกตัวเลข">
+
+<br><br>
+
+<select id="from"></select>
+
+<br><br>
+
+<select id="to"></select>
+
+<br><br>
+
+<button onclick="convert()">
+
+แปลงหน่วย
+
+</button>
+
+<div class="result" id="result">
+
+ผลลัพธ์จะแสดงที่นี่
+
+</div>
+
+<a href="../index.html" class="back">
+
+← กลับหน้าแรก
+
+</a>
+
+</div>
+
+<script>
+
+const units={
+
+length:{
+เมตร:1,
+กิโลเมตร:1000,
+เซนติเมตร:0.01,
+มิลลิเมตร:0.001,
+นิ้ว:0.0254,
+ฟุต:0.3048
+},
+
+weight:{
+กิโลกรัม:1,
+กรัม:0.001,
+ปอนด์:0.453592,
+ออนซ์:0.0283495
+}
+
+};
+
+const type=document.getElementById("type");
+
+const from=document.getElementById("from");
+
+const to=document.getElementById("to");
+
+function loadUnits(){
+
+const list=units[type.value];
+
+from.innerHTML="";
+
+to.innerHTML="";
+
+for(let u in list){
+
+from.innerHTML+=`<option>${u}</option>`;
+
+to.innerHTML+=`<option>${u}</option>`;
+
+}
+
+}
+
+type.onchange=loadUnits;
+
+loadUnits();
+
+function convert(){
+
+const value=parseFloat(document.getElementById("value").value);
+
+if(isNaN(value)){
+
+document.getElementById("result").innerHTML="กรุณากรอกตัวเลข";
+
+return;
+
+}
+
+const table=units[type.value];
+
+const base=value*table[from.value];
+
+const result=base/table[to.value];
+
+document.getElementById("result").innerHTML=
+
+`${value} ${from.value}<br><br>=<br><br><b>${result.toFixed(4)} ${to.value}</b>`;
+
+}
+
+</script>
+
+</body>
+
+</html>
