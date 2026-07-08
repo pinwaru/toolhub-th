@@ -391,3 +391,24 @@ footer p{
     color:#666;
     line-height:1.8;
 }
+/* ========================= */
+/* NEW Badge */
+/* ========================= */
+
+.new-tool{
+    position:relative;
+}
+
+.badge-new{
+    position:absolute;
+    top:15px;
+    right:15px;
+    background:#ef4444;
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    padding:6px 10px;
+    border-radius:999px;
+    letter-spacing:.5px;
+    box-shadow:0 4px 10px rgba(239,68,68,.3);
+}
