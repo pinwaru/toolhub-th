@@ -329,3 +329,65 @@ color:#666;
 font-size:18px;
 
 }
+/* ========================= */
+/* Home Page Upgrade v2 */
+/* ========================= */
+
+/* Tool Card */
+
+.tool{
+    position:relative;
+    overflow:hidden;
+}
+
+.tool::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:6px;
+    height:100%;
+    background:#2563eb;
+}
+
+/* Badge */
+
+.badge{
+    display:inline-block;
+    background:#ef4444;
+    color:#fff;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:15px;
+    letter-spacing:.5px;
+}
+
+/* Hover Effect */
+
+.tool:hover h2{
+    color:#2563eb;
+}
+
+/* Footer Upgrade */
+
+footer{
+    margin-top:60px;
+    background:#fff;
+    padding:40px 20px;
+    text-align:center;
+    border-top:1px solid #e5e7eb;
+}
+
+footer h3{
+    margin:0;
+    font-size:24px;
+    color:#2563eb;
+}
+
+footer p{
+    margin:10px 0;
+    color:#666;
+    line-height:1.8;
+}
