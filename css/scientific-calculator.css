@@ -1,1 +1,137 @@
+/* ========================= */
+/* Scientific Calculator */
+/* ========================= */
 
+.calculator{
+    max-width:700px;
+    margin:50px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.calculator h1{
+    text-align:center;
+    margin:0 0 25px;
+    color:#2563eb;
+    font-size:36px;
+}
+
+#display{
+    width:100%;
+    box-sizing:border-box;
+    height:80px;
+    padding:15px 20px;
+    margin-bottom:25px;
+    border:2px solid #dbe3f0;
+    border-radius:15px;
+    background:#f8fafc;
+    font-size:34px;
+    text-align:right;
+    color:#111;
+    outline:none;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+}
+
+.buttons button{
+    height:65px;
+    border:none;
+    border-radius:14px;
+    background:#2563eb;
+    color:#fff;
+    font-size:20px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+    font-family:'Kanit',sans-serif;
+}
+
+.buttons button:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+.buttons button:active{
+    transform:scale(.96);
+}
+
+/* ปุ่มเทา */
+.buttons button:nth-child(1),
+.buttons button:nth-child(2),
+.buttons button:nth-child(3),
+.buttons button:nth-child(4){
+    background:#64748b;
+}
+
+.buttons button:nth-child(1):hover,
+.buttons button:nth-child(2):hover,
+.buttons button:nth-child(3):hover,
+.buttons button:nth-child(4):hover{
+    background:#475569;
+}
+
+/* ปุ่ม = */
+.buttons button:nth-child(24){
+    background:#16a34a;
+}
+
+.buttons button:nth-child(24):hover{
+    background:#15803d;
+}
+
+/* ปุ่มฟังก์ชัน */
+.buttons button:nth-last-child(-n+5){
+    background:#7c3aed;
+}
+
+.buttons button:nth-last-child(-n+5):hover{
+    background:#6d28d9;
+}
+
+.back{
+    display:block;
+    margin-top:30px;
+    text-align:center;
+    text-decoration:none;
+    font-weight:600;
+    color:#2563eb;
+}
+
+.back:hover{
+    text-decoration:underline;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.calculator{
+    margin:20px;
+    padding:20px;
+}
+
+.calculator h1{
+    font-size:28px;
+}
+
+#display{
+    height:70px;
+    font-size:28px;
+}
+
+.buttons{
+    gap:10px;
+}
+
+.buttons button{
+    height:58px;
+    font-size:18px;
+}
+
+}
