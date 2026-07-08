@@ -1,8 +1,7 @@
 const display = document.getElementById("display");
+const buttons = document.querySelectorAll(".buttons button");
 
 let expression = "";
-
-const buttons = document.querySelectorAll(".buttons button");
 
 function updateDisplay() {
     display.value = expression || "0";
@@ -15,6 +14,7 @@ buttons.forEach(button => {
         const value = button.dataset.value;
         const action = button.dataset.action;
 
+        // ปุ่มตัวเลขและเครื่องหมาย
         if (value !== undefined) {
             expression += value;
             updateDisplay();
@@ -30,18 +30,24 @@ buttons.forEach(button => {
 
             case "equals":
 
+                if (expression === "") return;
+
                 try {
 
-                    const result = math.evaluate(expression);
+                    let exp = expression;
+
+                    // แทนค่า π
+                    exp = exp.replace(/π/g, "pi");
+
+                    const result = math.evaluate(exp);
 
                     expression = result.toString();
 
                     updateDisplay();
 
-                } catch {
+                } catch (e) {
 
                     display.value = "Error";
-
                     expression = "";
 
                 }
@@ -95,14 +101,15 @@ buttons.forEach(button => {
 
             case "negate":
 
-                if (expression.startsWith("-")) {
+                if (expression === "") {
+                    expression = "-";
+                } else if (expression.startsWith("-")) {
                     expression = expression.substring(1);
                 } else {
                     expression = "-" + expression;
                 }
 
                 updateDisplay();
-
                 break;
 
         }
