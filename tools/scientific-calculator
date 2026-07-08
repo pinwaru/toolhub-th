@@ -95,6 +95,10 @@ readonly
 
 </div>
 
+<!-- Math.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.6.0/math.min.js"></script>
+
+<!-- Scientific Calculator -->
 <script src="../js/scientific-calculator.js"></script>
 
 </body>
