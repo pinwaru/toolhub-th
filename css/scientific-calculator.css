@@ -3,34 +3,36 @@
 /* ========================= */
 
 .calculator{
-    max-width:700px;
+    max-width:520px;
     margin:50px auto;
-    background:#fff;
+    background:#ffffff;
     padding:30px;
     border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
 
 .calculator h1{
+    margin-top:0;
+    margin-bottom:25px;
     text-align:center;
-    margin:0 0 25px;
     color:#2563eb;
-    font-size:36px;
+    font-size:32px;
 }
 
 #display{
     width:100%;
     box-sizing:border-box;
-    height:80px;
+    height:70px;
     padding:15px 20px;
-    margin-bottom:25px;
-    border:2px solid #dbe3f0;
+    margin-bottom:20px;
+    border:none;
     border-radius:15px;
-    background:#f8fafc;
-    font-size:34px;
+    background:#f4f7fb;
+    font-size:32px;
     text-align:right;
-    color:#111;
-    outline:none;
+    font-family:'Kanit',sans-serif;
+    color:#222;
+    box-shadow:inset 0 2px 6px rgba(0,0,0,.08);
 }
 
 .buttons{
@@ -43,94 +45,76 @@
     height:65px;
     border:none;
     border-radius:14px;
-    background:#2563eb;
-    color:#fff;
-    font-size:20px;
-    font-weight:600;
+    background:#ffffff;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
     cursor:pointer;
-    transition:.2s;
+    font-size:20px;
     font-family:'Kanit',sans-serif;
+    transition:.2s;
 }
 
 .buttons button:hover{
-    background:#1d4ed8;
     transform:translateY(-2px);
+    background:#eef4ff;
 }
 
 .buttons button:active{
     transform:scale(.96);
 }
 
-/* ปุ่มเทา */
-.buttons button:nth-child(1),
-.buttons button:nth-child(2),
-.buttons button:nth-child(3),
-.buttons button:nth-child(4){
-    background:#64748b;
+.function{
+    background:#2563eb !important;
+    color:#fff;
 }
 
-.buttons button:nth-child(1):hover,
-.buttons button:nth-child(2):hover,
-.buttons button:nth-child(3):hover,
-.buttons button:nth-child(4):hover{
-    background:#475569;
+.function:hover{
+    background:#1d4ed8 !important;
 }
 
-/* ปุ่ม = */
-.buttons button:nth-child(24){
-    background:#16a34a;
+.equal{
+    background:#16a34a !important;
+    color:#fff;
 }
 
-.buttons button:nth-child(24):hover{
-    background:#15803d;
-}
-
-/* ปุ่มฟังก์ชัน */
-.buttons button:nth-last-child(-n+5){
-    background:#7c3aed;
-}
-
-.buttons button:nth-last-child(-n+5):hover{
-    background:#6d28d9;
+.equal:hover{
+    background:#15803d !important;
 }
 
 .back{
     display:block;
-    margin-top:30px;
     text-align:center;
+    margin-top:25px;
     text-decoration:none;
-    font-weight:600;
     color:#2563eb;
+    font-weight:600;
 }
 
 .back:hover{
     text-decoration:underline;
 }
 
+/* ========================= */
 /* Mobile */
+/* ========================= */
 
-@media(max-width:768px){
+@media (max-width:600px){
 
 .calculator{
-    margin:20px;
+    margin:20px 12px;
     padding:20px;
 }
 
 .calculator h1{
-    font-size:28px;
+    font-size:26px;
 }
 
 #display{
-    height:70px;
-    font-size:28px;
-}
-
-.buttons{
-    gap:10px;
+    height:60px;
+    font-size:26px;
 }
 
 .buttons button{
-    height:58px;
+    height:55px;
     font-size:18px;
 }
 
