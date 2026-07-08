@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Scientific Calculator | ToolHub TH</title>
+
+<meta name="description" content="เครื่องคิดเลขวิทยาศาสตร์ออนไลน์ฟรี รองรับ sin cos tan log ln √ x² xʸ π และอื่น ๆ">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="../images/logo.png" alt="ToolHub TH">
+
+<span>ToolHub TH</span>
+
+</div>
+
+<div class="menu">
+
+<a href="../index.html">หน้าแรก</a>
+<a href="../blog.html">บทความ</a>
+<a href="../about.html">เกี่ยวกับ</a>
+<a href="../contact.html">ติดต่อ</a>
+
+</div>
+
+</nav>
+
+<div class="calculator">
+
+<h1>🧪 Scientific Calculator</h1>
+
+<input
+type="text"
+id="display"
+value="0"
+readonly
+>
+
+<div class="buttons">
+
+<button>AC</button>
+<button>(</button>
+<button>)</button>
+<button>%</button>
+<button>÷</button>
+
+<button>7</button>
+<button>8</button>
+<button>9</button>
+<button>×</button>
+<button>√</button>
+
+<button>4</button>
+<button>5</button>
+<button>6</button>
+<button>-</button>
+<button>x²</button>
+
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<button>+</button>
+<button>xʸ</button>
+
+<button>±</button>
+<button>0</button>
+<button>.</button>
+<button>=</button>
+<button>π</button>
+
+<button>sin</button>
+<button>cos</button>
+<button>tan</button>
+<button>log</button>
+<button>ln</button>
+
+</div>
+
+<a class="back" href="../index.html">
+
+← กลับหน้าแรก
+
+</a>
+
+</div>
+
+</body>
+</html>
