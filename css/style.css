@@ -391,24 +391,27 @@ footer p{
     color:#666;
     line-height:1.8;
 }
-/* ========================= */
-/* NEW Badge */
-/* ========================= */
-
-.new-tool{
-    position:relative;
-}
-
 .badge-new{
     position:absolute;
     top:15px;
     right:15px;
-    background:#ef4444;
+    background:linear-gradient(135deg,#ff9800,#ff5722);
     color:#fff;
     font-size:12px;
     font-weight:700;
-    padding:6px 10px;
+    padding:6px 12px;
     border-radius:999px;
-    letter-spacing:.5px;
-    box-shadow:0 4px 10px rgba(239,68,68,.3);
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+    100%{
+        transform:scale(1);
+    }
 }
