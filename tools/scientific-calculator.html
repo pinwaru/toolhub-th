@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
 
 <meta charset="UTF-8">
@@ -42,50 +43,49 @@
 <h1>🧪 Scientific Calculator</h1>
 
 <input
-type="text"
 id="display"
+type="text"
 value="0"
 readonly
 >
 
 <div class="buttons">
 
-<button data-action="clear">AC</button>
+<button>AC</button>
+<button>(</button>
+<button>)</button>
+<button>%</button>
+<button>÷</button>
 
-<button data-value="(">(</button>
-<button data-value=")">)</button>
-<button data-value="%">%</button>
-<button data-value="/">÷</button>
+<button>7</button>
+<button>8</button>
+<button>9</button>
+<button>×</button>
+<button>√</button>
 
-<button data-value="7">7</button>
-<button data-value="8">8</button>
-<button data-value="9">9</button>
-<button data-value="*">×</button>
-<button data-action="sqrt">√</button>
+<button>4</button>
+<button>5</button>
+<button>6</button>
+<button>-</button>
+<button>x²</button>
 
-<button data-value="4">4</button>
-<button data-value="5">5</button>
-<button data-value="6">6</button>
-<button data-value="-">-</button>
-<button data-action="square">x²</button>
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<button>+</button>
+<button>xʸ</button>
 
-<button data-value="1">1</button>
-<button data-value="2">2</button>
-<button data-value="3">3</button>
-<button data-value="+">+</button>
-<button data-action="power">xʸ</button>
+<button>±</button>
+<button>0</button>
+<button>.</button>
+<button>=</button>
+<button>π</button>
 
-<button data-action="negate">±</button>
-<button data-value="0">0</button>
-<button data-value=".">.</button>
-<button data-action="equals">=</button>
-<button data-action="pi">π</button>
-
-<button data-action="sin">sin</button>
-<button data-action="cos">cos</button>
-<button data-action="tan">tan</button>
-<button data-action="log">log</button>
-<button data-action="ln">ln</button>
+<button>sin</button>
+<button>cos</button>
+<button>tan</button>
+<button>log</button>
+<button>ln</button>
 
 </div>
 
@@ -95,10 +95,7 @@ readonly
 
 </div>
 
-<!-- Math.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.6.0/math.min.js"></script>
-
-<!-- Scientific Calculator -->
 <script src="../js/scientific-calculator.js"></script>
 
 </body>
