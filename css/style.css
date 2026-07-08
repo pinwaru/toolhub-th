@@ -268,3 +268,64 @@ header p{
 }
 
 }
+/* ===== Stats ===== */
+
+.stats{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+gap:20px;
+
+max-width:1000px;
+
+margin:40px auto;
+
+padding:0 20px;
+
+}
+
+.stat{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+text-align:center;
+
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+transition:.25s;
+
+}
+
+.stat:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 12px 30px rgba(0,0,0,.12);
+
+}
+
+.stat h2{
+
+margin:0;
+
+font-size:36px;
+
+color:#2563eb;
+
+}
+
+.stat p{
+
+margin-top:10px;
+
+color:#666;
+
+font-size:18px;
+
+}
