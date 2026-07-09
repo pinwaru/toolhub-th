@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="th">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loan Calculator | ToolHub TH</title>
+
+<meta name="description" content="คำนวณค่างวดเงินกู้ บ้าน รถ และสินเชื่อออนไลน์ฟรี">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/loan-calculator.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="../images/logo.png" alt="ToolHub TH">
+
+<span>ToolHub TH</span>
+
+</div>
+
+<div class="menu">
+
+<a href="../index.html">หน้าแรก</a>
+<a href="../calculators.html">เครื่องคิดเลข</a>
+<a href="../blog.html">บทความ</a>
+<a href="../about.html">เกี่ยวกับ</a>
+<a href="../contact.html">ติดต่อ</a>
+
+</div>
+
+</nav>
+
+<div class="loan-container">
+
+<h1>🏦 Loan Calculator</h1>
+
+<p>คำนวณค่างวดเงินกู้แบบลดต้นลดดอก</p>
+
+<div class="input-group">
+
+<label>จำนวนเงินกู้ (บาท)</label>
+
+<input
+type="number"
+id="loanAmount"
+placeholder="1000000">
+
+</div>
+
+<div class="input-group">
+
+<label>ดอกเบี้ยต่อปี (%)</label>
+
+<input
+type="number"
+id="interestRate"
+placeholder="6">
+
+</div>
+
+<div class="input-group">
+
+<label>ระยะเวลา (ปี)</label>
+
+<input
+type="number"
+id="loanYears"
+placeholder="20">
+
+</div>
+
+<button id="calculateBtn">
+
+คำนวณ
+
+</button>
+
+<div class="result">
+
+<h2>ผลลัพธ์</h2>
+
+<p>ค่างวดต่อเดือน</p>
+
+<h3 id="monthlyPayment">-</h3>
+
+<p>ยอดชำระทั้งหมด</p>
+
+<h3 id="totalPayment">-</h3>
+
+<p>ดอกเบี้ยรวม</p>
+
+<h3 id="totalInterest">-</h3>
+
+</div>
+
+<a class="back" href="../calculators.html">
+
+← กลับหน้าเครื่องคิดเลข
+
+</a>
+
+</div>
+
+<footer>
+
+<h3>ToolHub TH</h3>
+
+<p>รวมเครื่องมือออนไลน์ฟรี</p>
+
+<p>© 2026 ToolHub TH</p>
+
+</footer>
+
+<script src="../js/loan-calculator.js"></script>
+
+</body>
+
+</html>
