@@ -8,6 +8,8 @@ const monthlyPayment = document.getElementById("monthlyPayment");
 const totalPayment = document.getElementById("totalPayment");
 const totalInterest = document.getElementById("totalInterest");
 
+const scheduleTable = document.querySelector("#scheduleTable tbody");
+
 calculateBtn.addEventListener("click", () => {
 
     const principal = parseFloat(loanAmount.value);
@@ -26,10 +28,10 @@ calculateBtn.addEventListener("click", () => {
         alert("กรุณากรอกข้อมูลให้ถูกต้อง");
 
         return;
+
     }
 
     const monthlyRate = annualRate / 100 / 12;
-
     const numberOfPayments = years * 12;
 
     let monthly;
@@ -49,7 +51,6 @@ calculateBtn.addEventListener("click", () => {
     }
 
     const total = monthly * numberOfPayments;
-
     const interest = total - principal;
 
     monthlyPayment.textContent =
@@ -69,5 +70,60 @@ calculateBtn.addEventListener("click", () => {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
         }) + " บาท";
+
+    // ==========================
+    // ตารางผ่อนชำระ
+    // ==========================
+
+    scheduleTable.innerHTML = "";
+
+    let balance = principal;
+
+    for (let month = 1; month <= numberOfPayments; month++) {
+
+        let interestPaid;
+        let principalPaid;
+
+        if (monthlyRate === 0) {
+
+            interestPaid = 0;
+            principalPaid = monthly;
+
+        } else {
+
+            interestPaid = balance * monthlyRate;
+            principalPaid = monthly - interestPaid;
+
+        }
+
+        balance -= principalPaid;
+
+        if (balance < 0) {
+
+            balance = 0;
+
+        }
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${month}</td>
+            <td>${principalPaid.toLocaleString("th-TH", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            })}</td>
+            <td>${interestPaid.toLocaleString("th-TH", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            })}</td>
+            <td>${balance.toLocaleString("th-TH", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            })}</td>
+        `;
+
+        scheduleTable.appendChild(row);
+
+    }
 
 });
