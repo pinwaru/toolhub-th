@@ -440,3 +440,45 @@ footer p{
 .breadcrumb span{
     margin:0 6px;
 }
+ /* ========================= */
+/* Tool Sections */
+/* ========================= */
+
+.section{
+
+max-width:900px;
+
+margin:40px auto;
+
+background:#fff;
+
+padding:30px;
+
+border-radius:15px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.section h2{
+
+margin-top:0;
+
+color:#2563eb;
+
+}
+
+.section p,
+.section li{
+
+line-height:1.8;
+
+color:#444;
+
+}
+
+.section ul{
+
+padding-left:22px;
+
+}
