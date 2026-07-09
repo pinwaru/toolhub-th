@@ -415,3 +415,28 @@ footer p{
         transform:scale(1);
     }
 }
+
+/* ========================= */
+/* Breadcrumb */
+/* ========================= */
+
+.breadcrumb{
+    max-width:1100px;
+    margin:20px auto;
+    padding:0 20px;
+    font-size:15px;
+    color:#666;
+}
+
+.breadcrumb a{
+    text-decoration:none;
+    color:#2563eb;
+}
+
+.breadcrumb a:hover{
+    text-decoration:underline;
+}
+
+.breadcrumb span{
+    margin:0 6px;
+}
