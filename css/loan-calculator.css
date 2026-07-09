@@ -175,3 +175,49 @@ font-size:24px;
 }
 
 }
+.schedule{
+
+margin-top:40px;
+
+}
+
+.table-wrapper{
+
+overflow-x:auto;
+
+}
+
+#scheduleTable{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:20px;
+
+}
+
+#scheduleTable th,
+#scheduleTable td{
+
+border:1px solid #ddd;
+
+padding:12px;
+
+text-align:center;
+
+}
+
+#scheduleTable th{
+
+background:#2563eb;
+
+color:#fff;
+
+}
+
+#scheduleTable tr:nth-child(even){
+
+background:#f7f7f7;
+
+}
