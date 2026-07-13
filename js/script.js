@@ -1,29 +1,21 @@
-const search=document.getElementById("search");
+const search = document.getElementById("search");
 
-if(search){
+if (search) {
 
-search.addEventListener("keyup",function(){
+    const tools = document.querySelectorAll(".tool");
 
-const value=this.value.toLowerCase();
+    search.addEventListener("input", () => {
 
-const tools=document.querySelectorAll(".tool");
+        const keyword = search.value.trim().toLowerCase();
 
-tools.forEach(tool=>{
+        tools.forEach(tool => {
 
-tool.style.display=
+            const text = tool.textContent.toLowerCase();
 
-tool.innerText.toLowerCase().includes(value)
+            tool.style.display = text.includes(keyword) ? "" : "none";
 
-?
+        });
 
-"block"
-
-:
-
-"none";
-
-});
-
-});
+    });
 
 }
