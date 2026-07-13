@@ -8,16 +8,24 @@ function updateDisplay() {
 }
 
 function calculate() {
-    if (expression === "") return;
+
+    if (expression.trim() === "") return;
 
     try {
+
         const result = math.evaluate(expression);
+
         expression = result.toString();
+
         updateDisplay();
+
     } catch {
+
         display.value = "Error";
         expression = "";
+
     }
+
 }
 
 buttons.forEach(button => {
@@ -28,19 +36,23 @@ buttons.forEach(button => {
         const action = button.dataset.action;
 
         if (value !== undefined) {
+
             expression += value;
             updateDisplay();
             return;
+
         }
 
         switch (action) {
 
             case "clear":
+
                 expression = "";
                 updateDisplay();
                 break;
 
             case "backspace":
+
                 expression = expression.slice(0, -1);
                 updateDisplay();
                 break;
@@ -65,6 +77,7 @@ buttons.forEach(button => {
                 break;
 
             case "equals":
+
                 calculate();
                 break;
 
@@ -80,34 +93,50 @@ buttons.forEach(button => {
 
 document.addEventListener("keydown", (e) => {
 
+    // ไม่ดักปุ่มถ้ากำลังพิมพ์ใน input หรือ textarea
+    if (
+        e.target.tagName === "INPUT" ||
+        e.target.tagName === "TEXTAREA"
+    ) {
+        return;
+    }
+
+    // อนุญาต Ctrl+C Ctrl+V Ctrl+A
+    if (e.ctrlKey || e.metaKey) return;
+
     const key = e.key;
 
-    if ("0123456789+-*/().%".includes(key)) {
+    if ("0123456789+-*/().%^".includes(key)) {
 
         expression += key;
         updateDisplay();
+        return;
 
     }
 
-    else if (key === "Enter") {
+    switch (key) {
 
-        e.preventDefault();
-        calculate();
+        case "Enter":
+        case "NumpadEnter":
 
-    }
+            e.preventDefault();
+            calculate();
+            break;
 
-    else if (key === "Backspace") {
+        case "Backspace":
 
-        e.preventDefault();
-        expression = expression.slice(0, -1);
-        updateDisplay();
+            e.preventDefault();
+            expression = expression.slice(0, -1);
+            updateDisplay();
+            break;
 
-    }
+        case "Delete":
+        case "Escape":
 
-    else if (key === "Escape") {
-
-        expression = "";
-        updateDisplay();
+            e.preventDefault();
+            expression = "";
+            updateDisplay();
+            break;
 
     }
 
