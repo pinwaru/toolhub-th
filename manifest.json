@@ -1,17 +1,26 @@
 {
   "name": "ToolHub TH",
-  "short_name": "ToolHub TH",
-  "description": "เว็บไซต์รวมเครื่องมือออนไลน์ฟรี",
+  "short_name": "ToolHub",
+  "description": "รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน",
+  "lang": "th",
   "start_url": "/toolhub-th/",
   "scope": "/toolhub-th/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#f4f7fb",
   "theme_color": "#2563eb",
   "icons": [
     {
       "src": "images/logo.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
