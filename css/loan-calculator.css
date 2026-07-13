@@ -1,223 +1,169 @@
-.loan-container{
-
-max-width:700px;
-
-margin:50px auto;
-
-padding:35px;
-
-background:#fff;
-
-border-radius:16px;
-
-box-shadow:0 10px 30px rgba(0,0,0,.1);
-
+.loan-container {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 35px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
 }
 
-.loan-container h1{
-
-text-align:center;
-
-margin-bottom:10px;
-
-color:#2563eb;
-
+.loan-container h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2563eb;
 }
 
-.loan-container p{
-
-text-align:center;
-
-margin-bottom:20px;
-
-color:#666;
-
+.loan-container>p {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #666;
+    line-height: 1.6;
 }
 
-.input-group{
-
-margin-bottom:20px;
-
+.input-group {
+    margin-bottom: 20px;
 }
 
-.input-group label{
-
-display:block;
-
-font-weight:600;
-
-margin-bottom:8px;
-
+.input-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
-.input-group input{
-
-width:100%;
-
-padding:14px;
-
-font-size:18px;
-
-border:2px solid #ddd;
-
-border-radius:10px;
-
-transition:.3s;
-
-box-sizing:border-box;
-
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    transition: .25s;
+    box-sizing: border-box;
 }
 
-.input-group input:focus{
-
-border-color:#2563eb;
-
-outline:none;
-
+.input-group input:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
 }
 
-#calculateBtn{
-
-width:100%;
-
-padding:16px;
-
-background:#2563eb;
-
-color:#fff;
-
-font-size:20px;
-
-font-weight:bold;
-
-border:none;
-
-border-radius:10px;
-
-cursor:pointer;
-
-transition:.3s;
-
+#calculateBtn {
+    width: 100%;
+    padding: 16px;
+    background: #2563eb;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .25s;
 }
 
-#calculateBtn:hover{
-
-background:#1d4ed8;
-
+#calculateBtn:hover {
+    background: #1d4ed8;
 }
 
-.result{
-
-margin-top:35px;
-
-padding:25px;
-
-background:#f8f9fa;
-
-border-radius:12px;
-
-text-align:center;
-
+#calculateBtn:active {
+    transform: scale(.98);
 }
 
-.result h2{
-
-margin-bottom:20px;
-
+.result {
+    margin-top: 35px;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    text-align: center;
 }
 
-.result h3{
-
-font-size:30px;
-
-color:#2563eb;
-
-margin-bottom:18px;
-
+.result h2 {
+    margin-bottom: 20px;
 }
 
-.back{
-
-display:block;
-
-text-align:center;
-
-margin-top:30px;
-
-font-weight:bold;
-
-text-decoration:none;
-
-color:#2563eb;
-
+.result h3 {
+    font-size: 30px;
+    color: #2563eb;
+    margin-bottom: 18px;
+    word-break: break-word;
 }
 
-.back:hover{
-
-text-decoration:underline;
-
+.back {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #2563eb;
 }
 
-@media(max-width:768px){
-
-.loan-container{
-
-margin:20px;
-
-padding:20px;
-
+.back:hover {
+    text-decoration: underline;
 }
 
-.result h3{
+/* ========================= */
+/* ตารางผ่อนชำระ */
+/* ========================= */
 
-font-size:24px;
-
+.schedule {
+    margin-top: 40px;
 }
 
-}
-.schedule{
-
-margin-top:40px;
-
+.schedule h2 {
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-.table-wrapper{
-
-overflow-x:auto;
-
+.table-wrapper {
+    overflow-x: auto;
 }
 
-#scheduleTable{
-
-width:100%;
-
-border-collapse:collapse;
-
-margin-top:20px;
-
+#scheduleTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    min-width: 600px;
 }
 
 #scheduleTable th,
-#scheduleTable td{
-
-border:1px solid #ddd;
-
-padding:12px;
-
-text-align:center;
-
+#scheduleTable td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
 }
 
-#scheduleTable th{
-
-background:#2563eb;
-
-color:#fff;
-
+#scheduleTable th {
+    background: #2563eb;
+    color: #fff;
 }
 
-#scheduleTable tr:nth-child(even){
+#scheduleTable tr:nth-child(even) {
+    background: #f7f7f7;
+}
 
-background:#f7f7f7;
+#scheduleTable tr:hover {
+    background: #eef4ff;
+}
+
+/* ========================= */
+/* Responsive */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .loan-container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .loan-container h1 {
+        font-size: 28px;
+    }
+
+    .result h3 {
+        font-size: 24px;
+    }
+
+    #calculateBtn {
+        font-size: 18px;
+    }
 
 }
