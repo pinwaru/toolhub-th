@@ -8,7 +8,8 @@ const monthlyPayment = document.getElementById("monthlyPayment");
 const totalPayment = document.getElementById("totalPayment");
 const totalInterest = document.getElementById("totalInterest");
 
-const scheduleTable = document.querySelector("#scheduleTable tbody");
+// ตรวจสอบว่ามีตารางหรือไม่
+const scheduleBody = document.querySelector("#scheduleTable tbody");
 
 calculateBtn.addEventListener("click", () => {
 
@@ -24,15 +25,12 @@ calculateBtn.addEventListener("click", () => {
         annualRate < 0 ||
         years <= 0
     ) {
-
         alert("กรุณากรอกข้อมูลให้ถูกต้อง");
-
         return;
-
     }
 
     const monthlyRate = annualRate / 100 / 12;
-    const numberOfPayments = years * 12;
+    const numberOfPayments = Math.round(years * 12);
 
     let monthly;
 
@@ -71,11 +69,14 @@ calculateBtn.addEventListener("click", () => {
             maximumFractionDigits: 2
         }) + " บาท";
 
-    // ==========================
+    // ======================
     // ตารางผ่อนชำระ
-    // ==========================
+    // ======================
 
-    scheduleTable.innerHTML = "";
+    // ถ้าไม่มีตารางก็ไม่ต้องสร้าง
+    if (!scheduleBody) return;
+
+    scheduleBody.innerHTML = "";
 
     let balance = principal;
 
@@ -98,11 +99,7 @@ calculateBtn.addEventListener("click", () => {
 
         balance -= principalPaid;
 
-        if (balance < 0) {
-
-            balance = 0;
-
-        }
+        if (balance < 0) balance = 0;
 
         const row = document.createElement("tr");
 
@@ -122,7 +119,7 @@ calculateBtn.addEventListener("click", () => {
             })}</td>
         `;
 
-        scheduleTable.appendChild(row);
+        scheduleBody.appendChild(row);
 
     }
 
