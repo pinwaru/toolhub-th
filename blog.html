@@ -9,9 +9,13 @@
 <title>บทความ | ToolHub TH</title>
 
 <meta name="description" content="รวมบทความเกี่ยวกับการคำนวณออนไลน์ เทคนิคการใช้งานเครื่องมือ และความรู้ที่เป็นประโยชน์จาก ToolHub TH">
+
 <meta name="keywords" content="บทความ, เครื่องคิดเลขออนไลน์, BMI, VAT, เปอร์เซ็นต์, ToolHub TH">
+
 <meta name="author" content="ToolHub TH">
+
 <meta name="robots" content="index,follow">
+
 <meta name="theme-color" content="#2563eb">
 
 <link rel="canonical" href="https://pinwaru.github.io/toolhub-th/blog.html">
@@ -24,6 +28,8 @@
 
 <link rel="icon" href="images/logo.png" type="image/png">
 
+<link rel="manifest" href="manifest.json">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -31,6 +37,7 @@
 
 <link rel="stylesheet" href="css/style.css">
 
+<!-- CollectionPage Schema -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -52,25 +59,36 @@
 <nav class="navbar">
 
 <div class="logo">
+
 <img src="images/logo.png" alt="ToolHub TH Logo">
+
 <span>ToolHub TH</span>
+
 </div>
 
 <div class="menu">
+
 <a href="index.html">หน้าแรก</a>
 <a href="calculators.html">เครื่องคิดเลข</a>
 <a href="blog.html">บทความ</a>
 <a href="about.html">เกี่ยวกับ</a>
 <a href="contact.html">ติดต่อ</a>
+
 </div>
 
 </nav>
 
 <div class="breadcrumb">
+
 <a href="index.html">หน้าแรก</a>
+
 <span>›</span>
+
 <span>บทความ</span>
+
 </div>
+
+<main>
 
 <div class="container">
 
@@ -88,7 +106,11 @@
 
 <span class="badge-new">NEW</span>
 
-<h2>🧮 วิธีคำนวณเปอร์เซ็นต์แบบง่าย</h2>
+<h2>
+<a href="blog/percentage-calculator.html">
+🧮 วิธีคำนวณเปอร์เซ็นต์แบบง่าย
+</a>
+</h2>
 
 <p>
 เรียนรู้การคิดเปอร์เซ็นต์ พร้อมสูตร ตัวอย่าง และการใช้งานจริงในชีวิตประจำวัน
@@ -106,7 +128,11 @@
 
 <div class="tool">
 
-<h2>⚖️ BMI คืออะไร? คำนวณอย่างไร</h2>
+<h2>
+<a href="blog/bmi-guide.html">
+⚖️ BMI คืออะไร? คำนวณอย่างไร
+</a>
+</h2>
 
 <p>
 รู้จักค่าดัชนีมวลกาย วิธีคำนวณ BMI และเกณฑ์มาตรฐานสำหรับผู้ใหญ่
@@ -124,7 +150,11 @@
 
 <div class="tool">
 
-<h2>💰 VAT 7% คิดยังไง?</h2>
+<h2>
+<a href="blog/vat-guide.html">
+💰 VAT 7% คิดยังไง?
+</a>
+</h2>
 
 <p>
 สอนวิธีคิดภาษีมูลค่าเพิ่ม 7% ทั้งการบวก VAT และแยก VAT พร้อมตัวอย่าง
@@ -138,6 +168,8 @@
 
 </div>
 
+</main>
+
 <footer>
 
 <h3>ToolHub TH</h3>
@@ -147,16 +179,62 @@
 </p>
 
 <p>
+
 <a href="calculators.html">เครื่องคิดเลข</a> |
+
 <a href="blog.html">บทความ</a> |
+
 <a href="about.html">เกี่ยวกับ</a> |
+
 <a href="contact.html">ติดต่อ</a> |
+
 <a href="privacy.html">นโยบายความเป็นส่วนตัว</a>
+
 </p>
 
-<p>© 2026 ToolHub TH. All Rights Reserved.</p>
+<p>
+© 2026 ToolHub TH. All Rights Reserved.
+</p>
 
 </footer>
 
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"บทความ"
+    }
+  ]
+}
+</script>
+
+<!-- Website Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "url":"https://pinwaru.github.io/toolhub-th/",
+  "name":"ToolHub TH",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH"
+  }
+}
+</script>
+
 </body>
+
 </html>
