@@ -1,90 +1,264 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Age Calculator | ToolHub TH</title>
+
+<title>เครื่องคำนวณอายุ (Age Calculator) ออนไลน์ฟรี | ToolHub TH</title>
+
+<meta name="description" content="คำนวณอายุจากวันเกิดออนไลน์ฟรี แสดงผลเป็นปี เดือน และวัน ใช้งานง่าย รวดเร็ว ฟรีจาก ToolHub TH">
+
+<meta name="keywords" content="Age Calculator, คำนวณอายุ, อายุ, วันเกิด, เครื่องคำนวณอายุ">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/age-calculator.html">
+
+<meta property="og:title" content="เครื่องคำนวณอายุ (Age Calculator) ออนไลน์ฟรี | ToolHub TH">
+
+<meta property="og:description" content="คำนวณอายุจากวันเกิดออนไลน์ฟรี พร้อมแสดงผลเป็นปี เดือน และวัน">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/age-calculator.html">
+
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="manifest" href="../manifest.json">  
+
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../css/style.css">
 
 </head>
-  
+
 <body>
-  
+
 <nav class="navbar">
 
 <div class="logo">
-
 <img src="../images/logo.png" alt="ToolHub TH Logo">
-
 <span>ToolHub TH</span>
-
 </div>
 
 <div class="menu">
-
 <a href="../index.html">หน้าแรก</a>
-<a href="blog.html">บทความ</a>
+<a href="../calculators.html">เครื่องคิดเลข</a>
+<a href="../blog.html">บทความ</a>
 <a href="../about.html">เกี่ยวกับ</a>
 <a href="../contact.html">ติดต่อ</a>
-<a href="../privacy.html">นโยบาย</a>
-
 </div>
 
 </nav>
-  
+
+<div class="breadcrumb">
+
+<a href="../index.html">หน้าแรก</a>
+
+<span>›</span>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<span>›</span>
+
+<span>Age Calculator</span>
+
+</div>
+
+<main>
+
 <div class="container">
 
-<h1>🎂 Age Calculator</h1>
+<h1>🎂 เครื่องคำนวณอายุ (Age Calculator)</h1>
+
+<p>
+
+กรอกวันเดือนปีเกิดของคุณ ระบบจะคำนวณอายุเป็น <strong>ปี เดือน และวัน</strong> ให้อัตโนมัติ
+
+</p>
 
 <input type="date" id="birth">
 
+<br><br>
+
 <button onclick="calculateAge()">
+
 คำนวณอายุ
+
 </button>
 
 <div class="result" id="result"></div>
 
+<hr>
+
+<h2>📖 เรียนรู้เพิ่มเติม</h2>
+
+<p>
+
+ต้องการทราบวิธีนับอายุอย่างถูกต้อง?
+
+</p>
+
+<p>
+
+<a class="back" href="../blog/age-calculator-guide.html">
+
+📚 อ่านบทความ: วิธีคำนวณอายุจากวันเกิด
+
+</a>
+
+</p>
+
 </div>
+
+</main>
+
+<footer>
+
+<h3>ToolHub TH</h3>
+
+<p>
+
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+
+</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
+
+</footer>
 
 <script>
 
 function calculateAge(){
 
-const birth=new Date(document.getElementById("birth").value);
+const birthInput=document.getElementById("birth").value;
 
-if(isNaN(birth)){
+if(!birthInput){
+
 document.getElementById("result").innerHTML="กรุณาเลือกวันเกิด";
+
 return;
+
 }
+
+const birth=new Date(birthInput);
 
 const today=new Date();
 
-let age=today.getFullYear()-birth.getFullYear();
+let years=today.getFullYear()-birth.getFullYear();
 
-const month=today.getMonth()-birth.getMonth();
+let months=today.getMonth()-birth.getMonth();
 
-if(month<0||(month===0&&today.getDate()<birth.getDate())){
-age--;
+let days=today.getDate()-birth.getDate();
+
+if(days<0){
+
+months--;
+
+const lastMonth=new Date(today.getFullYear(),today.getMonth(),0);
+
+days+=lastMonth.getDate();
+
+}
+
+if(months<0){
+
+years--;
+
+months+=12;
+
 }
 
 document.getElementById("result").innerHTML=
-"คุณอายุ <br><br>"+age+" ปี";
+
+`
+<h2>ผลลัพธ์</h2>
+
+<p style="font-size:24px;font-weight:bold;color:#2563eb;">
+
+${years} ปี ${months} เดือน ${days} วัน
+
+</p>
+
+`;
 
 }
 
 </script>
-  
-<footer>
 
-<p>© 2026 ToolHub TH.</p>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"Age Calculator",
+ "url":"https://pinwaru.github.io/toolhub-th/tools/age-calculator.html",
+ "applicationCategory":"Calculator",
+ "operatingSystem":"Any",
+ "publisher":{
+   "@type":"Organization",
+   "name":"ToolHub TH"
+ }
+}
+</script>
 
-</footer>
-  
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"BreadcrumbList",
+ "itemListElement":[
+   {
+     "@type":"ListItem",
+     "position":1,
+     "name":"หน้าแรก",
+     "item":"https://pinwaru.github.io/toolhub-th/"
+   },
+   {
+     "@type":"ListItem",
+     "position":2,
+     "name":"เครื่องคิดเลข",
+     "item":"https://pinwaru.github.io/toolhub-th/calculators.html"
+   },
+   {
+     "@type":"ListItem",
+     "position":3,
+     "name":"Age Calculator"
+   }
+ ]
+}
+</script>
+
 </body>
+
 </html>
