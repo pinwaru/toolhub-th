@@ -4,7 +4,7 @@
   <!-- หน้าหลัก -->
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,35 +12,35 @@
   <!-- หน้าทั่วไป -->
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/calculators.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/blog.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/about.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/contact.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/privacy.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -48,21 +48,28 @@
   <!-- บทความ -->
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/blog/percentage-calculator.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/blog/bmi-guide.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/blog/vat-guide.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://pinwaru.github.io/toolhub-th/blog/how-to-create-strong-password.html</loc>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -70,91 +77,91 @@
   <!-- เครื่องมือ -->
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/standard-calculator.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/scientific-calculator.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/loan-calculator.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/percentage.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/word-counter.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/password-generator.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/qr-generator.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/age-calculator.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/bmi-calculator.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/vat-calculator.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/unit-converter.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/temperature-converter.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/date-calculator.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
