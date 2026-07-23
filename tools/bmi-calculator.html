@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BMI Calculator | ToolHub TH</title>
+
+<title>เครื่องคำนวณ BMI ออนไลน์ฟรี | ToolHub TH</title>
+
+<meta name="description" content="เครื่องคำนวณ BMI ออนไลน์ฟรี คำนวณค่าดัชนีมวลกาย พร้อมแปลผลตามเกณฑ์คนเอเชีย และคำแนะนำด้านสุขภาพจาก ToolHub TH">
+
+<meta name="keywords" content="BMI Calculator, BMI, คำนวณ BMI, ดัชนีมวลกาย, เครื่องคิด BMI">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/bmi-calculator.html">
+
+<meta property="og:title" content="เครื่องคำนวณ BMI ออนไลน์ฟรี | ToolHub TH">
+
+<meta property="og:description" content="คำนวณ BMI พร้อมแปลผลตามเกณฑ์มาตรฐานสำหรับคนเอเชีย">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/bmi-calculator.html">
+
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="manifest" href="../manifest.json">
+
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../css/style.css">
 
 </head>
-  
+
 <body>
-  
+
 <nav class="navbar">
 
 <div class="logo">
@@ -29,41 +59,195 @@
 <div class="menu">
 
 <a href="../index.html">หน้าแรก</a>
-<a href="blog.html">บทความ</a>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<a href="../blog.html">บทความ</a>
+
 <a href="../about.html">เกี่ยวกับ</a>
+
 <a href="../contact.html">ติดต่อ</a>
-<a href="../privacy.html">นโยบาย</a>
 
 </div>
 
 </nav>
-  
-<div class="container">
 
-<h1>⚖️ BMI Calculator</h1>
+<div class="breadcrumb">
 
-<input type="number" id="weight" placeholder="น้ำหนัก (กก.)">
+<a href="../index.html">หน้าแรก</a>
 
-<input type="number" id="height" placeholder="ส่วนสูง (ซม.)">
+<span>›</span>
 
-<button onclick="calculateBMI()">
-คำนวณ BMI
-</button>
+<a href="../calculators.html">เครื่องคิดเลข</a>
 
-<div class="result" id="result"></div>
+<span>›</span>
+
+<span>BMI Calculator</span>
 
 </div>
+
+<main>
+
+<div class="container">
+
+<h1>⚖️ เครื่องคำนวณ BMI</h1>
+
+<p>
+
+กรอกน้ำหนักและส่วนสูงของคุณ ระบบจะคำนวณค่าดัชนีมวลกาย (BMI) พร้อมแปลผลตามเกณฑ์มาตรฐานของคนเอเชีย
+
+</p>
+
+<div class="tool">
+
+<h2>กรอกข้อมูล</h2>
+
+<input
+type="number"
+id="weight"
+placeholder="น้ำหนัก (กิโลกรัม)"
+min="1"
+step="0.1">
+
+<br><br>
+
+<input
+type="number"
+id="height"
+placeholder="ส่วนสูง (เซนติเมตร)"
+min="1"
+step="0.1">
+
+<br><br>
+
+<button onclick="calculateBMI()">
+
+คำนวณ BMI
+
+</button>
+
+<button type="button" onclick="resetForm()">
+
+ล้างข้อมูล
+
+</button>
+
+</div>
+
+<br>
+
+<div class="result" id="result">
+
+<p>
+
+ผลลัพธ์จะแสดงที่นี่
+
+</p>
+
+</div>
+
+<hr>
+
+<h2>📊 เกณฑ์ BMI สำหรับคนเอเชีย</h2>
+
+<table>
+
+<tr>
+
+<th>ค่า BMI</th>
+
+<th>ระดับ</th>
+
+</tr>
+
+<tr>
+
+<td>ต่ำกว่า 18.5</td>
+
+<td>น้ำหนักน้อย</td>
+
+</tr>
+
+<tr>
+
+<td>18.5 – 22.9</td>
+
+<td>น้ำหนักปกติ</td>
+
+</tr>
+
+<tr>
+
+<td>23.0 – 24.9</td>
+
+<td>น้ำหนักเกิน</td>
+
+</tr>
+
+<tr>
+
+<td>25.0 – 29.9</td>
+
+<td>โรคอ้วนระดับ 1</td>
+
+</tr>
+
+<tr>
+
+<td>30 ขึ้นไป</td>
+
+<td>โรคอ้วนระดับ 2</td>
+
+</tr>
+
+</table>
+
+<hr>
+
+<h2>💡 คำแนะนำ</h2>
+
+<p>
+
+ค่า BMI เป็นเพียงตัวชี้วัดเบื้องต้น ไม่สามารถบอกเปอร์เซ็นต์ไขมันหรือมวลกล้ามเนื้อได้ หากต้องการประเมินสุขภาพอย่างละเอียดควรปรึกษาแพทย์หรือผู้เชี่ยวชาญ
+
+</p>
+
+<hr>
+
+<h2>📚 บทความที่เกี่ยวข้อง</h2>
+
+<p>
+
+เรียนรู้เพิ่มเติมเกี่ยวกับค่า BMI วิธีคำนวณ และการแปลผลอย่างละเอียด
+
+</p>
+
+<p style="text-align:center;">
+
+<a class="back" href="../blog/bmi-guide.html">
+
+⚖️ อ่านบทความ BMI คืออะไร?
+
+</a>
+
+</p>
+
+</div>
+
+</main>
 
 <script>
 
 function calculateBMI(){
 
 const weight=parseFloat(document.getElementById("weight").value);
+
 const height=parseFloat(document.getElementById("height").value)/100;
 
-if(isNaN(weight)||isNaN(height)||height<=0){
+if(isNaN(weight)||isNaN(height)||weight<=0||height<=0){
 
-document.getElementById("result").innerHTML="กรุณากรอกข้อมูลให้ครบ";
+document.getElementById("result").innerHTML=
+"<p>กรุณากรอกน้ำหนักและส่วนสูงให้ถูกต้อง</p>";
 
 return;
 
@@ -72,41 +256,212 @@ return;
 const bmi=weight/(height*height);
 
 let status="";
+let advice="";
 
 if(bmi<18.5){
 
-status="น้ำหนักน้อย";
+status="🟡 น้ำหนักน้อย";
+
+advice="ควรรับประทานอาหารให้เพียงพอและเพิ่มโปรตีน พร้อมออกกำลังกายเพื่อเสริมสร้างกล้ามเนื้อ";
 
 }else if(bmi<23){
 
-status="น้ำหนักปกติ";
+status="🟢 น้ำหนักปกติ";
+
+advice="รักษาพฤติกรรมการกินและออกกำลังกายอย่างสม่ำเสมอ";
 
 }else if(bmi<25){
 
-status="น้ำหนักเกิน";
+status="🟠 น้ำหนักเกิน";
+
+advice="ควรควบคุมอาหาร ลดของหวาน และเพิ่มการออกกำลังกาย";
 
 }else if(bmi<30){
 
-status="โรคอ้วนระดับ 1";
+status="🔴 โรคอ้วนระดับ 1";
+
+advice="ควรควบคุมอาหาร ออกกำลังกาย และติดตามน้ำหนักอย่างต่อเนื่อง";
 
 }else{
 
-status="โรคอ้วนระดับ 2";
+status="🔴 โรคอ้วนระดับ 2";
+
+advice="ควรปรึกษาแพทย์หรือผู้เชี่ยวชาญเพื่อวางแผนดูแลสุขภาพ";
 
 }
 
 document.getElementById("result").innerHTML=
-"ค่า BMI ของคุณคือ<br><br><strong>"+bmi.toFixed(2)+"</strong><br>"+status;
+
+`
+
+<h2>ผลการคำนวณ</h2>
+
+<table>
+
+<tr>
+
+<th>ค่า BMI</th>
+
+<td><strong>${bmi.toFixed(2)}</strong></td>
+
+</tr>
+
+<tr>
+
+<th>ผลการประเมิน</th>
+
+<td>${status}</td>
+
+</tr>
+
+<tr>
+
+<th>คำแนะนำ</th>
+
+<td>${advice}</td>
+
+</tr>
+
+</table>
+
+`;
+
+}
+
+function resetForm(){
+
+document.getElementById("weight").value="";
+
+document.getElementById("height").value="";
+
+document.getElementById("result").innerHTML=
+"<p>ผลลัพธ์จะแสดงที่นี่</p>";
 
 }
 
 </script>
-  
+
 <footer>
 
-<p>© 2026 ToolHub TH.</p>
+<h3>ToolHub TH</h3>
+
+<p>
+
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+
+</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
 
 </footer>
-  
+
+<!-- WebApplication Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"BMI Calculator",
+  "url":"https://pinwaru.github.io/toolhub-th/tools/bmi-calculator.html",
+  "applicationCategory":"Calculator",
+  "operatingSystem":"Any",
+  "inLanguage":"th",
+  "description":"เครื่องคำนวณ BMI ออนไลน์ฟรี พร้อมแปลผลตามเกณฑ์คนเอเชีย",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"https://pinwaru.github.io/toolhub-th/images/logo.png"
+    }
+  }
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"เครื่องคิดเลข",
+      "item":"https://pinwaru.github.io/toolhub-th/calculators.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"BMI Calculator",
+      "item":"https://pinwaru.github.io/toolhub-th/tools/bmi-calculator.html"
+    }
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"BMI คืออะไร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"BMI หรือ Body Mass Index คือค่าดัชนีมวลกาย ใช้ประเมินความสมดุลระหว่างน้ำหนักและส่วนสูง"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"ค่า BMI ปกติควรเป็นเท่าไร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"สำหรับคนเอเชีย ค่า BMI ระหว่าง 18.5 ถึง 22.9 ถือว่าอยู่ในเกณฑ์ปกติ"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"เครื่องคำนวณ BMI ของ ToolHub TH ใช้งานฟรีหรือไม่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ใช้งานฟรี ไม่ต้องสมัครสมาชิก รองรับการคำนวณผ่านคอมพิวเตอร์และมือถือ"
+      }
+    }
+  ]
+}
+</script>
+
 </body>
+
 </html>
