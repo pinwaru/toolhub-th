@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VAT Calculator | ToolHub TH</title>
+
+<title>เครื่องคำนวณ VAT 7% ออนไลน์ฟรี | ToolHub TH</title>
+
+<meta name="description" content="เครื่องคำนวณ VAT 7% ออนไลน์ฟรี คำนวณภาษีมูลค่าเพิ่ม เพิ่ม VAT และแยก VAT จากราคารวมได้ทันที ใช้งานง่าย ฟรีจาก ToolHub TH">
+
+<meta name="keywords" content="VAT Calculator, VAT 7%, เครื่องคิด VAT, คำนวณ VAT, ภาษีมูลค่าเพิ่ม">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/vat-calculator.html">
+
+<meta property="og:title" content="เครื่องคำนวณ VAT 7% ออนไลน์ฟรี | ToolHub TH">
+
+<meta property="og:description" content="คำนวณ VAT 7% และแยก VAT จากราคารวมได้ทันที">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/vat-calculator.html">
+
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="manifest" href="../manifest.json">  
+
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../css/style.css">
-  
+
 </head>
-  
+
 <body>
-  
+
 <nav class="navbar">
 
 <div class="logo">
@@ -29,53 +59,378 @@
 <div class="menu">
 
 <a href="../index.html">หน้าแรก</a>
-<a href="blog.html">บทความ</a>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<a href="../blog.html">บทความ</a>
+
 <a href="../about.html">เกี่ยวกับ</a>
+
 <a href="../contact.html">ติดต่อ</a>
-<a href="../privacy.html">นโยบาย</a>
 
 </div>
 
 </nav>
-  
-<div class="container">
 
-<h1>💰 VAT Calculator</h1>
+<div class="breadcrumb">
 
-<input type="number" id="price" placeholder="กรอกราคา">
+<a href="../index.html">หน้าแรก</a>
 
-<button onclick="calculateVAT()">คำนวณ</button>
+<span>›</span>
 
-<div class="result" id="result"></div>
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<span>›</span>
+
+<span>VAT Calculator</span>
 
 </div>
 
+<main>
+
+<div class="container">
+
+<h1>💰 เครื่องคำนวณ VAT 7%</h1>
+
+<p>
+
+คำนวณภาษีมูลค่าเพิ่ม (VAT 7%) ได้ทั้งกรณี
+<strong>ราคายังไม่รวม VAT</strong>
+และ
+<strong>ราคารวม VAT แล้ว</strong>
+
+</p>
+
+<div class="tool">
+
+<h2>เลือกประเภทการคำนวณ</h2>
+
+<label>
+
+<input type="radio" name="mode" value="add" checked>
+
+ราคายังไม่รวม VAT
+
+</label>
+
+<br><br>
+
+<label>
+
+<input type="radio" name="mode" value="extract">
+
+ราคารวม VAT แล้ว
+
+</label>
+
+<br><br>
+
+<input
+type="number"
+id="price"
+placeholder="กรอกราคา"
+min="0"
+step="0.01">
+
+<br><br>
+
+<button onclick="calculateVAT()">
+
+คำนวณ
+
+</button>
+
+<button type="button" onclick="resetForm()">
+
+ล้างข้อมูล
+
+</button>
+
+</div>
+
+<br>
+
+<div class="result" id="result">
+
+<p>
+
+ผลลัพธ์จะแสดงที่นี่
+
+</p>
+
+</div>
+
+<hr>
+
+<h2>📖 วิธีใช้งาน</h2>
+
+<ol>
+
+<li>เลือกประเภทการคำนวณ</li>
+
+<li>กรอกราคา</li>
+
+<li>กดปุ่ม <strong>คำนวณ</strong></li>
+
+<li>ระบบจะแสดง VAT และยอดเงินที่เกี่ยวข้องทันที</li>
+
+</ol>
+
+<hr>
+
+<h2>📚 บทความที่เกี่ยวข้อง</h2>
+
+<p>
+
+หากต้องการเรียนรู้วิธีคิด VAT แบบละเอียด พร้อมตัวอย่างจริง
+
+</p>
+
+<p style="text-align:center;">
+
+<a class="back" href="../blog/vat-guide.html">
+
+💰 อ่านบทความ VAT 7% คืออะไร?
+
+</a>
+
+</p>
+
+</div>
+
+</main>
+
 <script>
+
+function formatNumber(num){
+
+return Number(num).toLocaleString("th-TH",{
+minimumFractionDigits:2,
+maximumFractionDigits:2
+});
+
+}
 
 function calculateVAT(){
 
-let price=parseFloat(document.getElementById("price").value);
+const price=parseFloat(document.getElementById("price").value);
 
-if(isNaN(price)){
-document.getElementById("result").innerHTML="กรุณากรอกราคา";
-return;
-}
-
-let vat=price*0.07;
-let total=price+vat;
+if(isNaN(price)||price<0){
 
 document.getElementById("result").innerHTML=
-"VAT = "+vat.toFixed(2)+" บาท<br><br>รวม = "+total.toFixed(2)+" บาท";
+"<p>กรุณากรอกราคาให้ถูกต้อง</p>";
+
+return;
+
+}
+
+const mode=document.querySelector('input[name="mode"]:checked').value;
+
+let beforeVat;
+let vat;
+let total;
+
+if(mode==="add"){
+
+beforeVat=price;
+vat=price*0.07;
+total=beforeVat+vat;
+
+document.getElementById("result").innerHTML=
+
+`
+<h2>ผลการคำนวณ</h2>
+
+<table>
+
+<tr>
+<th>ราคาก่อน VAT</th>
+<td>${formatNumber(beforeVat)} บาท</td>
+</tr>
+
+<tr>
+<th>VAT 7%</th>
+<td>${formatNumber(vat)} บาท</td>
+</tr>
+
+<tr>
+<th>ราคารวม VAT</th>
+<td><strong>${formatNumber(total)} บาท</strong></td>
+</tr>
+
+</table>
+
+`;
+
+}else{
+
+total=price;
+beforeVat=price/1.07;
+vat=total-beforeVat;
+
+document.getElementById("result").innerHTML=
+
+`
+<h2>ผลการคำนวณ</h2>
+
+<table>
+
+<tr>
+<th>ราคารวม VAT</th>
+<td>${formatNumber(total)} บาท</td>
+</tr>
+
+<tr>
+<th>ราคาก่อน VAT</th>
+<td>${formatNumber(beforeVat)} บาท</td>
+</tr>
+
+<tr>
+<th>VAT 7%</th>
+<td><strong>${formatNumber(vat)} บาท</strong></td>
+</tr>
+
+</table>
+
+`;
+
+}
+
+}
+
+function resetForm(){
+
+document.getElementById("price").value="";
+
+document.getElementById("result").innerHTML=
+"<p>ผลลัพธ์จะแสดงที่นี่</p>";
+
+document.querySelector('input[value="add"]').checked=true;
 
 }
 
 </script>
-  
+
 <footer>
 
-<p>© 2026 ToolHub TH.</p>
+<h3>ToolHub TH</h3>
+
+<p>
+
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+
+</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
 
 </footer>
-  
+
+<!-- WebApplication Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"VAT Calculator",
+  "url":"https://pinwaru.github.io/toolhub-th/tools/vat-calculator.html",
+  "applicationCategory":"Calculator",
+  "operatingSystem":"Any",
+  "description":"เครื่องคำนวณ VAT 7% ออนไลน์ฟรี เพิ่ม VAT และแยก VAT จากราคารวมได้ทันที",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"https://pinwaru.github.io/toolhub-th/images/logo.png"
+    }
+  }
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"เครื่องคิดเลข",
+      "item":"https://pinwaru.github.io/toolhub-th/calculators.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"VAT Calculator",
+      "item":"https://pinwaru.github.io/toolhub-th/tools/vat-calculator.html"
+    }
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"VAT 7% คืออะไร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"VAT หรือภาษีมูลค่าเพิ่ม คือภาษีที่เรียกเก็บจากการซื้อสินค้าและบริการ โดยปัจจุบันประเทศไทยใช้อัตรา 7%"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"วิธีคำนวณ VAT 7% ทำอย่างไร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"หากราคายังไม่รวม VAT ให้นำราคาคูณ 0.07 แล้วบวกกับราคาสินค้า หากราคารวม VAT แล้ว ให้นำราคารวมหารด้วย 1.07 เพื่อหาราคาก่อน VAT"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"เครื่องคำนวณ VAT ของ ToolHub TH ใช้งานฟรีหรือไม่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ใช้งานฟรี ไม่ต้องสมัครสมาชิก และรองรับทั้งการคำนวณเพิ่ม VAT และแยก VAT"
+      }
+    }
+  ]
+}
+</script>
+
 </body>
+
 </html>
