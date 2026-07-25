@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QR Code Generator | ToolHub TH</title>
+
+<title>สร้าง QR Code ออนไลน์ฟรี | ToolHub TH</title>
+
+<meta name="description" content="สร้าง QR Code ออนไลน์ฟรีจากข้อความ ลิงก์ เว็บไซต์ หรือข้อมูลต่าง ๆ ได้ทันที รองรับการดาวน์โหลดเป็นรูปภาพ ใช้งานง่ายผ่านมือถือและคอมพิวเตอร์">
+
+<meta name="keywords" content="QR Code Generator, สร้าง QR Code, QR Code ออนไลน์, QR ฟรี, QR Code Tool">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/qr-generator.html">
+
+<meta property="og:title" content="สร้าง QR Code ออนไลน์ฟรี | ToolHub TH">
+
+<meta property="og:description" content="สร้าง QR Code จากข้อความและลิงก์ได้ฟรี พร้อมดาวน์โหลดเป็นรูปภาพ">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/qr-generator.html">
+
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="manifest" href="../manifest.json">
+
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../css/style.css">
 
 </head>
-  
+
 <body>
-  
+
 <nav class="navbar">
 
 <div class="logo">
@@ -29,31 +59,276 @@
 <div class="menu">
 
 <a href="../index.html">หน้าแรก</a>
-<a href="blog.html">บทความ</a>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<a href="../blog.html">บทความ</a>
+
 <a href="../about.html">เกี่ยวกับ</a>
+
 <a href="../contact.html">ติดต่อ</a>
-<a href="../privacy.html">นโยบาย</a>
 
 </div>
 
 </nav>
-  
+
+<div class="breadcrumb">
+
+<a href="../index.html">หน้าแรก</a>
+
+<span>›</span>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<span>›</span>
+
+<span>QR Code Generator</span>
+
+</div>
+
+<main>
+
 <div class="container">
 
-<h1>📱 QR Code Generator</h1>
+<h1>📱 สร้าง QR Code ออนไลน์ฟรี</h1>
+
+<p>
+
+สร้าง QR Code จากข้อความ เว็บไซต์ ลิงก์ เบอร์โทรศัพท์ หรือข้อมูลอื่น ๆ ได้ฟรี ใช้งานง่าย รองรับทั้งมือถือและคอมพิวเตอร์
+
+</p>
+
+<div class="tool">
+
+<h2>สร้าง QR Code</h2>
+
+<p>
+
+กรอกข้อความ ลิงก์ เว็บไซต์ เบอร์โทร หรือข้อมูลที่ต้องการแปลงเป็น QR Code
+
+</p>
 
 <input
 type="text"
 id="text"
-placeholder="พิมพ์ข้อความหรือลิงก์">
+placeholder="เช่น https://pinwaru.github.io/toolhub-th/">
+
+<br><br>
 
 <button onclick="generateQR()">
-สร้าง QR Code
+
+📱 สร้าง QR Code
+
 </button>
 
-<div id="result"></div>
+<button onclick="resetQR()">
+
+🗑️ ล้างข้อมูล
+
+</button>
 
 </div>
+
+<br>
+
+<div class="result" id="result">
+
+<p>QR Code จะแสดงที่นี่</p>
+
+</div>
+
+<br>
+
+<div style="text-align:center;">
+
+<a
+id="downloadBtn"
+class="back"
+style="display:none;"
+download="toolhub-th-qrcode.png">
+
+⬇️ ดาวน์โหลด QR Code
+
+</a>
+
+</div>
+
+<hr>
+
+<h2>📖 วิธีใช้งาน</h2>
+
+<ol>
+
+<li>กรอกข้อความหรือ URL ที่ต้องการ</li>
+
+<li>กดปุ่ม <strong>สร้าง QR Code</strong></li>
+
+<li>ระบบจะแสดง QR Code ทันที</li>
+
+<li>กดปุ่มดาวน์โหลดเพื่อบันทึกเป็นรูปภาพ PNG</li>
+
+</ol>
+
+<hr>
+
+<h2>สามารถสร้าง QR Code สำหรับอะไรได้บ้าง?</h2>
+
+<ul>
+
+<li>🌐 เว็บไซต์ (Website URL)</li>
+
+<li>📞 เบอร์โทรศัพท์</li>
+
+<li>📧 อีเมล</li>
+
+<li>💬 ข้อความ</li>
+
+<li>📍 Google Maps</li>
+
+<li>📱 Social Media</li>
+
+<li>🏪 ร้านค้าออนไลน์</li>
+
+</ul>
+
+<hr>
+
+<h2>📚 บทความที่เกี่ยวข้อง</h2>
+
+<p>
+
+เรียนรู้ว่า QR Code คืออะไร วิธีใช้งาน และข้อควรรู้ก่อนนำไปใช้งานจริง
+
+</p>
+
+<p style="text-align:center;">
+
+<a class="back" href="../blog/qr-code-guide.html">
+
+📱 QR Code คืออะไร? วิธีสร้างและใช้งาน
+
+</a>
+
+</p>
+
+</div>
+
+</main><div class="tool">
+
+<h2>สร้าง QR Code</h2>
+
+<p>
+
+กรอกข้อความ ลิงก์ เว็บไซต์ เบอร์โทร หรือข้อมูลที่ต้องการแปลงเป็น QR Code
+
+</p>
+
+<input
+type="text"
+id="text"
+placeholder="เช่น https://pinwaru.github.io/toolhub-th/">
+
+<br><br>
+
+<button onclick="generateQR()">
+
+📱 สร้าง QR Code
+
+</button>
+
+<button onclick="resetQR()">
+
+🗑️ ล้างข้อมูล
+
+</button>
+
+</div>
+
+<br>
+
+<div class="result" id="result">
+
+<p>QR Code จะแสดงที่นี่</p>
+
+</div>
+
+<br>
+
+<div style="text-align:center;">
+
+<a
+id="downloadBtn"
+class="back"
+style="display:none;"
+download="toolhub-th-qrcode.png">
+
+⬇️ ดาวน์โหลด QR Code
+
+</a>
+
+</div>
+
+<hr>
+
+<h2>📖 วิธีใช้งาน</h2>
+
+<ol>
+
+<li>กรอกข้อความหรือ URL ที่ต้องการ</li>
+
+<li>กดปุ่ม <strong>สร้าง QR Code</strong></li>
+
+<li>ระบบจะแสดง QR Code ทันที</li>
+
+<li>กดปุ่มดาวน์โหลดเพื่อบันทึกเป็นรูปภาพ PNG</li>
+
+</ol>
+
+<hr>
+
+<h2>สามารถสร้าง QR Code สำหรับอะไรได้บ้าง?</h2>
+
+<ul>
+
+<li>🌐 เว็บไซต์ (Website URL)</li>
+
+<li>📞 เบอร์โทรศัพท์</li>
+
+<li>📧 อีเมล</li>
+
+<li>💬 ข้อความ</li>
+
+<li>📍 Google Maps</li>
+
+<li>📱 Social Media</li>
+
+<li>🏪 ร้านค้าออนไลน์</li>
+
+</ul>
+
+<hr>
+
+<h2>📚 บทความที่เกี่ยวข้อง</h2>
+
+<p>
+
+เรียนรู้ว่า QR Code คืออะไร วิธีใช้งาน และข้อควรรู้ก่อนนำไปใช้งานจริง
+
+</p>
+
+<p style="text-align:center;">
+
+<a class="back" href="../blog/qr-code-guide.html">
+
+📱 QR Code คืออะไร? วิธีสร้างและใช้งาน
+
+</a>
+
+</p>
+
+</div>
+
+</main>
 
 <script>
 
@@ -62,23 +337,179 @@ function generateQR(){
 const text=document.getElementById("text").value.trim();
 
 if(text===""){
-alert("กรุณากรอกข้อความ");
+
+alert("กรุณากรอกข้อความหรือลิงก์");
+
 return;
+
 }
+
+const qrUrl="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(text);
 
 document.getElementById("result").innerHTML=
-'<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data='
-+encodeURIComponent(text)+'">';
+
+`
+
+<img
+src="${qrUrl}"
+alt="QR Code"
+style="max-width:300px;width:100%;border-radius:10px;">
+
+`;
+
+const download=document.getElementById("downloadBtn");
+
+download.href=qrUrl;
+
+download.style.display="inline-block";
 
 }
 
+function resetQR(){
+
+document.getElementById("text").value="";
+
+document.getElementById("result").innerHTML=
+
+"<p>QR Code จะแสดงที่นี่</p>";
+
+document.getElementById("downloadBtn").style.display="none";
+
+}
+
+document.getElementById("text").addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+
+generateQR();
+
+}
+
+});
+
 </script>
-  
+
 <footer>
 
-<p>© 2026 ToolHub TH.</p>
+<h3>ToolHub TH</h3>
+
+<p>
+
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+
+</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
 
 </footer>
-  
+
+<!-- WebApplication Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"QR Code Generator",
+  "url":"https://pinwaru.github.io/toolhub-th/tools/qr-generator.html",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Any",
+  "inLanguage":"th",
+  "description":"สร้าง QR Code ออนไลน์ฟรีจากข้อความ เว็บไซต์ URL เบอร์โทร หรือข้อมูลต่าง ๆ พร้อมดาวน์โหลดเป็นรูปภาพ PNG",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"https://pinwaru.github.io/toolhub-th/images/logo.png"
+    }
+  }
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"เครื่องคิดเลข",
+      "item":"https://pinwaru.github.io/toolhub-th/calculators.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"QR Code Generator",
+      "item":"https://pinwaru.github.io/toolhub-th/tools/qr-generator.html"
+    }
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"QR Code คืออะไร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"QR Code คือบาร์โค้ดสองมิติที่ใช้เก็บข้อมูล เช่น เว็บไซต์ ข้อความ เบอร์โทรศัพท์ หรือข้อมูลอื่น ๆ ซึ่งสามารถสแกนได้ด้วยสมาร์ตโฟน"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"สามารถสร้าง QR Code ได้ฟรีหรือไม่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ได้ เครื่องมือนี้ใช้งานฟรี ไม่ต้องสมัครสมาชิก และสามารถสร้าง QR Code ได้ไม่จำกัดจำนวน"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"QR Code รองรับข้อมูลประเภทใดบ้าง?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"รองรับข้อความ เว็บไซต์ URL เบอร์โทรศัพท์ อีเมล ลิงก์ Google Maps และข้อมูลทั่วไปอื่น ๆ"
+      }
+    }
+  ]
+}
+</script>
+
 </body>
+
 </html>
