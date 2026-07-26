@@ -1,23 +1,67 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Date Calculator | ToolHub TH</title>
+<title>Date Calculator | เครื่องคำนวณจำนวนวัน | ToolHub TH</title>
 
-<meta name="description" content="คำนวณจำนวนวันระหว่างวันที่ฟรี">
+<meta name="description" content="คำนวณจำนวนวันระหว่างวันที่ฟรี พร้อมแสดงจำนวนสัปดาห์ เดือน และปี ใช้งานง่าย รองรับมือถือและคอมพิวเตอร์">
+
+<meta name="keywords" content="Date Calculator, เครื่องคำนวณวันที่, คำนวณจำนวนวัน, นับวัน, วันระหว่างวันที่, ToolHub TH">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/date-calculator.html">
+
+<meta property="og:title" content="Date Calculator | ToolHub TH">
+
+<meta property="og:description" content="คำนวณจำนวนวันระหว่างวันที่ พร้อมแสดงจำนวนสัปดาห์ เดือน และปี ฟรี">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/date-calculator.html">
+
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
 
 <link rel="icon" href="../images/logo.png" type="image/png">
+
 <link rel="manifest" href="../manifest.json">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../css/style.css">
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"Date Calculator",
+ "url":"https://pinwaru.github.io/toolhub-th/tools/date-calculator.html",
+ "applicationCategory":"UtilitiesApplication",
+ "operatingSystem":"All",
+ "offers":{
+   "@type":"Offer",
+   "price":"0",
+   "priceCurrency":"THB"
+ },
+ "publisher":{
+   "@type":"Organization",
+   "name":"ToolHub TH"
+ }
+}
+</script>
 
 </head>
 
@@ -27,7 +71,7 @@
 
 <div class="logo">
 
-<img src="../images/logo.png" alt="Logo">
+<img src="../images/logo.png" alt="ToolHub TH Logo">
 
 <span>ToolHub TH</span>
 
@@ -36,30 +80,74 @@
 <div class="menu">
 
 <a href="../index.html">หน้าแรก</a>
-<a href="blog.html">บทความ</a>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<a href="../blog.html">บทความ</a>
+
 <a href="../about.html">เกี่ยวกับ</a>
+
 <a href="../contact.html">ติดต่อ</a>
-<a href="../privacy.html">นโยบาย</a>
 
 </div>
 
 </nav>
 
+<div class="breadcrumb">
+
+<a href="../index.html">หน้าแรก</a>
+
+<span>›</span>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<span>›</span>
+
+<span>Date Calculator</span>
+
+</div>
+
+<main>
+
 <div class="container">
 
 <h1>📅 Date Calculator</h1>
 
-<label>วันที่เริ่มต้น</label>
+<p>
 
-<input type="date" id="start">
+คำนวณจำนวนวันระหว่างวันที่ พร้อมแสดงผลเป็นสัปดาห์ เดือน และปี ฟรี
 
-<label>วันที่สิ้นสุด</label>
+</p>
 
-<input type="date" id="end">
+<label for="start">
+
+📅 วันที่เริ่มต้น
+
+</label>
+
+<input
+type="date"
+id="start">
+
+<label for="end">
+
+📅 วันที่สิ้นสุด
+
+</label>
+
+<input
+type="date"
+id="end">
 
 <button onclick="calculate()">
 
-คำนวณ
+คำนวณจำนวนวัน
+
+</button>
+
+<button type="button" onclick="clearData()">
+
+ล้างข้อมูล
 
 </button>
 
@@ -69,27 +157,62 @@
 
 </div>
 
-</div>
+<hr>
+
+<h2>วิธีใช้งาน</h2>
+
+<ol>
+
+<li>เลือกวันที่เริ่มต้น</li>
+
+<li>เลือกวันที่สิ้นสุด</li>
+
+<li>กดปุ่ม <strong>คำนวณจำนวนวัน</strong></li>
+
+<li>ระบบจะแสดงจำนวนวัน พร้อมแปลงเป็นสัปดาห์ เดือน และปี</li>
+
+</ol>
+
+<p>
+
+ต้องการเรียนรู้เพิ่มเติมเกี่ยวกับการคำนวณวัน?
+
+</p>
+
+<p>
+
+<a class="back" href="../blog/date-calculator-guide.html">
+
+📖 อ่านบทความ Date Calculator
+
+</a>
+
+</p>
 
 <script>
 
 function calculate(){
 
-const start=new Date(document.getElementById("start").value);
+const startValue=document.getElementById("start").value;
+const endValue=document.getElementById("end").value;
 
-const end=new Date(document.getElementById("end").value);
+if(startValue==="" || endValue===""){
 
-if(isNaN(start)||isNaN(end)){
-
-document.getElementById("result").innerHTML="กรุณาเลือกวันที่ให้ครบ";
+document.getElementById("result").innerHTML=
+"⚠️ กรุณาเลือกวันที่ให้ครบ";
 
 return;
 
 }
 
-const diff=Math.abs(end-start);
+const start=new Date(startValue);
+const end=new Date(endValue);
 
-const days=Math.floor(diff/(1000*60*60*24));
+const diff=end-start;
+
+const absDiff=Math.abs(diff);
+
+const days=Math.floor(absDiff/(1000*60*60*24));
 
 const weeks=(days/7).toFixed(1);
 
@@ -97,34 +220,153 @@ const months=(days/30.44).toFixed(1);
 
 const years=(days/365.25).toFixed(2);
 
+let message="";
+
+if(diff>0){
+
+message="📅 วันที่สิ้นสุดอยู่หลังวันที่เริ่มต้น";
+
+}else if(diff<0){
+
+message="📅 วันที่สิ้นสุดอยู่ก่อนวันที่เริ่มต้น";
+
+}else{
+
+message="📅 ทั้งสองวันเป็นวันเดียวกัน";
+
+}
+
 document.getElementById("result").innerHTML=`
 
-<b>${days}</b> วัน
+<h2>${days} วัน</h2>
 
-<br><br>
+<p>${message}</p>
 
-≈ ${weeks} สัปดาห์
+<hr>
 
-<br>
+<p>🗓️ ประมาณ <strong>${weeks}</strong> สัปดาห์</p>
 
-≈ ${months} เดือน
+<p>📆 ประมาณ <strong>${months}</strong> เดือน</p>
 
-<br>
-
-≈ ${years} ปี
+<p>📅 ประมาณ <strong>${years}</strong> ปี</p>
 
 `;
 
 }
 
+function clearData(){
+
+document.getElementById("start").value="";
+
+document.getElementById("end").value="";
+
+document.getElementById("result").innerHTML=
+"ผลลัพธ์จะแสดงที่นี่";
+
+}
+
 </script>
-  
+
 <footer>
 
-<p>© 2026 ToolHub TH.</p>
+<h3>ToolHub TH</h3>
+
+<p>
+
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+
+</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
 
 </footer>
-  
+
+</main>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"Date Calculator คืออะไร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Date Calculator คือเครื่องมือสำหรับคำนวณจำนวนวันระหว่างวันที่สองวัน พร้อมแสดงผลเป็นจำนวนวัน สัปดาห์ เดือน และปี"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"ใช้งานฟรีหรือไม่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ใช้งานฟรีผ่านเว็บไซต์ ToolHub TH โดยไม่ต้องสมัครสมาชิก"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"รองรับการคำนวณอะไรบ้าง?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"รองรับการคำนวณจำนวนวันระหว่างวันที่ พร้อมแสดงผลโดยประมาณเป็นสัปดาห์ เดือน และปี"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"เครื่องคิดเลข",
+      "item":"https://pinwaru.github.io/toolhub-th/calculators.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"Date Calculator",
+      "item":"https://pinwaru.github.io/toolhub-th/tools/date-calculator.html"
+    }
+  ]
+}
+</script>
+
 </body>
 
 </html>
