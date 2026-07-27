@@ -4,49 +4,65 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Loan Calculator | ToolHub TH</title>
+<title>Loan Calculator | เครื่องคำนวณเงินกู้ออนไลน์ฟรี | ToolHub TH</title>
 
-<meta name="description" content="คำนวณค่างวดเงินกู้ บ้าน รถ และสินเชื่อออนไลน์ฟรี">
-<meta name="keywords" content="Loan Calculator, เครื่องคำนวณเงินกู้, คำนวณสินเชื่อบ้าน, คำนวณสินเชื่อรถ, EMI Calculator">
+<meta name="description" content="คำนวณค่างวดเงินกู้ บ้าน รถ และสินเชื่อส่วนบุคคลออนไลน์ฟรี พร้อมคำนวณยอดชำระทั้งหมด ดอกเบี้ยรวม และตารางผ่อนชำระ">
+
+<meta name="keywords" content="Loan Calculator, EMI Calculator, เครื่องคำนวณเงินกู้, สินเชื่อบ้าน, สินเชื่อรถ, คำนวณเงินกู้, ToolHub TH">
+
 <meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
 <meta name="theme-color" content="#2563eb">
 
 <link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/loan-calculator.html">
 
 <meta property="og:title" content="Loan Calculator | ToolHub TH">
-<meta property="og:description" content="คำนวณค่างวดเงินกู้ออนไลน์ฟรี รองรับสินเชื่อบ้าน รถ และสินเชื่อส่วนบุคคล">
+
+<meta property="og:description" content="เครื่องคำนวณเงินกู้ออนไลน์ฟรี พร้อมตารางผ่อนชำระ">
+
 <meta property="og:type" content="website">
+
 <meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/loan-calculator.html">
+
 <meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
 
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="../css/style.css">
+
 <link rel="stylesheet" href="../css/loan-calculator.css">
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"WebApplication",
-  "name":"Loan Calculator",
-  "url":"https://pinwaru.github.io/toolhub-th/tools/loan-calculator.html",
-  "applicationCategory":"FinanceApplication",
-  "operatingSystem":"Any",
-  "description":"เครื่องคำนวณค่างวดเงินกู้ออนไลน์ฟรี สำหรับสินเชื่อบ้าน รถ และสินเชื่อส่วนบุคคล",
-  "offers":{
-    "@type":"Offer",
-    "price":"0",
-    "priceCurrency":"THB"
-  },
-  "publisher":{
-    "@type":"Organization",
-    "name":"ToolHub TH"
-  }
+ "@context":"https://schema.org",
+ "@type":"SoftwareApplication",
+ "name":"Loan Calculator",
+ "applicationCategory":"FinanceApplication",
+ "operatingSystem":"Any",
+ "url":"https://pinwaru.github.io/toolhub-th/tools/loan-calculator.html",
+ "description":"เครื่องคำนวณเงินกู้ออนไลน์ฟรี สำหรับสินเชื่อบ้าน รถ และสินเชื่อส่วนบุคคล",
+ "offers":{
+   "@type":"Offer",
+   "price":"0",
+   "priceCurrency":"THB"
+ },
+ "publisher":{
+   "@type":"Organization",
+   "name":"ToolHub TH"
+ }
 }
 </script>
 
@@ -54,13 +70,11 @@
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
 <nav class="navbar">
 
 <div class="logo">
 
-<img src="../images/logo.png" alt="ToolHub TH">
+<img src="../images/logo.png" alt="ToolHub TH Logo">
 
 <span>ToolHub TH</span>
 
@@ -69,16 +83,18 @@
 <div class="menu">
 
 <a href="../index.html">หน้าแรก</a>
+
 <a href="../calculators.html">เครื่องคิดเลข</a>
+
 <a href="../blog.html">บทความ</a>
+
 <a href="../about.html">เกี่ยวกับ</a>
+
 <a href="../contact.html">ติดต่อ</a>
 
 </div>
 
 </nav>
-
-<!-- ================= BREADCRUMB ================= -->
 
 <div class="breadcrumb">
 
@@ -94,44 +110,49 @@
 
 </div>
 
-<!-- ================= CALCULATOR ================= -->
-
 <div class="loan-container">
 
 <h1>🏦 Loan Calculator</h1>
 
-<p>คำนวณค่างวดเงินกู้แบบลดต้นลดดอก</p>
+<p>
+
+คำนวณค่างวดรายเดือน ยอดชำระทั้งหมด ดอกเบี้ยรวม และตารางผ่อนชำระแบบลดต้นลดดอก
+
+</p>
 
 <div class="input-group">
 
-<label>จำนวนเงินกู้ (บาท)</label>
+<label for="loanAmount">จำนวนเงินกู้ (บาท)</label>
 
 <input
 type="number"
 id="loanAmount"
-placeholder="1000000">
+placeholder="1000000"
+aria-label="จำนวนเงินกู้">
 
 </div>
 
 <div class="input-group">
 
-<label>ดอกเบี้ยต่อปี (%)</label>
+<label for="interestRate">ดอกเบี้ยต่อปี (%)</label>
 
 <input
 type="number"
 id="interestRate"
-placeholder="6">
+placeholder="6"
+aria-label="ดอกเบี้ยต่อปี">
 
 </div>
 
 <div class="input-group">
 
-<label>ระยะเวลา (ปี)</label>
+<label for="loanYears">ระยะเวลากู้ (ปี)</label>
 
 <input
 type="number"
 id="loanYears"
-placeholder="20">
+placeholder="20"
+aria-label="ระยะเวลากู้">
 
 </div>
 
@@ -158,8 +179,6 @@ placeholder="20">
 <h3 id="totalInterest">-</h3>
 
 </div>
-
-<!-- ตารางผ่อนชำระ -->
 
 <div class="schedule">
 
@@ -205,13 +224,15 @@ placeholder="20">
 
 <ol>
 
-<li>กรอกจำนวนเงินกู้</li>
+<li>กรอกจำนวนเงินกู้ (บาท)</li>
 
-<li>กรอกอัตราดอกเบี้ยต่อปี</li>
+<li>กรอกอัตราดอกเบี้ยต่อปี (%)</li>
 
-<li>กรอกระยะเวลากู้</li>
+<li>กรอกระยะเวลากู้ (ปี)</li>
 
-<li>กดปุ่ม "คำนวณ"</li>
+<li>กดปุ่ม <strong>คำนวณ</strong></li>
+
+<li>ดูผลลัพธ์ ได้แก่ ค่างวดต่อเดือน ยอดชำระทั้งหมด ดอกเบี้ยรวม และตารางผ่อนชำระ</li>
 
 </ol>
 
@@ -227,15 +248,31 @@ placeholder="20">
 
 <p>
 
-Loan Calculator คือเครื่องมือสำหรับคำนวณค่างวดรายเดือนของเงินกู้แบบลดต้นลดดอก
+Loan Calculator คือเครื่องมือสำหรับคำนวณค่างวดเงินกู้แบบลดต้นลดดอก ช่วยให้ทราบยอดผ่อนต่อเดือน ยอดชำระทั้งหมด และดอกเบี้ยรวมก่อนตัดสินใจกู้
 
 </p>
 
-<h3>ใช้คำนวณสินเชื่อบ้านได้หรือไม่?</h3>
+<h3>สามารถใช้คำนวณสินเชื่อบ้านได้หรือไม่?</h3>
 
 <p>
 
-ได้ สามารถใช้กับสินเชื่อบ้าน สินเชื่อรถยนต์ และสินเชื่อส่วนบุคคล
+ได้ สามารถใช้คำนวณสินเชื่อบ้าน สินเชื่อรถยนต์ และสินเชื่อส่วนบุคคลที่คิดดอกเบี้ยแบบลดต้นลดดอก
+
+</p>
+
+<h3>ผลลัพธ์มีความแม่นยำหรือไม่?</h3>
+
+<p>
+
+ผลลัพธ์เป็นการคำนวณตามข้อมูลที่กรอก เหมาะสำหรับการประมาณการเบื้องต้น โดยเงื่อนไขจริงอาจแตกต่างกันตามแต่ละธนาคารหรือสถาบันการเงิน
+
+</p>
+
+<h3>ใช้งานฟรีหรือไม่?</h3>
+
+<p>
+
+ใช้งานฟรี 100% ผ่านเว็บไซต์ ToolHub TH ไม่ต้องสมัครสมาชิก และรองรับทั้งมือถือและคอมพิวเตอร์
 
 </p>
 
@@ -249,13 +286,37 @@ Loan Calculator คือเครื่องมือสำหรับคำ�
 
 <ul>
 
-<li><a href="standard-calculator.html">Standard Calculator</a></li>
+<li><a href="standard-calculator.html">🧮 Standard Calculator</a></li>
 
-<li><a href="scientific-calculator.html">Scientific Calculator</a></li>
+<li><a href="scientific-calculator.html">🧪 Scientific Calculator</a></li>
 
-<li><a href="percentage.html">Percentage Calculator</a></li>
+<li><a href="percentage.html">📊 Percentage Calculator</a></li>
 
 </ul>
+
+</section>
+
+<!-- ================= RELATED ARTICLE ================= -->
+
+<section class="section">
+
+<h2>📚 บทความแนะนำ</h2>
+
+<p>
+
+ต้องการเรียนรู้หลักการคำนวณเงินกู้ ดอกเบี้ย และวิธีเลือกสินเชื่อ?
+
+</p>
+
+<p>
+
+<a href="../blog/loan-calculator-guide.html">
+
+อ่านบทความ Loan Calculator →
+
+</a>
+
+</p>
 
 </section>
 
@@ -265,11 +326,85 @@ Loan Calculator คือเครื่องมือสำหรับคำ�
 
 <h3>ToolHub TH</h3>
 
-<p>รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน</p>
+<p>
 
-<p>© 2026 ToolHub TH. All Rights Reserved.</p>
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+
+</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
 
 </footer>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"เครื่องคิดเลข",
+      "item":"https://pinwaru.github.io/toolhub-th/calculators.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"Loan Calculator",
+      "item":"https://pinwaru.github.io/toolhub-th/tools/loan-calculator.html"
+    }
+  ]
+}
+</script>
+
+<!-- WebPage Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "name":"Loan Calculator",
+  "url":"https://pinwaru.github.io/toolhub-th/tools/loan-calculator.html",
+  "description":"เครื่องคำนวณเงินกู้ออนไลน์ฟรี พร้อมคำนวณค่างวด ยอดชำระทั้งหมด ดอกเบี้ยรวม และตารางผ่อนชำระ",
+  "inLanguage":"th",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"https://pinwaru.github.io/toolhub-th/images/logo.png"
+    }
+  }
+}
+</script>
 
 <script src="../js/loan-calculator.js"></script>
 
