@@ -1,169 +1,381 @@
-.loan-container {
-    max-width: 700px;
-    margin: 50px auto;
-    padding: 35px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+.loan-container{
+
+    max-width:700px;
+
+    margin:50px auto;
+
+    padding:35px;
+
+    background:#fff;
+
+    border-radius:16px;
+
+    box-shadow:0 8px 24px rgba(15,23,42,.08);
+
+    animation:fadeUp .4s ease;
+
 }
 
-.loan-container h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #2563eb;
+.loan-container h1{
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+    color:#2563eb;
+
 }
 
-.loan-container>p {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #666;
-    line-height: 1.6;
+.loan-container > p{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    color:#666;
+
+    line-height:1.6;
+
 }
 
-.input-group {
-    margin-bottom: 20px;
+.input-group{
+
+    margin-bottom:20px;
+
 }
 
-.input-group label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#333;
+
 }
 
-.input-group input {
-    width: 100%;
-    padding: 14px;
-    font-size: 18px;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    transition: .25s;
-    box-sizing: border-box;
+.input-group input{
+
+    width:100%;
+
+    padding:14px;
+
+    font-size:18px;
+
+    font-family:'Kanit',sans-serif;
+
+    border:2px solid #ddd;
+
+    border-radius:10px;
+
+    transition:.25s;
+
 }
 
-.input-group input:focus {
-    border-color: #2563eb;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+.input-group input:focus{
+
+    border-color:#2563eb;
+
+    outline:none;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
 }
 
-#calculateBtn {
-    width: 100%;
-    padding: 16px;
-    background: #2563eb;
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .25s;
+#calculateBtn{
+
+    width:100%;
+
+    padding:16px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-family:'Kanit',sans-serif;
+
+    font-weight:700;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
 }
 
-#calculateBtn:hover {
-    background: #1d4ed8;
+#calculateBtn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
 }
 
-#calculateBtn:active {
-    transform: scale(.98);
+#calculateBtn:active{
+
+    transform:scale(.98);
+
 }
 
-.result {
-    margin-top: 35px;
-    padding: 25px;
-    background: #f8f9fa;
-    border-radius: 12px;
-    text-align: center;
+#calculateBtn:focus-visible{
+
+    outline:3px solid rgba(37,99,235,.25);
+
+    outline-offset:2px;
+
 }
 
-.result h2 {
-    margin-bottom: 20px;
+.result{
+
+    margin-top:35px;
+
+    padding:25px;
+
+    background:#f8fafc;
+
+    border:1px solid #e5e7eb;
+
+    border-radius:12px;
+
+    text-align:center;
+
 }
 
-.result h3 {
-    font-size: 30px;
-    color: #2563eb;
-    margin-bottom: 18px;
-    word-break: break-word;
+.result h2{
+
+    margin-top:0;
+
+    margin-bottom:20px;
+
 }
 
-.back {
-    display: block;
-    text-align: center;
-    margin-top: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #2563eb;
+.result h3{
+
+    font-size:30px;
+
+    color:#2563eb;
+
+    margin-bottom:18px;
+
+    word-break:break-word;
+
+    transition:.25s;
+
 }
 
-.back:hover {
-    text-decoration: underline;
+.result p{
+
+    margin:10px 0;
+
+    color:#555;
+
 }
 
-/* ========================= */
-/* ตารางผ่อนชำระ */
-/* ========================= */
+.back{
 
-.schedule {
-    margin-top: 40px;
+    display:block;
+
+    margin-top:30px;
+
+    text-align:center;
+
+    font-weight:600;
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+    transition:.25s;
+
 }
 
-.schedule h2 {
-    margin-bottom: 15px;
-    text-align: center;
+.back:hover{
+
+    text-decoration:underline;
+
 }
 
-.table-wrapper {
-    overflow-x: auto;
+/* =======================================
+   ตารางผ่อนชำระ
+======================================= */
+
+.schedule{
+
+    margin-top:40px;
+
+    padding-top:10px;
+
 }
 
-#scheduleTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    min-width: 600px;
+.schedule h2{
+
+    margin-bottom:18px;
+
+    text-align:center;
+
+    color:#2563eb;
+
+}
+
+.table-wrapper{
+
+    overflow-x:auto;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+#scheduleTable{
+
+    width:100%;
+
+    min-width:600px;
+
+    margin-top:20px;
+
+    border-collapse:collapse;
+
+    background:#fff;
+
 }
 
 #scheduleTable th,
-#scheduleTable td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
+#scheduleTable td{
+
+    padding:12px;
+
+    border:1px solid #e5e7eb;
+
+    text-align:center;
+
 }
 
-#scheduleTable th {
-    background: #2563eb;
-    color: #fff;
+#scheduleTable th{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-weight:600;
+
 }
 
-#scheduleTable tr:nth-child(even) {
-    background: #f7f7f7;
+#scheduleTable tbody tr:nth-child(even){
+
+    background:#f8fafc;
+
 }
 
-#scheduleTable tr:hover {
-    background: #eef4ff;
+#scheduleTable tbody tr:hover{
+
+    background:#eef4ff;
+
 }
 
-/* ========================= */
-/* Responsive */
-/* ========================= */
+/* =======================================
+   Responsive
+======================================= */
 
-@media (max-width: 768px) {
+@media (max-width:768px){
 
-    .loan-container {
-        margin: 20px;
-        padding: 20px;
+    .loan-container{
+
+        margin:20px auto;
+
+        padding:22px;
+
     }
 
-    .loan-container h1 {
-        font-size: 28px;
+    .loan-container h1{
+
+        font-size:30px;
+
     }
 
-    .result h3 {
-        font-size: 24px;
+    .loan-container > p{
+
+        font-size:16px;
+
     }
 
-    #calculateBtn {
-        font-size: 18px;
+    .input-group input{
+
+        font-size:16px;
+
+        padding:13px;
+
+    }
+
+    #calculateBtn{
+
+        font-size:18px;
+
+        padding:15px;
+
+    }
+
+    .result{
+
+        padding:20px;
+
+    }
+
+    .result h3{
+
+        font-size:24px;
+
+    }
+
+    #scheduleTable{
+
+        min-width:560px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .loan-container{
+
+        margin:15px;
+
+        padding:18px;
+
+    }
+
+    .loan-container h1{
+
+        font-size:26px;
+
+    }
+
+    .result h3{
+
+        font-size:22px;
+
+    }
+
+    #scheduleTable{
+
+        min-width:520px;
+
+    }
+
+    #scheduleTable th,
+    #scheduleTable td{
+
+        padding:10px;
+
+        font-size:14px;
+
     }
 
 }
