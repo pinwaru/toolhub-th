@@ -3,9 +3,70 @@ const buttons = document.querySelectorAll(".buttons button");
 
 let expression = "";
 
+const operators = ["+", "-", "*", "/", "%", "^"];
+
+/* ========================= */
+/* Display */
+/* ========================= */
+
 function updateDisplay() {
+
     display.value = expression || "0";
+
+    // เลื่อนไปด้านขวาสุดเมื่อข้อความยาว
+    display.scrollLeft = display.scrollWidth;
+
 }
+
+/* ========================= */
+/* เพิ่มข้อมูลลง Expression */
+/* ========================= */
+
+function appendExpression(value) {
+
+    if (expression.length >= 100) return;
+
+    // ป้องกันกดเครื่องหมายซ้ำ
+    if (operators.includes(value)) {
+
+        const last = expression.slice(-1);
+
+        if (operators.includes(last)) {
+
+            expression =
+                expression.slice(0, -1) + value;
+
+            updateDisplay();
+
+            return;
+
+        }
+
+    }
+
+    // ป้องกัน . ซ้ำในเลขตัวเดียวกัน
+    if (value === ".") {
+
+        const lastNumber =
+            expression.split(/[+\-*/%^()]/).pop();
+
+        if (lastNumber.includes(".")) {
+
+            return;
+
+        }
+
+    }
+
+    expression += value;
+
+    updateDisplay();
+
+}
+
+/* ========================= */
+/* คำนวณ */
+/* ========================= */
 
 function calculate() {
 
@@ -15,6 +76,12 @@ function calculate() {
 
         const result = math.evaluate(expression);
 
+        if (!isFinite(result)) {
+
+            throw new Error();
+
+        }
+
         expression = result.toString();
 
         updateDisplay();
@@ -22,23 +89,31 @@ function calculate() {
     } catch {
 
         display.value = "Error";
+
         expression = "";
+
+        setTimeout(updateDisplay, 800);
 
     }
 
 }
+
+/* ========================= */
+/* Button Click */
+/* ========================= */
 
 buttons.forEach(button => {
 
     button.addEventListener("click", () => {
 
         const value = button.dataset.value;
+
         const action = button.dataset.action;
 
         if (value !== undefined) {
 
-            expression += value;
-            updateDisplay();
+            appendExpression(value);
+
             return;
 
         }
@@ -48,13 +123,17 @@ buttons.forEach(button => {
             case "clear":
 
                 expression = "";
+
                 updateDisplay();
+
                 break;
 
             case "backspace":
 
                 expression = expression.slice(0, -1);
+
                 updateDisplay();
+
                 break;
 
             case "negate":
@@ -74,11 +153,13 @@ buttons.forEach(button => {
                 }
 
                 updateDisplay();
+
                 break;
 
             case "equals":
 
                 calculate();
+
                 break;
 
         }
@@ -91,53 +172,108 @@ buttons.forEach(button => {
 /* Keyboard Support */
 /* ========================= */
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", (event) => {
 
     // ไม่ดักปุ่มถ้ากำลังพิมพ์ใน input หรือ textarea
     if (
-        e.target.tagName === "INPUT" ||
-        e.target.tagName === "TEXTAREA"
+
+        event.target.tagName === "INPUT" ||
+
+        event.target.tagName === "TEXTAREA"
+
     ) {
+
         return;
+
     }
 
-    // อนุญาต Ctrl+C Ctrl+V Ctrl+A
-    if (e.ctrlKey || e.metaKey) return;
+    // อนุญาต Ctrl+C Ctrl+V Ctrl+A Ctrl+X
+    if (event.ctrlKey || event.metaKey) return;
 
-    const key = e.key;
+    const key = event.key;
 
-    if ("0123456789+-*/().%^".includes(key)) {
+    // ไม่รับ Space
+    if (key === " ") {
 
-        expression += key;
-        updateDisplay();
+        event.preventDefault();
+
+        return;
+
+    }
+
+    // ตัวเลข
+    if ("0123456789".includes(key)) {
+
+        appendExpression(key);
+
+        return;
+
+    }
+
+    // เครื่องหมาย
+    if ("+-*/%^".includes(key)) {
+
+        appendExpression(key);
+
+        return;
+
+    }
+
+    // จุดทศนิยม
+    if (key === ".") {
+
+        appendExpression(".");
+
         return;
 
     }
 
     switch (key) {
 
+        case "(":
+        case ")":
+
+            appendExpression(key);
+
+            break;
+
         case "Enter":
         case "NumpadEnter":
+        case "=":
 
-            e.preventDefault();
+            event.preventDefault();
+
             calculate();
+
             break;
 
         case "Backspace":
 
-            e.preventDefault();
+            event.preventDefault();
+
             expression = expression.slice(0, -1);
+
             updateDisplay();
+
             break;
 
         case "Delete":
         case "Escape":
 
-            e.preventDefault();
+            event.preventDefault();
+
             expression = "";
+
             updateDisplay();
+
             break;
 
     }
 
 });
+
+/* ========================= */
+/* Initial Display */
+/* ========================= */
+
+updateDisplay();
