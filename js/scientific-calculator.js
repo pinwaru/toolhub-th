@@ -3,12 +3,69 @@ const buttons = document.querySelectorAll(".buttons button");
 
 let expression = "";
 
+const operators = ["+", "-", "*", "/", "^", "%"];
+
+/* ========================= */
+/* Display */
+/* ========================= */
+
 function updateDisplay() {
+
     display.value = expression || "0";
 
-    // เลื่อนตำแหน่งไปด้านขวาสุดเมื่อข้อความยาว
     display.scrollLeft = display.scrollWidth;
+
 }
+
+/* ========================= */
+/* Append */
+/* ========================= */
+
+function appendExpression(value) {
+
+    if (expression.length >= 200) return;
+
+    // ป้องกันเครื่องหมายซ้ำ
+    if (operators.includes(value)) {
+
+        const last = expression.slice(-1);
+
+        if (operators.includes(last)) {
+
+            expression =
+                expression.slice(0, -1) + value;
+
+            updateDisplay();
+
+            return;
+
+        }
+
+    }
+
+    // ป้องกัน . ซ้ำ
+    if (value === ".") {
+
+        const lastNumber =
+            expression.split(/[+\-*/^()%]/).pop();
+
+        if (lastNumber.includes(".")) {
+
+            return;
+
+        }
+
+    }
+
+    expression += value;
+
+    updateDisplay();
+
+}
+
+/* ========================= */
+/* Calculate */
+/* ========================= */
 
 function calculate() {
 
@@ -19,7 +76,9 @@ function calculate() {
         const result = math.evaluate(expression);
 
         if (!isFinite(result)) {
+
             throw new Error();
+
         }
 
         expression = result.toString();
@@ -30,10 +89,9 @@ function calculate() {
 
         display.value = "Error";
 
-        setTimeout(() => {
-            expression = "";
-            updateDisplay();
-        }, 800);
+        expression = "";
+
+        setTimeout(updateDisplay, 800);
 
     }
 
@@ -44,24 +102,13 @@ buttons.forEach(button => {
     button.addEventListener("click", () => {
 
         const value = button.dataset.value;
+
         const action = button.dataset.action;
 
         if (value !== undefined) {
 
-            // ป้องกันการกด . ซ้ำในเลขตัวเดียวกัน
-            if (value === ".") {
+            appendExpression(value);
 
-                const lastNumber =
-                    expression.split(/[+\-*/^()%]/).pop();
-
-                if (lastNumber.includes(".")) {
-                    return;
-                }
-
-            }
-
-            expression += value;
-            updateDisplay();
             return;
 
         }
@@ -71,87 +118,88 @@ buttons.forEach(button => {
             case "clear":
 
                 expression = "";
+
                 updateDisplay();
+
                 break;
 
             case "backspace":
 
                 expression = expression.slice(0, -1);
+
                 updateDisplay();
+
                 break;
 
             case "sqrt":
 
-                expression += "sqrt(";
-                updateDisplay();
+                appendExpression("sqrt(");
+
                 break;
 
             case "square":
 
-                expression += "^2";
-                updateDisplay();
+                appendExpression("^2");
+
                 break;
 
             case "power":
 
-                expression += "^";
-                updateDisplay();
+                appendExpression("^");
+
                 break;
 
             case "pi":
 
-                expression += "pi";
-                updateDisplay();
+                appendExpression("pi");
+
                 break;
 
             case "sin":
 
-                expression += "sin(";
-                updateDisplay();
+                appendExpression("sin(");
+
                 break;
 
             case "cos":
 
-                expression += "cos(";
-                updateDisplay();
+                appendExpression("cos(");
+
                 break;
 
             case "tan":
 
-                expression += "tan(";
-                updateDisplay();
+                appendExpression("tan(");
+
                 break;
 
             case "log":
 
-                expression += "log10(";
-                updateDisplay();
+                appendExpression("log10(");
+
                 break;
 
             case "ln":
 
-                expression += "log(";
-                updateDisplay();
+                appendExpression("log(");
+
                 break;
 
             case "negate":
 
-                if (expression === "") {
-
-                    expression = "-";
-
-                } else {
-
-                    expression = `(-(${expression}))`;
-
-                }
+                expression =
+                    expression === ""
+                        ? "-"
+                        : `(-(${expression}))`;
 
                 updateDisplay();
+
                 break;
 
             case "equals":
 
                 calculate();
+
                 break;
 
         }
@@ -164,95 +212,143 @@ buttons.forEach(button => {
 /* Keyboard Support */
 /* ========================= */
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", (event) => {
 
-    // อนุญาตให้ใช้ Ctrl+C / Ctrl+V / Ctrl+A / Ctrl+X
-    if (e.ctrlKey || e.metaKey) return;
+    // อนุญาต Ctrl+C, Ctrl+V, Ctrl+A, Ctrl+X
+    if (event.ctrlKey || event.metaKey) return;
 
-    const key = e.key;
+    const key = event.key.toLowerCase();
 
-    // ตัวเลขและเครื่องหมายพื้นฐาน
-    if ("0123456789+-*/()%^".includes(key)) {
+    // ไม่รับ Space
+    if (key === " ") {
 
-        expression += key;
-        updateDisplay();
+        event.preventDefault();
+
         return;
 
     }
 
-    // ป้องกันการใส่ . ซ้ำในเลขเดียวกัน
+    // ตัวเลข
+    if ("0123456789".includes(key)) {
+
+        appendExpression(key);
+
+        return;
+
+    }
+
+    // เครื่องหมาย
+    if ("+-*/%^".includes(key)) {
+
+        appendExpression(key);
+
+        return;
+
+    }
+
+    // จุดทศนิยม
     if (key === ".") {
 
-        const lastNumber =
-            expression.split(/[+\-*/^()%]/).pop();
-
-        if (!lastNumber.includes(".")) {
-            expression += ".";
-            updateDisplay();
-        }
+        appendExpression(".");
 
         return;
 
     }
 
-    switch (key.toLowerCase()) {
+    switch (key) {
+
+        // วงเล็บ
+        case "(":
+        case ")":
+
+            appendExpression(key);
+
+            break;
 
         // Enter หรือ =
         case "enter":
         case "=":
-            e.preventDefault();
+
+            event.preventDefault();
+
             calculate();
+
             break;
 
         // ลบทีละตัว
         case "backspace":
+
             expression = expression.slice(0, -1);
+
             updateDisplay();
+
             break;
 
         // ล้างทั้งหมด
         case "delete":
         case "escape":
+
             expression = "";
+
             updateDisplay();
+
             break;
 
-        // ฟังก์ชันคณิตศาสตร์
-        case "s":
-            expression += "sin(";
-            updateDisplay();
-            break;
-
-        case "c":
-            expression += "cos(";
-            updateDisplay();
-            break;
-
-        case "t":
-            expression += "tan(";
-            updateDisplay();
-            break;
-
-        case "l":
-            expression += "log10(";
-            updateDisplay();
-            break;
-
-        case "n":
-            expression += "log(";
-            updateDisplay();
-            break;
-
-        case "p":
-            expression += "pi";
-            updateDisplay();
-            break;
-
+        // √
         case "r":
-            expression += "sqrt(";
-            updateDisplay();
+
+            appendExpression("sqrt(");
+
+            break;
+
+        // π
+        case "p":
+
+            appendExpression("pi");
+
+            break;
+
+        // sin
+        case "s":
+
+            appendExpression("sin(");
+
+            break;
+
+        // cos
+        case "c":
+
+            appendExpression("cos(");
+
+            break;
+
+        // tan
+        case "t":
+
+            appendExpression("tan(");
+
+            break;
+
+        // log10
+        case "l":
+
+            appendExpression("log10(");
+
+            break;
+
+        // ln
+        case "n":
+
+            appendExpression("log(");
+
             break;
 
     }
 
 });
+
+/* ========================= */
+/* Initial Display */
+/* ========================= */
+
+updateDisplay();
