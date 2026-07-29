@@ -4,17 +4,55 @@ if (search) {
 
     const tools = document.querySelectorAll(".tool");
 
+    if (!tools.length) return;
+
+    // Cache ข้อความสำหรับค้นหา
+    tools.forEach(tool => {
+
+        tool.dataset.search = tool.textContent
+            .toLowerCase()
+            .trim();
+
+    });
+
+    // กล่องแสดงเมื่อไม่พบผลลัพธ์
+    const noResult = document.getElementById("noResult");
+
+    let timer;
+
     search.addEventListener("input", () => {
 
-        const keyword = search.value.trim().toLowerCase();
+        clearTimeout(timer);
 
-        tools.forEach(tool => {
+        timer = setTimeout(() => {
 
-            const text = tool.textContent.toLowerCase();
+            const keyword = search.value
+                .trim()
+                .toLowerCase();
 
-            tool.style.display = text.includes(keyword) ? "" : "none";
+            let found = false;
 
-        });
+            tools.forEach(tool => {
+
+                const match = tool.dataset.search.includes(keyword);
+
+                tool.style.display = match ? "" : "none";
+
+                if (match) {
+                    found = true;
+                }
+
+            });
+
+                // แสดง/ซ่อน ข้อความเมื่อไม่พบผลลัพธ์
+
+            if (noResult) {
+
+                noResult.style.display = found ? "none" : "block";
+
+            }
+
+        }, 150); // Debounce 150ms
 
     });
 
