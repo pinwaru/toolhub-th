@@ -1,0 +1,486 @@
+/* ========================= */
+/* Grade Calculator */
+/* ========================= */
+
+.grade-container{
+
+    max-width:760px;
+    margin:50px auto;
+    padding:35px;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+}
+
+.grade-container h1{
+
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    text-align:center;
+    color:#666;
+    line-height:1.7;
+    margin-bottom:30px;
+
+}
+
+/* ========================= */
+/* Input */
+/* ========================= */
+
+.input-group{
+
+    margin-bottom:22px;
+
+}
+
+.input-group label{
+
+    display:block;
+    font-weight:600;
+    margin-bottom:8px;
+    color:#222;
+
+}
+
+.input-group input{
+
+    width:100%;
+    padding:14px;
+    font-size:18px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    box-sizing:border-box;
+    transition:.25s;
+
+}
+
+.input-group input:focus{
+
+    outline:none;
+    border-color:#2563eb;
+
+    box-shadow:
+
+    0 0 0 3px rgba(37,99,235,.15);
+
+}
+
+#calculateBtn{
+
+    width:100%;
+    padding:16px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    font-size:20px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+
+}
+
+#calculateBtn:hover{
+
+    background:#1d4ed8;
+
+}
+
+#calculateBtn:active{
+
+    transform:scale(.98);
+
+}
+
+/* ========================= */
+/* Result */
+/* ========================= */
+
+.result{
+
+    margin-top:35px;
+    padding:30px;
+    background:#f8f9fa;
+    border-radius:14px;
+    text-align:center;
+
+}
+
+.result h2{
+
+    margin-bottom:10px;
+
+}
+
+.result h3{
+
+    font-size:40px;
+    color:#2563eb;
+    margin-bottom:15px;
+
+}
+
+#gradeResult{
+
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:15px;
+
+}
+
+#gradeMessage{
+
+    font-size:18px;
+    color:#555;
+    line-height:1.6;
+
+}
+
+/* ========================= */
+/* Progress */
+/* ========================= */
+
+.progress-section{
+
+    margin-top:35px;
+
+}
+
+.progress-section h2{
+
+    text-align:center;
+    margin-bottom:15px;
+
+}
+
+.progress-bar{
+
+    width:100%;
+    height:22px;
+    background:#e5e7eb;
+    border-radius:999px;
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    width:0%;
+    height:100%;
+    background:#2563eb;
+    transition:.4s ease;
+
+}
+
+#progressText{
+
+    text-align:center;
+    margin-top:10px;
+    font-weight:600;
+    color:#2563eb;
+
+}
+
+/* ========================= */
+/* Grade Table */
+/* ========================= */
+
+.grade-table{
+
+    margin-top:40px;
+
+}
+
+.grade-table h2{
+
+    text-align:center;
+    margin-bottom:18px;
+
+}
+
+.table-wrapper{
+
+    overflow-x:auto;
+
+}
+
+.grade-table table{
+
+    width:100%;
+    border-collapse:collapse;
+    min-width:500px;
+
+}
+
+.grade-table th,
+.grade-table td{
+
+    border:1px solid #ddd;
+    padding:14px;
+    text-align:center;
+
+}
+
+.grade-table th{
+
+    background:#2563eb;
+    color:#fff;
+
+}
+
+.grade-table tr:nth-child(even){
+
+    background:#f8f9fa;
+
+}
+
+.grade-table tr:hover{
+
+    background:#eef4ff;
+
+}
+
+/* ========================= */
+/* Information */
+/* ========================= */
+
+.info{
+
+    margin-top:45px;
+    padding:25px;
+    background:#f8f9fa;
+    border-radius:14px;
+
+}
+
+.info h2{
+
+    margin-bottom:15px;
+    color:#2563eb;
+
+}
+
+.info p{
+
+    color:#555;
+    line-height:1.8;
+    margin-bottom:15px;
+
+}
+
+.info a{
+
+    color:#2563eb;
+    font-weight:600;
+    text-decoration:none;
+
+}
+
+.info a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ========================= */
+/* FAQ */
+/* ========================= */
+
+.faq{
+
+    margin-top:45px;
+
+}
+
+.faq h2{
+
+    text-align:center;
+    margin-bottom:25px;
+
+}
+
+.faq-item{
+
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:18px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+}
+
+.faq-item h3{
+
+    color:#2563eb;
+    margin-bottom:10px;
+
+}
+
+.faq-item p{
+
+    color:#555;
+    line-height:1.8;
+
+}
+
+/* ========================= */
+/* Grade Colors */
+/* ========================= */
+
+.grade-a{
+
+    color:#16a34a !important;
+
+}
+
+.grade-b{
+
+    color:#2563eb !important;
+
+}
+
+.grade-c{
+
+    color:#f59e0b !important;
+
+}
+
+.grade-d{
+
+    color:#ea580c !important;
+
+}
+
+.grade-f{
+
+    color:#dc2626 !important;
+
+}
+
+/* ========================= */
+/* Back Button */
+/* ========================= */
+
+.back{
+
+    display:block;
+    text-align:center;
+    margin-top:35px;
+    font-weight:600;
+    color:#2563eb;
+    text-decoration:none;
+
+}
+
+.back:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ========================= */
+/* Responsive */
+/* ========================= */
+
+@media (max-width:768px){
+
+    .grade-container{
+
+        margin:20px;
+        padding:22px;
+
+    }
+
+    .grade-container h1{
+
+        font-size:30px;
+
+    }
+
+    .subtitle{
+
+        font-size:15px;
+
+    }
+
+    .result h3{
+
+        font-size:32px;
+
+    }
+
+    #gradeResult{
+
+        font-size:34px;
+
+    }
+
+    #calculateBtn{
+
+        font-size:18px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .grade-container{
+
+        margin:15px;
+        padding:18px;
+
+    }
+
+    .grade-container h1{
+
+        font-size:26px;
+
+    }
+
+    .input-group input{
+
+        font-size:16px;
+        padding:12px;
+
+    }
+
+    .result{
+
+        padding:20px;
+
+    }
+
+    .result h3{
+
+        font-size:28px;
+
+    }
+
+    #gradeResult{
+
+        font-size:30px;
+
+    }
+
+    #gradeMessage{
+
+        font-size:16px;
+
+    }
+
+    .faq-item{
+
+        padding:16px;
+
+    }
+
+}
