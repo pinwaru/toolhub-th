@@ -4,29 +4,49 @@
 
 .grade-container{
 
-    max-width:760px;
-    margin:50px auto;
-    padding:35px;
-    background:#fff;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.12);
+max-width:900px;
+
+margin:40px auto;
+
+padding:35px;
+
+background:#fff;
+
+border-radius:20px;
+
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.grade-container section{
+
+margin-top:45px;
 
 }
 
 .grade-container h1{
 
-    text-align:center;
-    color:#2563eb;
-    margin-bottom:10px;
+font-size:42px;
+
+text-align:center;
+
+color:#2563eb;
+
+margin-bottom:12px;
 
 }
 
 .subtitle{
 
-    text-align:center;
-    color:#666;
-    line-height:1.7;
-    margin-bottom:30px;
+max-width:700px;
+
+margin:0 auto 30px;
+
+text-align:center;
+
+color:#666;
+
+line-height:1.8;
 
 }
 
@@ -36,67 +56,79 @@
 
 .input-group{
 
-    margin-bottom:22px;
+margin-bottom:20px;
 
 }
 
 .input-group label{
 
-    display:block;
-    font-weight:600;
-    margin-bottom:8px;
-    color:#222;
+display:block;
+
+font-weight:600;
+
+margin-bottom:8px;
+
+color:#333;
 
 }
 
 .input-group input{
 
-    width:100%;
-    padding:14px;
-    font-size:18px;
-    border:2px solid #ddd;
-    border-radius:10px;
-    box-sizing:border-box;
-    transition:.25s;
+width:100%;
+
+padding:14px;
+
+font-size:18px;
+
+border:2px solid #ddd;
+
+border-radius:10px;
+
+box-sizing:border-box;
+
+transition:.25s;
 
 }
 
 .input-group input:focus{
 
-    outline:none;
-    border-color:#2563eb;
+outline:none;
 
-    box-shadow:
+border-color:#2563eb;
 
-    0 0 0 3px rgba(37,99,235,.15);
+box-shadow:0 0 0 3px rgba(37,99,235,.15);
 
 }
 
 #calculateBtn{
 
-    width:100%;
-    padding:16px;
-    margin-top:10px;
-    border:none;
-    border-radius:10px;
-    background:#2563eb;
-    color:#fff;
-    font-size:20px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.25s;
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:10px;
+
+background:#2563eb;
+
+color:#fff;
+
+font-size:20px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.25s;
+
+margin-top:10px;
 
 }
 
 #calculateBtn:hover{
 
-    background:#1d4ed8;
-
-}
-
-#calculateBtn:active{
-
-    transform:scale(.98);
+background:#1d4ed8;
 
 }
 
@@ -106,41 +138,51 @@
 
 .result{
 
-    margin-top:35px;
-    padding:30px;
-    background:#f8f9fa;
-    border-radius:14px;
-    text-align:center;
+margin-top:35px;
+
+padding:30px;
+
+background:#f8fafc;
+
+border-radius:14px;
+
+text-align:center;
 
 }
 
 .result h2{
 
-    margin-bottom:10px;
+margin-bottom:10px;
 
 }
 
 .result h3{
 
-    font-size:40px;
-    color:#2563eb;
-    margin-bottom:15px;
+font-size:38px;
+
+color:#2563eb;
+
+margin-bottom:12px;
 
 }
 
 #gradeResult{
 
-    font-size:42px;
-    font-weight:700;
-    margin-bottom:15px;
+font-size:46px;
+
+font-weight:700;
+
+margin-bottom:15px;
 
 }
 
 #gradeMessage{
 
-    font-size:18px;
-    color:#555;
-    line-height:1.6;
+color:#555;
+
+font-size:18px;
+
+line-height:1.8;
 
 }
 
@@ -150,42 +192,51 @@
 
 .progress-section{
 
-    margin-top:35px;
+margin-top:40px;
 
 }
 
 .progress-section h2{
 
-    text-align:center;
-    margin-bottom:15px;
+text-align:center;
+
+margin-bottom:15px;
 
 }
 
 .progress-bar{
 
-    width:100%;
-    height:22px;
-    background:#e5e7eb;
-    border-radius:999px;
-    overflow:hidden;
+height:20px;
+
+background:#e5e7eb;
+
+border-radius:999px;
+
+overflow:hidden;
 
 }
 
 .progress-fill{
 
-    width:0%;
-    height:100%;
-    background:#2563eb;
-    transition:.4s ease;
+height:100%;
+
+width:0%;
+
+background:#2563eb;
+
+transition:.4s;
 
 }
 
 #progressText{
 
-    text-align:center;
-    margin-top:10px;
-    font-weight:600;
-    color:#2563eb;
+margin-top:10px;
+
+text-align:center;
+
+font-weight:600;
+
+color:#2563eb;
 
 }
 
@@ -195,56 +246,63 @@
 
 .grade-table{
 
-    margin-top:40px;
+margin-top:45px;
 
 }
 
 .grade-table h2{
 
-    text-align:center;
-    margin-bottom:18px;
+text-align:center;
+
+margin-bottom:20px;
 
 }
 
 .table-wrapper{
 
-    overflow-x:auto;
+overflow-x:auto;
 
 }
 
 .grade-table table{
 
-    width:100%;
-    border-collapse:collapse;
-    min-width:500px;
+width:100%;
+
+border-collapse:collapse;
+
+min-width:550px;
 
 }
 
 .grade-table th,
+
 .grade-table td{
 
-    border:1px solid #ddd;
-    padding:14px;
-    text-align:center;
+padding:14px;
+
+border:1px solid #ddd;
+
+text-align:center;
 
 }
 
 .grade-table th{
 
-    background:#2563eb;
-    color:#fff;
+background:#2563eb;
+
+color:#fff;
 
 }
 
 .grade-table tr:nth-child(even){
 
-    background:#f8f9fa;
+background:#f8fafc;
 
 }
 
 .grade-table tr:hover{
 
-    background:#eef4ff;
+background:#eef5ff;
 
 }
 
@@ -254,39 +312,49 @@
 
 .info{
 
-    margin-top:45px;
-    padding:25px;
-    background:#f8f9fa;
-    border-radius:14px;
+margin-top:45px;
+
+padding:25px;
+
+background:#f8fafc;
+
+border-left:5px solid #2563eb;
+
+border-radius:12px;
 
 }
 
 .info h2{
 
-    margin-bottom:15px;
-    color:#2563eb;
+color:#2563eb;
+
+margin-bottom:15px;
 
 }
 
 .info p{
 
-    color:#555;
-    line-height:1.8;
-    margin-bottom:15px;
+line-height:1.8;
+
+color:#555;
+
+margin-bottom:15px;
 
 }
 
 .info a{
 
-    color:#2563eb;
-    font-weight:600;
-    text-decoration:none;
+color:#2563eb;
+
+font-weight:600;
+
+text-decoration:none;
 
 }
 
 .info a:hover{
 
-    text-decoration:underline;
+text-decoration:underline;
 
 }
 
@@ -296,38 +364,45 @@
 
 .faq{
 
-    margin-top:45px;
+margin-top:45px;
 
 }
 
 .faq h2{
 
-    text-align:center;
-    margin-bottom:25px;
+text-align:center;
+
+margin-bottom:25px;
 
 }
 
 .faq-item{
 
-    background:#fff;
-    border-radius:12px;
-    padding:20px;
-    margin-bottom:18px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
+background:#fff;
+
+padding:22px;
+
+border-radius:14px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+margin-bottom:18px;
 
 }
 
 .faq-item h3{
 
-    color:#2563eb;
-    margin-bottom:10px;
+color:#2563eb;
+
+margin-bottom:10px;
 
 }
 
 .faq-item p{
 
-    color:#555;
-    line-height:1.8;
+line-height:1.8;
+
+color:#555;
 
 }
 
@@ -336,33 +411,23 @@
 /* ========================= */
 
 .grade-a{
-
-    color:#16a34a !important;
-
+color:#16a34a !important;
 }
 
 .grade-b{
-
-    color:#2563eb !important;
-
+color:#2563eb !important;
 }
 
 .grade-c{
-
-    color:#f59e0b !important;
-
+color:#f59e0b !important;
 }
 
 .grade-d{
-
-    color:#ea580c !important;
-
+color:#ea580c !important;
 }
 
 .grade-f{
-
-    color:#dc2626 !important;
-
+color:#dc2626 !important;
 }
 
 /* ========================= */
@@ -371,18 +436,98 @@
 
 .back{
 
-    display:block;
-    text-align:center;
-    margin-top:35px;
-    font-weight:600;
-    color:#2563eb;
-    text-decoration:none;
+display:inline-block;
+
+margin:40px auto 0;
+
+padding:12px 24px;
+
+background:#2563eb;
+
+color:#fff;
+
+font-weight:600;
+
+text-decoration:none;
+
+border-radius:10px;
+
+transition:.25s;
 
 }
 
 .back:hover{
 
-    text-decoration:underline;
+background:#1d4ed8;
+
+color:#fff;
+
+}
+
+.back-wrapper{
+
+text-align:center;
+
+margin-top:40px;
+
+}
+
+/* ========================= */
+/* Card Style */
+/* ========================= */
+
+.result,
+.info,
+.grade-table,
+.progress-section,
+.faq{
+
+background:#fff;
+
+border-radius:16px;
+
+padding:25px;
+
+box-shadow:0 6px 18px rgba(0,0,0,.06);
+
+}
+
+.grade-table,
+.progress-section,
+.info,
+.faq{
+
+margin-top:35px;
+
+}
+
+/* ========================= */
+/* Animation */
+/* ========================= */
+
+.grade-container{
+
+animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
 
 }
 
@@ -390,97 +535,137 @@
 /* Responsive */
 /* ========================= */
 
-@media (max-width:768px){
+@media(max-width:768px){
 
-    .grade-container{
+.grade-container{
 
-        margin:20px;
-        padding:22px;
+margin:20px;
 
-    }
-
-    .grade-container h1{
-
-        font-size:30px;
-
-    }
-
-    .subtitle{
-
-        font-size:15px;
-
-    }
-
-    .result h3{
-
-        font-size:32px;
-
-    }
-
-    #gradeResult{
-
-        font-size:34px;
-
-    }
-
-    #calculateBtn{
-
-        font-size:18px;
-
-    }
+padding:22px;
 
 }
 
-@media (max-width:480px){
+.grade-container h1{
 
-    .grade-container{
+font-size:34px;
 
-        margin:15px;
-        padding:18px;
+}
 
-    }
+.subtitle{
 
-    .grade-container h1{
+font-size:15px;
 
-        font-size:26px;
+}
 
-    }
+.result{
 
-    .input-group input{
+padding:22px;
 
-        font-size:16px;
-        padding:12px;
+}
 
-    }
+.result h3{
 
-    .result{
+font-size:30px;
 
-        padding:20px;
+}
 
-    }
+#gradeResult{
 
-    .result h3{
+font-size:34px;
 
-        font-size:28px;
+}
 
-    }
+#calculateBtn{
 
-    #gradeResult{
+font-size:18px;
 
-        font-size:30px;
+}
 
-    }
+.grade-table table{
 
-    #gradeMessage{
+min-width:480px;
 
-        font-size:16px;
+}
 
-    }
+.info,
+.progress-section,
+.grade-table,
+.faq{
 
-    .faq-item{
+padding:20px;
 
-        padding:16px;
+}
 
-    }
+}
+
+@media(max-width:480px){
+
+.grade-container{
+
+margin:15px;
+
+padding:18px;
+
+}
+
+.grade-container h1{
+
+font-size:28px;
+
+}
+
+.subtitle{
+
+font-size:14px;
+
+}
+
+.input-group input{
+
+font-size:16px;
+
+padding:12px;
+
+}
+
+.result h3{
+
+font-size:26px;
+
+}
+
+#gradeResult{
+
+font-size:30px;
+
+}
+
+#gradeMessage{
+
+font-size:15px;
+
+}
+
+.faq-item{
+
+padding:16px;
+
+}
+
+.grade-table table{
+
+min-width:420px;
+
+}
+
+.back{
+
+width:100%;
+
+text-align:center;
+
+box-sizing:border-box;
+
+}
 
 }
