@@ -1,59 +1,54 @@
-const search = document.getElementById("search");
+document.addEventListener("DOMContentLoaded", () => {
+    const search = document.getElementById("search");
 
-if (search) {
+    if (!search) return;
 
     const tools = document.querySelectorAll(".tool");
-
     if (!tools.length) return;
 
-    // Cache ข้อความสำหรับค้นหา
+    // Cache ข้อความสำหรับค้นหา โดยตัดช่องว่างส่วนเกินออกให้สะอาด
     tools.forEach(tool => {
-
-        tool.dataset.search = tool.textContent
+        const title = tool.querySelector("h2") ? tool.querySelector("h2").textContent : "";
+        const desc = tool.querySelector("p") ? tool.querySelector("p").textContent : "";
+        
+        // รวมชื่อและคำอธิบาย แล้วลบเว้นวรรค/ขึ้นบรรทัดใหม่ที่เกินมา
+        tool.dataset.search = `${title} ${desc}`
             .toLowerCase()
+            .replace(/\s+/g, ' ')
             .trim();
-
     });
 
-    // กล่องแสดงเมื่อไม่พบผลลัพธ์
     const noResult = document.getElementById("noResult");
-
     let timer;
 
     search.addEventListener("input", () => {
-
         clearTimeout(timer);
 
         timer = setTimeout(() => {
-
             const keyword = search.value
                 .trim()
-                .toLowerCase();
+                .toLowerCase()
+                .replace(/\s+/g, ' '); // ทำความสะอาดคำค้นหา
 
-            let found = false;
+            let foundCount = 0;
 
             tools.forEach(tool => {
+                // ถ้า keyword ว่างเปล่า หรือเจอคำตรงกัน
+                const isMatch = !keyword || tool.dataset.search.includes(keyword);
 
-                const match = tool.dataset.search.includes(keyword);
-
-                tool.style.display = match ? "" : "none";
-
-                if (match) {
-                    found = true;
+                if (isMatch) {
+                    tool.style.display = "block"; // กำหนดค่าการแสดงผลให้ชัดเจน
+                    foundCount++;
+                } else {
+                    tool.style.display = "none";
                 }
-
             });
 
-                // แสดง/ซ่อน ข้อความเมื่อไม่พบผลลัพธ์
-
+            // แสดง/ซ่อน ข้อความเมื่อไม่พบผลลัพธ์
             if (noResult) {
-
-                noResult.style.display = found ? "none" : "block";
-
+                noResult.style.display = (foundCount > 0) ? "none" : "block";
             }
 
         }, 150); // Debounce 150ms
-
     });
-
-}
+});
