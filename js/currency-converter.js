@@ -1,98 +1,59 @@
-/*
-==========================================
-ToolHub TH.
-Currency Converter v2.0
-Version: 2.0.0
-==========================================
-*/
+"use strict";
 
-// ================================
-// DOM Elements
-// ================================
+/* ==========================================
+   ToolHub TH
+   Currency Converter v3.0
+========================================== */
 
-const amountInput = document.getElementById("amount");
+/* ===========================
+   API CONFIG
+=========================== */
 
-const fromCurrency = document.getElementById("fromCurrency");
+const API_URL =
+"https://open.er-api.com/v6/latest/";
 
-const toCurrency = document.getElementById("toCurrency");
+const CACHE_TIME = 60 * 60 * 1000; // 1 ชั่วโมง
 
-const convertBtn = document.getElementById("convertBtn");
+/* ===========================
+   DOM
+=========================== */
 
-const swapBtn = document.getElementById("swapBtn");
+const amountInput =
+document.getElementById("amount");
 
-const copyBtn = document.getElementById("copyBtn");
+const fromCurrency =
+document.getElementById("fromCurrency");
 
-const resetBtn = document.getElementById("resetBtn");
+const toCurrency =
+document.getElementById("toCurrency");
 
-const resultCard = document.getElementById("resultCard");
+const convertBtn =
+document.getElementById("convertBtn");
 
-const resultAmount = document.getElementById("resultAmount");
+const resultBox =
+document.getElementById("result");
 
-const resultCurrency = document.getElementById("resultCurrency");
+const convertedAmount =
+document.getElementById("convertedAmount");
 
-const resultText = document.getElementById("resultText");
+const exchangeRate =
+document.getElementById("exchangeRate");
 
-const exchangeRate = document.getElementById("exchangeRate");
+const lastUpdate =
+document.getElementById("lastUpdate");
 
-const lastUpdated = document.getElementById("lastUpdated");
+const swapBtn =
+document.getElementById("swapBtn");
 
-// ================================
-// API List (Fallback)
-// ================================
+/* ===========================
+   Currency List
+=========================== */
 
-const API_LIST = [
-
-"https://open.er-api.com/v6/latest/"
-
-];
-
-// ================================
-// Config
-// ================================
-
-const CONFIG = {
-
-CACHE_KEY: "toolhub_currency_cache",
-
-CACHE_TIME: 60 * 60 * 1000,
-
-AUTO_REFRESH: 10 * 60 * 1000,
-
-DEFAULT_FROM: "USD",
-
-DEFAULT_TO: "THB",
-
-DECIMAL: 2
-
-};
-
-// ================================
-// State
-// ================================
-
-const state = {
-
-apiIndex:0,
-
-rates:null,
-
-base:"USD",
-
-lastUpdate:null,
-
-loading:false
-
-};
-
-// ================================
-// Currency Name
-// ================================
-
-const currencyNames={
-
-USD:"🇺🇸 US Dollar",
+const currencies = {
 
 THB:"🇹🇭 Thai Baht",
+
+USD:"🇺🇸 US Dollar",
 
 EUR:"🇪🇺 Euro",
 
@@ -100,25 +61,13 @@ GBP:"🇬🇧 British Pound",
 
 JPY:"🇯🇵 Japanese Yen",
 
-KRW:"🇰🇷 South Korean Won",
-
 CNY:"🇨🇳 Chinese Yuan",
 
-HKD:"🇭🇰 Hong Kong Dollar",
+KRW:"🇰🇷 Korean Won",
 
 SGD:"🇸🇬 Singapore Dollar",
 
 MYR:"🇲🇾 Malaysian Ringgit",
-
-AUD:"🇦🇺 Australian Dollar",
-
-CAD:"🇨🇦 Canadian Dollar",
-
-CHF:"🇨🇭 Swiss Franc",
-
-NZD:"🇳🇿 New Zealand Dollar",
-
-INR:"🇮🇳 Indian Rupee",
 
 VND:"🇻🇳 Vietnamese Dong",
 
@@ -126,7 +75,17 @@ PHP:"🇵🇭 Philippine Peso",
 
 IDR:"🇮🇩 Indonesian Rupiah",
 
-RUB:"🇷🇺 Russian Ruble",
+AUD:"🇦🇺 Australian Dollar",
+
+NZD:"🇳🇿 New Zealand Dollar",
+
+CAD:"🇨🇦 Canadian Dollar",
+
+CHF:"🇨🇭 Swiss Franc",
+
+HKD:"🇭🇰 Hong Kong Dollar",
+
+INR:"🇮🇳 Indian Rupee",
 
 AED:"🇦🇪 UAE Dirham",
 
@@ -134,419 +93,349 @@ SAR:"🇸🇦 Saudi Riyal"
 
 };
 
-// ================================
-// Helper
-// ================================
-
-function formatNumber(number){
-
-return Number(number).toLocaleString(
-
-undefined,
-
-{
-
-minimumFractionDigits:CONFIG.DECIMAL,
-
-maximumFractionDigits:CONFIG.DECIMAL
-
-}
-
-);
-
-}
-
-function showLoading(){
-
-state.loading=true;
-
-convertBtn.disabled=true;
-
-convertBtn.textContent="กำลังโหลด...";
-
-}
-
-function hideLoading(){
-
-state.loading=false;
-
-convertBtn.disabled=false;
-
-convertBtn.textContent="แปลงสกุลเงิน";
-
-}
-
-function showError(message){
-
-alert(message);
-
-console.error(message);
-
-}
-
-function saveCache(data){
-
-const cache={
-
-timestamp:Date.now(),
-
-data:data
-
-};
-
-localStorage.setItem(
-
-CONFIG.CACHE_KEY,
-
-JSON.stringify(cache)
-
-);
-
-}
-
-function loadCache(){
-
-const raw=localStorage.getItem(
-
-CONFIG.CACHE_KEY
-
-);
-
-if(!raw)return null;
-
-try{
-
-const cache=JSON.parse(raw);
-
-const age=Date.now()-cache.timestamp;
-
-if(age>CONFIG.CACHE_TIME){
-
-return null;
-
-}
-
-return cache.data;
-
-}
-
-catch{
-
-return null;
-
-}
-
-}
-
-// ================================
-// Fetch Exchange Rates
-// ================================
-
-async function fetchRates(base = CONFIG.DEFAULT_FROM){
-
-showLoading();
-
-for(let i=0;i<API_LIST.length;i++){
-
-try{
-
-const api=API_LIST[state.apiIndex];
-
-const response=await fetch(api+base);
-
-if(!response.ok){
-
-throw new Error("API Error");
-
-}
-
-const data=await response.json();
-
-if(data.result!=="success"){
-
-throw new Error("Invalid Response");
-
-}
-
-state.base=base;
-state.rates=data.rates;
-state.lastUpdate=new Date();
-
-saveCache({
-
-base:base,
-
-rates:data.rates,
-
-lastUpdate:state.lastUpdate
-
-});
-
-hideLoading();
-
-return true;
-
-}
-
-catch(error){
-
-console.warn("Switch API...");
-
-state.apiIndex++;
-
-if(state.apiIndex>=API_LIST.length){
-
-state.apiIndex=0;
-
-}
-
-}
-
-}
-
-hideLoading();
-
-return false;
-
-}
-
-// ================================
-// Load Cache
-// ================================
-
-function initializeCache(){
-
-const cache=loadCache();
-
-if(cache){
-
-state.base=cache.base;
-
-state.rates=cache.rates;
-
-state.lastUpdate=new Date(cache.lastUpdate);
-
-console.log("Loaded Cache");
-
-return true;
-
-}
-
-return false;
-
-}
-
-// ================================
-// Currency List
-// ================================
-
-function buildCurrencyList(){
-
-if(!state.rates)return;
+/* ===========================
+   Populate Select
+=========================== */
+
+function loadCurrencies(){
 
 fromCurrency.innerHTML="";
 
 toCurrency.innerHTML="";
 
-const list=Object.keys(state.rates).sort();
-
-list.forEach(code=>{
+Object.keys(currencies).forEach(code=>{
 
 const option1=document.createElement("option");
 
 option1.value=code;
 
 option1.textContent=
+`${currencies[code]} (${code})`;
 
-`${code} - ${currencyNames[code]||code}`;
+const option2=option1.cloneNode(true);
 
 fromCurrency.appendChild(option1);
-
-const option2=document.createElement("option");
-
-option2.value=code;
-
-option2.textContent=
-
-`${code} - ${currencyNames[code]||code}`;
 
 toCurrency.appendChild(option2);
 
 });
 
-fromCurrency.value=CONFIG.DEFAULT_FROM;
+fromCurrency.value="THB";
 
-toCurrency.value=CONFIG.DEFAULT_TO;
-
-}
-
-// ================================
-// Refresh Currency List
-// ================================
-
-async function initializeCurrencies(){
-
-if(!initializeCache()){
-
-const success=await fetchRates(CONFIG.DEFAULT_FROM);
-
-if(!success){
-
-showError("ไม่สามารถโหลดอัตราแลกเปลี่ยนได้");
-
-return;
+toCurrency.value="USD";
 
 }
 
-}
+loadCurrencies();
 
-buildCurrencyList();
+/* ===========================
+   Cache
+=========================== */
 
-}
+let exchangeRates={};
 
-input.addEventListener("input",()=>{
+let currentBase="THB";
 
-const target=input.dataset.target==="from"
+/* ===========================
+   Loading
+=========================== */
 
-?fromCurrency
+function setLoading(isLoading){
 
-:toCurrency;
+    if(!convertBtn) return;
 
-filterCurrency(target,input.value);
+    if(isLoading){
 
-});
+        convertBtn.disabled=true;
+        convertBtn.textContent="กำลังแปลง...";
 
-});
+    }else{
 
-// ================================
-// Update Last Updated
-// ================================
+        convertBtn.disabled=false;
+        convertBtn.textContent="แปลงสกุลเงิน";
 
-function updateLastUpdated(){
-
-if(!state.lastUpdate)return;
-
-lastUpdated.textContent=
-
-state.lastUpdate.toLocaleString(
-
-"th-TH",
-
-{
-
-dateStyle:"medium",
-
-timeStyle:"short"
+    }
 
 }
 
-);
+/* ===========================
+   Cache
+=========================== */
+
+function cacheKey(base){
+
+    return `currency-cache-${base}`;
 
 }
 
-// ================================
-// Convert Engine
-// ================================
+function saveCache(base,data){
+
+    const payload={
+
+        timestamp:Date.now(),
+        rates:data
+
+    };
+
+    localStorage.setItem(
+        cacheKey(base),
+        JSON.stringify(payload)
+    );
+
+}
+
+function readCache(base){
+
+    const raw=
+    localStorage.getItem(cacheKey(base));
+
+    if(!raw) return null;
+
+    try{
+
+        const cache=JSON.parse(raw);
+
+        if(Date.now()-cache.timestamp<CACHE_TIME){
+
+            return cache.rates;
+
+        }
+
+    }catch(e){
+
+        console.error(e);
+
+    }
+
+    return null;
+
+}
+
+/* ===========================
+   Load Exchange Rates
+=========================== */
+
+async function loadRates(base){
+
+    currentBase=base;
+
+    const cached=readCache(base);
+
+    if(cached){
+
+        exchangeRates=cached;
+
+        return true;
+
+    }
+
+    setLoading(true);
+
+    try{
+
+        const response=
+        await fetch(API_URL+base);
+
+        if(!response.ok){
+
+            throw new Error("โหลดข้อมูลไม่สำเร็จ");
+
+        }
+
+        const data=
+        await response.json();
+
+        if(data.result!=="success"){
+
+            throw new Error("API Error");
+
+        }
+
+        exchangeRates=data.rates;
+
+        saveCache(base,data.rates);
+
+        if(lastUpdate){
+
+            const time=
+            new Date(data.time_last_update_utc);
+
+            lastUpdate.textContent=
+            "อัปเดตล่าสุด : "+
+            time.toLocaleString("th-TH");
+
+        }
+
+        return true;
+
+    }catch(error){
+
+        console.error(error);
+
+        alert("ไม่สามารถโหลดอัตราแลกเปลี่ยนได้");
+
+        return false;
+
+    }finally{
+
+        setLoading(false);
+
+    }
+
+}
+
+/* ===========================
+   Convert Currency
+=========================== */
 
 async function convertCurrency(){
 
-const amount=parseFloat(amountInput.value);
+    const amount=
+    parseFloat(amountInput.value);
 
-if(isNaN(amount)||amount<=0){
+    const from=
+    fromCurrency.value;
 
-showError("กรุณากรอกจำนวนเงินให้ถูกต้อง");
+    const to=
+    toCurrency.value;
 
-amountInput.focus();
+    if(isNaN(amount)||amount<=0){
 
-return;
+        alert("กรุณากรอกจำนวนเงิน");
+
+        amountInput.focus();
+
+        return;
+
+    }
+
+    if(currentBase!==from){
+
+        const ok=
+        await loadRates(from);
+
+        if(!ok) return;
+
+    }
+
+    const rate=
+    exchangeRates[to];
+
+    if(!rate){
+
+        alert("ไม่พบอัตราแลกเปลี่ยน");
+
+        return;
+
+    }
+
+    const result=
+    amount*rate;
+
+    resultBox.style.display="block";
+
+    convertedAmount.innerHTML=
+
+    `${amount.toLocaleString("en-US")} ${from}
+    <br><br>
+    =
+    <br><br>
+    <strong>${result.toLocaleString("en-US",{
+
+        minimumFractionDigits:2,
+
+        maximumFractionDigits:2
+
+    })} ${to}</strong>`;
+
+    exchangeRate.innerHTML=
+
+    `1 ${from} = ${rate.toLocaleString("en-US",{
+
+        minimumFractionDigits:2,
+
+        maximumFractionDigits:6
+
+    })} ${to}`;
 
 }
 
-const from=fromCurrency.value;
-
-const to=toCurrency.value;
-
-// โหลดเรทใหม่หากเปลี่ยน Base Currency
-
-if(state.base!==from){
-
-const success=await fetchRates(from);
-
-if(!success){
-
-showError("ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้");
-
-return;
-
-}
-
-}
-
-const rate=state.rates[to];
-
-if(!rate){
-
-showError("ไม่พบอัตราแลกเปลี่ยน");
-
-return;
-
-}
-
-const total=amount*rate;
-
-resultAmount.textContent=formatNumber(total);
-
-resultCurrency.textContent=to;
-
-resultText.textContent=
-
-`${formatNumber(amount)} ${from} = ${formatNumber(total)} ${to}`;
-
-exchangeRate.textContent=
-
-`1 ${from} = ${formatNumber(rate)} ${to}`;
-
-updateLastUpdated();
-
-resultCard.style.display="block";
-
-resultCard.scrollIntoView({
-
-behavior:"smooth",
-
-block:"nearest"
-
-});
-
-}
-
-// ================================
-// Swap Currency
-// ================================
+/* ===========================
+   Swap Currency
+=========================== */
 
 function swapCurrencies(){
 
-const temp=fromCurrency.value;
+    const temp=
+    fromCurrency.value;
 
-fromCurrency.value=toCurrency.value;
+    fromCurrency.value=
+    toCurrency.value;
 
-toCurrency.value=temp;
+    toCurrency.value=
+    temp;
 
-convertCurrency();
+    if(amountInput.value){
+
+        convertCurrency();
+
+    }
 
 }
 
-swapBtn.addEventListener(
+/* ===========================
+   Reset
+=========================== */
 
-"click",
+function resetConverter(){
 
-swapCurrencies
+    amountInput.value="";
 
-);
+    fromCurrency.value="THB";
 
-// ================================
-// Convert Button
-// ================================
+    toCurrency.value="USD";
+
+    resultBox.style.display="none";
+
+}
+
+/* ===========================
+   Auto Convert
+=========================== */
+
+amountInput.addEventListener("input",()=>{
+
+    if(amountInput.value){
+
+        convertCurrency();
+
+    }
+
+});
+
+fromCurrency.addEventListener("change",()=>{
+
+    if(amountInput.value){
+
+        convertCurrency();
+
+    }
+
+});
+
+toCurrency.addEventListener("change",()=>{
+
+    if(amountInput.value){
+
+        convertCurrency();
+
+    }
+
+});
+
+/* ===========================
+   Button Events
+=========================== */
 
 convertBtn.addEventListener(
 
@@ -556,423 +445,120 @@ convertCurrency
 
 );
 
-// ================================
-// Auto Convert
-// ================================
+if(swapBtn){
 
-amountInput.addEventListener(
+    swapBtn.addEventListener(
 
-"input",
+    "click",
 
-()=>{
+    swapCurrencies
 
-if(amountInput.value.trim()!==""){
-
-convertCurrency();
+    );
 
 }
 
-}
+/* ===========================
+   Keyboard Shortcut
+=========================== */
 
-);
+amountInput.addEventListener("keydown",(event)=>{
 
-fromCurrency.addEventListener(
+    if(event.key==="Enter"){
 
-"change",
+        convertCurrency();
 
-convertCurrency
-
-);
-
-toCurrency.addEventListener(
-
-"change",
-
-convertCurrency
-
-);
-
-// ================================
-// Press Enter
-// ================================
-
-amountInput.addEventListener(
-
-"keydown",
-
-e=>{
-
-if(e.key==="Enter"){
-
-convertCurrency();
-
-}
-
-}
-
-);
-
-// ================================
-// Copy Result
-// ================================
-
-copyBtn.addEventListener(
-
-"click",
-
-async()=>{
-
-try{
-
-await navigator.clipboard.writeText(
-
-resultText.textContent
-
-);
-
-const old=copyBtn.textContent;
-
-copyBtn.textContent="✅ คัดลอกแล้ว";
-
-setTimeout(()=>{
-
-copyBtn.textContent=old;
-
-},1800);
-
-}
-
-catch{
-
-showError("ไม่สามารถคัดลอกได้");
-
-}
-
-}
-
-);
-
-// ================================
-// Reset
-// ================================
-
-function resetConverter(){
-
-amountInput.value=1;
-
-fromCurrency.value=CONFIG.DEFAULT_FROM;
-
-toCurrency.value=CONFIG.DEFAULT_TO;
-
-resultCard.style.display="none";
-
-amountInput.focus();
-
-}
-
-resetBtn.addEventListener(
-
-"click",
-
-resetConverter
-
-);
-
-// ================================
-// Prevent Invalid Input
-// ================================
-
-amountInput.addEventListener(
-
-"keypress",
-
-e=>{
-
-const char=String.fromCharCode(e.which);
-
-if(!/[0-9.]/.test(char)){
-
-e.preventDefault();
-
-}
-
-}
-
-);
-
-// ================================
-// Select All
-// ================================
-
-amountInput.addEventListener(
-
-"focus",
-
-()=>{
-
-amountInput.select();
-
-}
-
-);
-
-// ================================
-// Fade Result
-// ================================
-
-function showResult(){
-
-resultCard.style.opacity="0";
-
-resultCard.style.display="block";
-
-requestAnimationFrame(()=>{
-
-resultCard.style.transition=".3s";
-
-resultCard.style.opacity="1";
+    }
 
 });
 
-}
-
-// ================================
-// Retry Convert
-// ================================
-
-async function retryConvert(maxRetry = 3){
-
-for(let i=1;i<=maxRetry;i++){
-
-try{
-
-await convertCurrency();
-
-return true;
-
-}catch(error){
-
-console.warn(`Retry ${i}/${maxRetry}`);
-
-}
-
-}
-
-showError("ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้");
-
-return false;
-
-}
-
-// ================================
-// Auto Refresh
-// ================================
-
-setInterval(async()=>{
-
-if(document.visibilityState==="visible"){
-
-if(fromCurrency.value){
-
-await fetchRates(fromCurrency.value);
-
-convertCurrency();
-
-}
-
-}
-
-},CONFIG.AUTO_REFRESH);
-
-// ================================
-// Online / Offline
-// ================================
+/* ===========================
+   Window Online / Offline
+=========================== */
 
 window.addEventListener("offline",()=>{
 
-convertBtn.disabled=true;
-
-convertBtn.textContent="ไม่มีอินเทอร์เน็ต";
+    console.warn("Offline Mode");
 
 });
 
 window.addEventListener("online",()=>{
 
-convertBtn.disabled=false;
+    if(amountInput.value){
 
-convertBtn.textContent="แปลงสกุลเงิน";
+        convertCurrency();
 
-retryConvert();
-
-});
-
-// ================================
-// Favorite Currency
-// ================================
-
-const favoritePairs=[
-
-["USD","THB"],
-
-["THB","USD"],
-
-["EUR","THB"],
-
-["JPY","THB"],
-
-["GBP","THB"],
-
-["CNY","THB"]
-
-];
-
-function createFavoriteButtons(){
-
-const container=document.getElementById("favoriteCurrencies");
-
-if(!container)return;
-
-favoritePairs.forEach(pair=>{
-
-const button=document.createElement("button");
-
-button.className="favorite-btn";
-
-button.textContent=`${pair[0]} → ${pair[1]}`;
-
-button.onclick=()=>{
-
-fromCurrency.value=pair[0];
-
-toCurrency.value=pair[1];
-
-convertCurrency();
-
-};
-
-container.appendChild(button);
+    }
 
 });
 
-}
-
-// ================================
-// Popular Currency
-// ================================
-
-document.querySelectorAll(".popular-item").forEach(item=>{
-
-item.addEventListener("click",()=>{
-
-const pair=item.dataset.pair;
-
-if(!pair)return;
-
-const [from,to]=pair.split("-");
-
-fromCurrency.value=from;
-
-toCurrency.value=to;
-
-convertCurrency();
-
-});
-
-});
-
-// ================================
-// Save Last Pair
-// ================================
-
-function saveLastPair(){
-
-localStorage.setItem(
-
-"toolhub_currency_pair",
-
-JSON.stringify({
-
-from:fromCurrency.value,
-
-to:toCurrency.value
-
-})
-
-);
-
-}
-
-function loadLastPair(){
-
-const data=localStorage.getItem(
-
-"toolhub_currency_pair"
-
-);
-
-if(!data)return;
-
-try{
-
-const pair=JSON.parse(data);
-
-fromCurrency.value=pair.from;
-
-toCurrency.value=pair.to;
-
-}catch{}
-
-}
-
-fromCurrency.addEventListener("change",saveLastPair);
-
-toCurrency.addEventListener("change",saveLastPair);
-
-// ================================
-// Loading Animation
-// ================================
-
-function showSpinner(){
-
-document.body.classList.add("loading");
-
-}
-
-function hideSpinner(){
-
-document.body.classList.remove("loading");
-
-}
-
-// ================================
-// Initialize
-// ================================
+/* ===========================
+   Initialize
+=========================== */
 
 async function initialize(){
 
-showSpinner();
+    try{
 
-await initializeCurrencies();
+        await loadRates(fromCurrency.value);
 
-loadLastPair();
+        if(lastUpdate){
 
-createFavoriteButtons();
+            lastUpdate.style.display="block";
 
-hideSpinner();
+        }
 
-convertCurrency();
+        if(resultBox){
+
+            resultBox.style.display="none";
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+    }
 
 }
 
-// ================================
-// Start
-// ================================
+initialize();
 
-window.addEventListener("load",initialize);
+/* ===========================
+   Auto Refresh Every Hour
+=========================== */
 
-// ================================
-// ToolHub TH
-// Currency Converter
-// Version 2.0
-// End of File
-// ================================
+setInterval(()=>{
+
+    localStorage.removeItem(
+
+        cacheKey(currentBase)
+
+    );
+
+},CACHE_TIME);
+
+/* ===========================
+   Global Error Handler
+=========================== */
+
+window.addEventListener("error",(event)=>{
+
+    console.error(
+
+        "Currency Converter Error:",
+
+        event.error
+
+    );
+
+});
+
+/* ===========================
+   Version
+=========================== */
+
+console.log(
+
+"ToolHub TH Currency Converter v3.0 Loaded"
+
+);
