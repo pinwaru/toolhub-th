@@ -50,7 +50,8 @@
 .picker-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 28px;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
@@ -65,75 +66,94 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid #f1f5f9;
 }
 
 #wheelCanvas {
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
   height: auto;
 }
 
 .arrow-pointer {
   width: 0;
   height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 25px solid #dc2626;
-  margin-bottom: -10px;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 24px solid #dc2626;
+  margin-bottom: -12px;
   z-index: 10;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
 }
 
 textarea {
   width: 100%;
-  height: 180px;
-  padding: 14px;
+  height: 200px;
+  padding: 16px;
   border: 2px solid #e2e8f0;
   border-radius: 12px;
   font-family: 'Kanit', sans-serif;
   font-size: 0.95rem;
   resize: vertical;
   box-sizing: border-box;
+  transition: all 0.2s ease;
+  line-height: 1.6;
 }
 
 textarea:focus {
   outline: none;
   border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
 .btn-spin {
   background-color: #2563eb;
   color: white;
   border: none;
-  padding: 14px 28px;
+  padding: 12px 28px;
   border-radius: 30px;
   font-family: 'Kanit', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
   transition: all 0.2s ease;
   margin-top: 15px;
 }
 
 .btn-spin:hover {
   background-color: #1d4ed8;
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+.btn-spin:active {
+  transform: translateY(0);
 }
 
 .winner-box {
   background: #f0fdf4;
   border: 2px dashed #22c55e;
   border-radius: 12px;
-  padding: 15px;
+  padding: 18px;
   text-align: center;
   margin-top: 20px;
   display: none;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .winner-box h3 {
-  margin: 0;
+  margin: 6px 0 0 0;
   color: #15803d;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .feature-grid {
@@ -149,6 +169,12 @@ textarea:focus {
   border-radius: 12px;
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.feature-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 .feature-card h3 {
@@ -213,15 +239,15 @@ textarea:focus {
         ใส่รายการ/รายชื่อ (1 ชื่อต่อ 1 บรรทัด):
       </label>
       <textarea id="itemsInput" placeholder="สมชาย&#10;สมหญิง&#10;สมศักดิ์&#10;สมศรี"></textarea>
-      <div style="margin-top: 10px; font-size: 0.85rem; color: #64748b;">
-        จำนวนรายการ: <strong id="itemCount">4</strong> รายการ
+      <div style="margin-top: 10px; font-size: 0.88rem; color: #64748b;">
+        จำนวนรายการ: <strong id="itemCount" style="color: #2563eb;">4</strong> รายการ
       </div>
     </div>
 
   </div>
 
   <div id="winnerBox" class="winner-box">
-    <div style="font-size: 0.9rem; color: #166534;">🎉 ผู้โชคดีที่สุ่มได้คือ:</div>
+    <div style="font-size: 0.9rem; color: #166534; font-weight: 500;">🎉 ผู้โชคดีที่สุ่มได้คือ:</div>
     <h3 id="winnerText">-</h3>
   </div>
 
@@ -245,6 +271,13 @@ textarea:focus {
     </div>
   </div>
 </section>
+
+<!-- กล่องปุ่มลิงก์ไปยังหน้าบทความ -->
+<div class="tool" style="margin-top: 35px;">
+  <h2>📖 บทความที่เกี่ยวข้อง</h2>
+  <p>เรียนรู้วิธีการใช้งานวงล้อสุ่ม การนำไปประยุกต์ใช้ และประโยชน์ของการสุ่มระบบดิจิทัล</p>
+  <a class="back" href="../blog/random-picker-guide.html">อ่านคู่มือ Random Picker →</a>
+</div>
 
 </div>
 </main>
