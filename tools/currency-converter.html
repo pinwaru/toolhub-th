@@ -327,6 +327,23 @@ ToolHub TH รองรับการแปลงมากกว่า <strong>
 
 </footer>
 
+<button id="backToTop" title="กลับขึ้นด้านบน">⬆</button>
+
+<script>
+const backToTop = document.getElementById("backToTop");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 400) {
+    backToTop.style.display = "block";
+  } else {
+    backToTop.style.display = "none";
+  }
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+
 <script src="../js/currency-converter.js"></script>
 
 </body>
