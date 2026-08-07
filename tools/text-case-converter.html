@@ -33,60 +33,159 @@
 
 <style>
 .converter-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px 20px;
 }
-.text-area-group {
-  margin-bottom: 20px;
+
+.converter-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  margin-bottom: 30px;
 }
+
+.stats-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.stat-badge {
+  background: #f1f5f9;
+  color: #334155;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+}
+
+.stat-badge strong {
+  color: #2563eb;
+}
+
 textarea {
   width: 100%;
-  height: 180px;
-  padding: 15px;
+  height: 200px;
+  padding: 16px;
   border: 2px solid #e2e8f0;
-  border-radius: 8px;
+  border-radius: 12px;
   font-family: 'Kanit', sans-serif;
   font-size: 1rem;
   resize: vertical;
   box-sizing: border-box;
+  transition: all 0.2s ease;
+  line-height: 1.6;
 }
+
 textarea:focus {
   outline: none;
   border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
+
+.section-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  margin: 20px 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .btn-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   gap: 10px;
   margin-bottom: 20px;
 }
+
 .btn-action {
   background-color: #2563eb;
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
+  padding: 10px 14px;
+  border-radius: 8px;
   cursor: pointer;
   font-family: 'Kanit', sans-serif;
   font-weight: 500;
-  transition: background-color 0.2s;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
 }
+
 .btn-action:hover {
   background-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
 }
-.btn-secondary {
-  background-color: #64748b;
+
+.btn-action:active {
+  transform: translateY(0);
 }
-.btn-secondary:hover {
-  background-color: #475569;
-}
-.stats-bar {
+
+.control-btns {
   display: flex;
-  gap: 20px;
-  font-size: 0.9rem;
+  gap: 12px;
+  padding-top: 15px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.btn-secondary {
+  background-color: #f8fafc;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background-color: #e2e8f0;
+  color: #1e293b;
+  box-shadow: none;
+}
+
+.btn-danger {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  box-shadow: none;
+}
+
+.btn-danger:hover {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  box-shadow: none;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.feature-card {
+  background: #f8fafc;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.feature-card h3 {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 0.88rem;
   color: #64748b;
-  margin-bottom: 20px;
+  line-height: 1.5;
 }
 </style>
 </head>
@@ -118,45 +217,77 @@ textarea:focus {
 <main>
 <div class="converter-container">
 
-<h1>🔤 Text Case Converter</h1>
-<p>แปลงรูปแบบตัวพิมพ์เล็ก ตัวพิมพ์ใหญ่ และรูปแบบข้อความต่างๆ สำหรับโปรแกรมเมอร์และคนทำงานเอกสาร</p>
+<div style="text-align: center; margin-bottom: 25px;">
+  <h1 style="margin-bottom: 8px;">🔤 Text Case Converter</h1>
+  <p style="color: #64748b; margin: 0;">เครื่องมือแปลงเคสตัวอักษรสำหรับโปรแกรมเมอร์ คนทำบทความ และงานเอกสารทั่วไป</p>
+</div>
 
-<div class="text-area-group">
+<div class="converter-card">
+
+  <div class="stats-bar">
+    <div class="stat-badge">ตัวอักษร: <strong id="charCount">0</strong></div>
+    <div class="stat-badge">คำ: <strong id="wordCount">0</strong></div>
+    <div class="stat-badge">บรรทัด: <strong id="lineCount">0</strong></div>
+  </div>
+
   <textarea id="inputText" placeholder="พิมพ์หรือวางข้อความที่นี่..."></textarea>
+
+  <div class="section-label">เลือกรูปแบบที่ต้องการแปลง</div>
+
+  <div class="btn-grid">
+    <button class="btn-action" onclick="convertCase('upper')">UPPERCASE</button>
+    <button class="btn-action" onclick="convertCase('lower')">lowercase</button>
+    <button class="btn-action" onclick="convertCase('title')">Title Case</button>
+    <button class="btn-action" onclick="convertCase('capital')">Capitalized</button>
+    <button class="btn-action" onclick="convertCase('camel')">camelCase</button>
+    <button class="btn-action" onclick="convertCase('kebab')">kebab-case</button>
+    <button class="btn-action" onclick="convertCase('snake')">snake_case</button>
+  </div>
+
+  <div class="control-btns">
+    <button class="btn-action btn-secondary" onclick="copyText()">📋 คัดลอกข้อความ</button>
+    <button class="btn-action btn-danger" onclick="clearText()">🔄 ล้างข้อมูล</button>
+  </div>
+
 </div>
 
-<div class="stats-bar">
-  <span>ตัวอักษร: <strong id="charCount">0</strong></span>
-  <span>คำ: <strong id="wordCount">0</strong></span>
-</div>
-
-<div class="btn-grid">
-  <button class="btn-action" onclick="convertCase('upper')">UPPERCASE</button>
-  <button class="btn-action" onclick="convertCase('lower')">lowercase</button>
-  <button class="btn-action" onclick="convertCase('title')">Title Case</button>
-  <button class="btn-action" onclick="convertCase('capital')">Capitalized</button>
-  <button class="btn-action" onclick="convertCase('camel')">camelCase</button>
-  <button class="btn-action" onclick="convertCase('kebab')">kebab-case</button>
-  <button class="btn-action" onclick="convertCase('snake')">snake_case</button>
-</div>
-
-<div style="display: flex; gap: 10px;">
-  <button class="btn-action btn-secondary" onclick="copyText()">📋 คัดลอกข้อความ</button>
-  <button class="btn-action btn-secondary" onclick="clearText()">🔄 ล้างข้อมูล</button>
-</div>
-
-<hr style="margin: 40px 0 20px 0;">
-
-<section class="currency-info">
+<section style="margin-top: 40px;">
   <h2>💡 รูปแบบการแปลงเคสที่รองรับ</h2>
-  <ul>
-    <li><strong>UPPERCASE:</strong> เปลี่ยนตัวอักษรทั้งหมดเป็นตัวพิมพ์ใหญ่</li>
-    <li><strong>lowercase:</strong> เปลี่ยนตัวอักษรทั้งหมดเป็นตัวพิมพ์เล็ก</li>
-    <li><strong>Title Case:</strong> ตัวแรกของทุกคำเป็นตัวพิมพ์ใหญ่</li>
-    <li><strong>camelCase:</strong> คำแรกพิมพ์เล็ก คำถัดไปขึ้นด้วยตัวใหญ่ (ใช้ในงานเขียนโค้ด)</li>
-    <li><strong>kebab-case:</strong> เชื่อมทุกคำด้วยเครื่องหมายขีดกลาง (-)</li>
-  </ul>
+  
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>UPPERCASE</h3>
+      <p>เปลี่ยนตัวอักษรทั้งหมดเป็นตัวพิมพ์ใหญ่ ใช้สำหรับเน้นหัวข้อหรือรหัสอ้างอิง</p>
+    </div>
+    <div class="feature-card">
+      <h3>lowercase</h3>
+      <p>เปลี่ยนตัวอักษรทั้งหมดเป็นตัวพิมพ์เล็ก เหมาะสำหรับทำความสะอาดอีเมลหรือคีย์เวิร์ด</p>
+    </div>
+    <div class="feature-card">
+      <h3>Title Case</h3>
+      <p>เปลี่ยนอักษรตัวแรกของทุกคำให้เป็นตัวพิมพ์ใหญ่ เหมาะสำหรับตั้งชื่อบทความหรือชื่อหนังสือ</p>
+    </div>
+    <div class="feature-card">
+      <h3>camelCase</h3>
+      <p>คำแรกพิมพ์เล็ก คำถัดไปขึ้นด้วยตัวใหญ่ นิยมใช้ตั้งชื่อตัวแปรในการเขียนโปรแกรม</p>
+    </div>
+    <div class="feature-card">
+      <h3>kebab-case</h3>
+      <p>เชื่อมทุกคำด้วยขีดกลาง (-) นิยมใช้ตั้งชื่อไฟล์ สลัก URL และคลาสใน CSS</p>
+    </div>
+    <div class="feature-card">
+      <h3>snake_case</h3>
+      <p>เชื่อมทุกคำด้วยขีดล่าง (_) นิยมใช้ในฐานข้อมูลและภาษา Python</p>
+    </div>
+  </div>
 </section>
+
+<!-- กล่องปุ่มลิงก์ไปยังหน้าบทความ -->
+<div class="tool" style="margin-top: 35px;">
+  <h2>📖 บทความที่เกี่ยวข้อง</h2>
+  <p>เรียนรู้วิธีการใช้งาน Text Case แต่ละประเภท ข้อแตกต่าง และกรณีการใช้งานจริง</p>
+  <a class="back" href="../blog/text-case-converter-guide.html">อ่านคู่มือ Text Case Converter →</a>
+</div>
 
 </div>
 </main>
