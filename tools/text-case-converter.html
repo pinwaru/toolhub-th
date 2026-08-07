@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Text Case Converter | เครื่องมือแปลงเคสตัวอักษร ออนไลน์ฟรี | ToolHub TH</title>
+<meta name="description" content="เครื่องมือแปลงตัวพิมพ์เล็ก ตัวพิมพ์ใหญ่ Capitalize, Title Case, camelCase และ kebab-case ออนไลน์ฟรี ใช้งานง่ายโดย ToolHub TH">
+<meta name="keywords" content="Text Case Converter, แปลงตัวพิมพ์เล็กพิมพ์ใหญ่, แปลงข้อความ, Capitalize, camelCase, kebab-case, ToolHub TH">
+<meta name="author" content="ToolHub TH">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/text-case-converter.html">
+<link rel="icon" href="../images/logo.png" type="image/png">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1NCHJT7HR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-V1NCHJT7HR');
+</script>
+
+<style>
+.converter-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.text-area-group {
+  margin-bottom: 20px;
+}
+textarea {
+  width: 100%;
+  height: 180px;
+  padding: 15px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 1rem;
+  resize: vertical;
+  box-sizing: border-box;
+}
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.btn-action {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+.btn-action:hover {
+  background-color: #1d4ed8;
+}
+.btn-secondary {
+  background-color: #64748b;
+}
+.btn-secondary:hover {
+  background-color: #475569;
+}
+.stats-bar {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="logo">
+  <img src="../images/logo.png" alt="ToolHub TH Logo">
+  <span>ToolHub TH</span>
+</div>
+<div class="menu">
+  <a href="../index.html">หน้าแรก</a>
+  <a href="../tools.html">เครื่องมือ</a>
+  <a href="../blog.html">บทความ</a>
+  <a href="../about.html">เกี่ยวกับ</a>
+  <a href="../contact.html">ติดต่อ</a>
+</div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">หน้าแรก</a>
+  <span>›</span>
+  <a href="../tools.html">เครื่องมือ</a>
+  <span>›</span>
+  <span>Text Case Converter</span>
+</div>
+
+<main>
+<div class="converter-container">
+
+<h1>🔤 Text Case Converter</h1>
+<p>แปลงรูปแบบตัวพิมพ์เล็ก ตัวพิมพ์ใหญ่ และรูปแบบข้อความต่างๆ สำหรับโปรแกรมเมอร์และคนทำงานเอกสาร</p>
+
+<div class="text-area-group">
+  <textarea id="inputText" placeholder="พิมพ์หรือวางข้อความที่นี่..."></textarea>
+</div>
+
+<div class="stats-bar">
+  <span>ตัวอักษร: <strong id="charCount">0</strong></span>
+  <span>คำ: <strong id="wordCount">0</strong></span>
+</div>
+
+<div class="btn-grid">
+  <button class="btn-action" onclick="convertCase('upper')">UPPERCASE</button>
+  <button class="btn-action" onclick="convertCase('lower')">lowercase</button>
+  <button class="btn-action" onclick="convertCase('title')">Title Case</button>
+  <button class="btn-action" onclick="convertCase('capital')">Capitalized</button>
+  <button class="btn-action" onclick="convertCase('camel')">camelCase</button>
+  <button class="btn-action" onclick="convertCase('kebab')">kebab-case</button>
+  <button class="btn-action" onclick="convertCase('snake')">snake_case</button>
+</div>
+
+<div style="display: flex; gap: 10px;">
+  <button class="btn-action btn-secondary" onclick="copyText()">📋 คัดลอกข้อความ</button>
+  <button class="btn-action btn-secondary" onclick="clearText()">🔄 ล้างข้อมูล</button>
+</div>
+
+<hr style="margin: 40px 0 20px 0;">
+
+<section class="currency-info">
+  <h2>💡 รูปแบบการแปลงเคสที่รองรับ</h2>
+  <ul>
+    <li><strong>UPPERCASE:</strong> เปลี่ยนตัวอักษรทั้งหมดเป็นตัวพิมพ์ใหญ่</li>
+    <li><strong>lowercase:</strong> เปลี่ยนตัวอักษรทั้งหมดเป็นตัวพิมพ์เล็ก</li>
+    <li><strong>Title Case:</strong> ตัวแรกของทุกคำเป็นตัวพิมพ์ใหญ่</li>
+    <li><strong>camelCase:</strong> คำแรกพิมพ์เล็ก คำถัดไปขึ้นด้วยตัวใหญ่ (ใช้ในงานเขียนโค้ด)</li>
+    <li><strong>kebab-case:</strong> เชื่อมทุกคำด้วยเครื่องหมายขีดกลาง (-)</li>
+  </ul>
+</section>
+
+</div>
+</main>
+
+<footer>
+<h3>ToolHub TH</h3>
+<p>รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน</p>
+<p>
+<a href="../tools.html">เครื่องมือ</a> |
+<a href="../blog.html">บทความ</a> |
+<a href="../about.html">เกี่ยวกับ</a> |
+<a href="../contact.html">ติดต่อ</a> |
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+</p>
+<p>© 2026 ToolHub TH. All Rights Reserved.</p>
+</footer>
+
+<script src="../js/text-case-converter.js"></script>
+
+</body>
+</html>
