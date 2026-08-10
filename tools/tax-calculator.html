@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>คำนวณภาษีเงินได้บุคคลธรรมดา & เงินเดือนสุทธิ 2569 ออนไลน์ฟรี | ToolHub TH</title>
+
+<meta name="description" content="เครื่องคำนวณภาษีเงินได้บุคคลธรรมดาและเงินเดือนสุทธิออนไลน์ฟรี ตามอัตราภาษีขั้นบันไดปี 2569 พร้อมหักประกันสังคมและค่าลดหย่อนอัตโนมัติ">
+
+<meta name="keywords" content="คำนวณภาษี, เงินเดือนสุทธิ, ภาษีเงินได้บุคคลธรรมดา 2569, Tax Calculator, Net Salary Calculator, ประกันสังคม, ภาษีขั้นบันได">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/tax-calculator.html">
+
+<meta property="og:title" content="คำนวณภาษีเงินได้บุคคลธรรมดา & เงินเดือนสุทธิ 2569 | ToolHub TH">
+
+<meta property="og:description" content="คำนวณภาษีเงินได้และเงินเดือนสุทธิตามอัตราขั้นบันไดปี 2569 ฟรี พร้อมหักประกันสังคมอัตโนมัติ">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/tax-calculator.html">
+
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1NCHJT7HR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V1NCHJT7HR');
+</script>
+
+<link rel="stylesheet" href="../css/tax-calculator.css">
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"SoftwareApplication",
+ "name":"เครื่องคำนวณภาษีเงินได้บุคคลธรรมดา & เงินเดือนสุทธิ",
+ "applicationCategory":"FinanceApplication",
+ "operatingSystem":"Any",
+ "url":"https://pinwaru.github.io/toolhub-th/tools/tax-calculator.html",
+ "description":"เครื่องคำนวณภาษีเงินได้บุคคลธรรมดาและเงินเดือนสุทธิออนไลน์ฟรี ตามอัตราภาษีขั้นบันไดปี 2569",
+ "offers":{
+   "@type":"Offer",
+   "price":"0",
+   "priceCurrency":"THB"
+ },
+ "publisher":{
+   "@type":"Organization",
+   "name":"ToolHub TH"
+ }
+}
+</script>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="../images/logo.png" alt="ToolHub TH Logo">
+
+<span>ToolHub TH</span>
+
+</div>
+
+<div class="menu">
+
+<a href="../index.html">หน้าแรก</a>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<a href="../blog.html">บทความ</a>
+
+<a href="../about.html">เกี่ยวกับ</a>
+
+<a href="../contact.html">ติดต่อ</a>
+
+</div>
+
+</nav>
+
+<div class="breadcrumb">
+
+<a href="../index.html">หน้าแรก</a>
+
+<span>›</span>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<span>›</span>
+
+<span>เครื่องคำนวณภาษี & เงินเดือนสุทธิ</span>
+
+</div>
+
+<div class="tax-container">
+
+<h1>🧾 คำนวณภาษี & เงินเดือนสุทธิ</h1>
+
+<p>
+กรอกเงินเดือนของคุณ ระบบจะคำนวณภาษีเงินได้บุคคลธรรมดาตามอัตราขั้นบันไดปี 2569 พร้อมหักประกันสังคมและแสดงเงินเดือนสุทธิที่ได้รับจริง
+</p>
+
+<div class="input-group">
+
+<label for="monthlySalary">เงินเดือน (บาท/เดือน)</label>
+
+<input
+type="number"
+id="monthlySalary"
+placeholder="30000"
+min="0"
+aria-label="เงินเดือนต่อเดือน">
+
+</div>
+
+<div class="input-group">
+
+<label for="bonus">โบนัส / รายได้อื่นต่อปี (ถ้ามี)</label>
+
+<input
+type="number"
+id="bonus"
+placeholder="0"
+min="0"
+aria-label="โบนัสต่อปี">
+
+</div>
+
+<div class="input-group">
+
+<label for="otherDeduction">ค่าลดหย่อนอื่น ๆ ต่อปี (ถ้ามี)</label>
+
+<input
+type="number"
+id="otherDeduction"
+placeholder="0"
+min="0"
+aria-label="ค่าลดหย่อนอื่นๆ">
+
+<span class="input-hint">เช่น ค่าลดหย่อนบุตร ประกันชีวิต กองทุน SSF/RMF ดอกเบี้ยบ้าน</span>
+
+</div>
+
+<div class="input-group">
+
+<label for="includeSso" style="display:flex; align-items:center; gap:8px; font-weight:600;">
+<input type="checkbox" id="includeSso" checked style="width:auto;">
+หักเงินสมทบประกันสังคมอัตโนมัติ (5% สูงสุด 750 บาท/เดือน)
+</label>
+
+</div>
+
+<button id="calculateBtn">
+
+คำนวณ
+
+</button>
+
+<div class="result">
+
+<h2>ผลลัพธ์</h2>
+
+<p>เงินเดือนสุทธิโดยประมาณ</p>
+
+<h3 id="netSalary">-</h3>
+
+<div class="result-grid">
+
+<div class="item">
+<span class="label">รายได้รวมต่อปี</span>
+<span class="value" id="annualIncome">-</span>
+</div>
+
+<div class="item">
+<span class="label">ค่าใช้จ่าย + ค่าลดหย่อนรวม</span>
+<span class="value" id="totalDeduction">-</span>
+</div>
+
+<div class="item">
+<span class="label">เงินได้สุทธิ (ฐานภาษี)</span>
+<span class="value" id="netIncome">-</span>
+</div>
+
+<div class="item">
+<span class="label">ภาษีที่ต้องจ่ายทั้งปี</span>
+<span class="value" id="yearlyTax">-</span>
+</div>
+
+<div class="item">
+<span class="label">ภาษีเฉลี่ยต่อเดือน</span>
+<span class="value" id="monthlyTax">-</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="schedule">
+
+<h2>📊 รายละเอียดขั้นบันไดภาษี</h2>
+
+<div class="table-wrapper">
+
+<table id="scheduleTable">
+
+<thead>
+
+<tr>
+
+<th>เงินได้สุทธิ (บาท)</th>
+
+<th>อัตราภาษี</th>
+
+<th>เงินได้ในขั้นนี้</th>
+
+<th>ภาษีที่จ่าย</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<p class="disclaimer">
+⚠️ ผลลัพธ์เป็นการประมาณการเบื้องต้นสำหรับผู้มีรายได้ประเภทเงินเดือนเท่านั้น โดยรวมค่าลดหย่อนส่วนตัว 60,000 บาท และค่าใช้จ่าย 50% (สูงสุด 100,000 บาท) ตามเกณฑ์ทั่วไป ยังไม่รวมค่าลดหย่อนอื่น เช่น คู่สมรส บิดามารดา หรือประกันสุขภาพ เว้นแต่คุณจะกรอกเพิ่มเองในช่อง "ค่าลดหย่อนอื่น ๆ" ควรตรวจสอบตัวเลขจริงกับกรมสรรพากรก่อนยื่นภาษี
+</p>
+
+</div>
+
+<!-- ================= HOW TO ================= -->
+
+<section class="section">
+
+<h2>📖 วิธีใช้งาน</h2>
+
+<ol>
+
+<li>กรอกเงินเดือนต่อเดือน (บาท)</li>
+
+<li>กรอกโบนัสหรือรายได้อื่นต่อปี (ถ้ามี)</li>
+
+<li>กรอกค่าลดหย่อนอื่น ๆ ที่มีสิทธิ์ เช่น บุตร ประกันชีวิต กองทุน (ถ้ามี)</li>
+
+<li>กดปุ่ม <strong>คำนวณ</strong></li>
+
+<li>ดูผลลัพธ์ ได้แก่ เงินเดือนสุทธิ ภาษีที่ต้องจ่าย และรายละเอียดขั้นบันไดภาษี</li>
+
+</ol>
+
+</section>
+
+<!-- ================= FAQ ================= -->
+
+<section class="section">
+
+<h2>❓ คำถามที่พบบ่อย (FAQ)</h2>
+
+<h3>เครื่องคำนวณนี้ใช้อัตราภาษีปีไหน?</h3>
+
+<p>
+ใช้อัตราภาษีเงินได้บุคคลธรรมดาแบบขั้นบันไดสำหรับปีภาษี 2568 (ยื่นแบบในช่วงต้นปี 2569) ตามเกณฑ์ของกรมสรรพากร
+</p>
+
+<h3>เครื่องมือนี้หักประกันสังคมให้อัตโนมัติหรือไม่?</h3>
+
+<p>
+หักให้อัตโนมัติในอัตรา 5% ของเงินเดือน สูงสุดไม่เกิน 750 บาทต่อเดือน (9,000 บาทต่อปี) ตามเกณฑ์กองทุนประกันสังคมทั่วไป สามารถปิดการหักได้หากไม่ต้องการ
+</p>
+
+<h3>ผลลัพธ์แม่นยำเท่ากับตอนยื่นภาษีจริงหรือไม่?</h3>
+
+<p>
+เป็นการประมาณการเบื้องต้นสำหรับผู้มีรายได้ประเภทเงินเดือน ยังไม่รวมค่าลดหย่อนเฉพาะบุคคลทั้งหมด เช่น คู่สมรส บิดามารดา หรือเงินบริจาค แนะนำให้ตรวจสอบตัวเลขจริงผ่านระบบ e-Filing ของกรมสรรพากรก่อนยื่นภาษี
+</p>
+
+<h3>ใช้งานฟรีหรือไม่?</h3>
+
+<p>
+ใช้งานฟรี 100% ผ่านเว็บไซต์ ToolHub TH ไม่ต้องสมัครสมาชิก และรองรับทั้งมือถือและคอมพิวเตอร์
+</p>
+
+</section>
+
+<!-- ================= RELATED TOOLS ================= -->
+
+<section class="section">
+
+<h2>🔗 เครื่องมือที่เกี่ยวข้อง</h2>
+
+<ul>
+
+<li><a href="vat-calculator.html">💰 VAT Calculator</a></li>
+
+<li><a href="loan-calculator.html">🏦 Loan Calculator</a></li>
+
+<li><a href="percentage.html">📊 Percentage Calculator</a></li>
+
+</ul>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<h3>ToolHub TH</h3>
+
+<p>
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+© 2026 ToolHub TH. All Rights Reserved.
+</p>
+
+</footer>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"เครื่องคิดเลข",
+      "item":"https://pinwaru.github.io/toolhub-th/calculators.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"เครื่องคำนวณภาษี & เงินเดือนสุทธิ",
+      "item":"https://pinwaru.github.io/toolhub-th/tools/tax-calculator.html"
+    }
+  ]
+}
+</script>
+
+<!-- WebPage Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "name":"เครื่องคำนวณภาษีเงินได้บุคคลธรรมดา & เงินเดือนสุทธิ",
+  "url":"https://pinwaru.github.io/toolhub-th/tools/tax-calculator.html",
+  "description":"เครื่องคำนวณภาษีเงินได้บุคคลธรรมดาและเงินเดือนสุทธิออนไลน์ฟรี ตามอัตราภาษีขั้นบันไดปี 2569 พร้อมหักประกันสังคมอัตโนมัติ",
+  "inLanguage":"th",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"https://pinwaru.github.io/toolhub-th/images/logo.png"
+    }
+  }
+}
+</script>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"เครื่องคำนวณนี้ใช้อัตราภาษีปีไหน?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ใช้อัตราภาษีเงินได้บุคคลธรรมดาแบบขั้นบันไดสำหรับปีภาษี 2568 (ยื่นแบบในช่วงต้นปี 2569) ตามเกณฑ์ของกรมสรรพากร"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"เครื่องมือนี้หักประกันสังคมให้อัตโนมัติหรือไม่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"หักให้อัตโนมัติในอัตรา 5% ของเงินเดือน สูงสุดไม่เกิน 750 บาทต่อเดือน (9,000 บาทต่อปี) สามารถปิดการหักได้หากไม่ต้องการ"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"ผลลัพธ์แม่นยำเท่ากับตอนยื่นภาษีจริงหรือไม่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"เป็นการประมาณการเบื้องต้น ยังไม่รวมค่าลดหย่อนเฉพาะบุคคลทั้งหมด แนะนำให้ตรวจสอบตัวเลขจริงผ่านระบบ e-Filing ของกรมสรรพากรก่อนยื่นภาษี"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"เครื่องคำนวณภาษีของ ToolHub TH ใช้งานฟรีหรือไม่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ใช้งานฟรี ไม่ต้องสมัครสมาชิก รองรับการคำนวณผ่านคอมพิวเตอร์และมือถือ"
+      }
+    }
+  ]
+}
+</script>
+
+<script src="../js/tax-calculator.js"></script>
+
+</body>
+
+</html>
