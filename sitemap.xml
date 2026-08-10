@@ -5,24 +5,30 @@
   <!-- หน้าหลัก -->
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://pinwaru.github.io/toolhub-th/calculators.html</loc>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/blog.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- หมวดเครื่องมือ (16 ตัว) -->
+  <!-- หมวดเครื่องมือ (20 ตัว) -->
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/gpa-calculator.html</loc>
     <lastmod>2026-08-07</lastmod>
@@ -136,6 +142,50 @@
     <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://pinwaru.github.io/toolhub-th/tools/bmr-tdee-calculator.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- หมวดบทความ (Blog Guides) -->
+  <url>
+    <loc>https://pinwaru.github.io/toolhub-th/blog/gpa-calculator-guide.html</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pinwaru.github.io/toolhub-th/blog/bmi-guide.html</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pinwaru.github.io/toolhub-th/blog/text-case-converter-guide.html</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pinwaru.github.io/toolhub-th/blog/random-picker-guide.html</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pinwaru.github.io/toolhub-th/blog/tax-calculator-guide.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pinwaru.github.io/toolhub-th/blog/bmr-tdee-guide.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
