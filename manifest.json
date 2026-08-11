@@ -3,7 +3,7 @@
   "short_name": "ToolHub",
   "description": "รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน",
   "lang": "th",
-  "start_url": "/toolhub-th/",
+  "start_url": "/toolhub-th/index.html",
   "scope": "/toolhub-th/",
   "display": "standalone",
   "orientation": "portrait",
@@ -11,13 +11,13 @@
   "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "images/logo.png",
+      "src": "/toolhub-th/images/logo.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "images/logo.png",
+      "src": "/toolhub-th/images/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
