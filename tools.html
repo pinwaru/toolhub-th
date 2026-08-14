@@ -39,7 +39,8 @@
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=swap"></noscript>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -77,7 +78,7 @@
 
 <div class="logo">
 
-<img src="images/logo.png" alt="ToolHub TH">
+<img src="images/logo-nav.png" alt="ToolHub TH">
 
 <span>ToolHub TH</span>
 
@@ -87,8 +88,6 @@
 
 <a href="index.html">หน้าแรก</a>
 
-<a href="tools.html">เครื่องมือ</a>
-
 <a href="calculators.html">เครื่องมือคำนวณ</a>
 
 <a href="blog.html">บทความ</a>
@@ -96,10 +95,6 @@
 <a href="about.html">เกี่ยวกับ</a>
 
 <a href="contact.html">ติดต่อ</a>
-
-<a href="donate.html">สนับสนุน</a>
-
-<a href="privacy.html">นโยบาย</a>
 
 </div>
 
@@ -242,12 +237,11 @@
 </a>
 
 <a href="tools/countdown-timer.html" class="tool">
-<h3>⏱️ Countdown Timer & Stopwatch</h3>
-<p>นาฬิกาจับเวลาและตัวนับถอยหลังออนไลน์ฟรี พร้อมเสียงแจ้งเตือนเมื่อครบเวลา</p>
+<span class="badge-new">NEW</span>
+<h3>⏱️ นาฬิกาจับเวลา & นับถอยหลัง</h3>
+<p>Stopwatch จับเวลาเดินหน้า และ Countdown Timer นับถอยหลัง พร้อมเสียงแจ้งเตือนเมื่อครบเวลา</p>
 </a>
-
-</div>
-
+  
 </main>
 
 <footer>
@@ -267,7 +261,6 @@
 <a href="blog.html">บทความ</a> |
 <a href="about.html">เกี่ยวกับ</a> |
 <a href="contact.html">ติดต่อ</a> |
-<a href="donate.html">สนับสนุน</a> |
 <a href="privacy.html">นโยบายความเป็นส่วนตัว</a>
 </p>
 
