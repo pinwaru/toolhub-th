@@ -899,6 +899,62 @@ hr{
 }
 
 /* =======================================
+   Category Quick-jump Nav (tools.html)
+======================================= */
+
+.category-nav{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:30px;
+
+}
+
+.category-nav a{
+
+    padding:8px 16px;
+
+    background:#eef4ff;
+
+    color:#2563eb;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    transition:.2s;
+
+}
+
+.category-nav a:hover{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+@media (max-width:480px){
+
+    .category-nav a{
+
+        font-size:13px;
+
+        padding:7px 13px;
+
+    }
+
+}
+
+/* =======================================
    Footer
 ======================================= */
 
