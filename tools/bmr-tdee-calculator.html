@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>คำนวณ BMR & TDEE หาอัตราการเผาผลาญพลังงานออนไลน์ฟรี | ToolHub TH</title>
+
+<meta name="description" content="เครื่องคำนวณ BMR และ TDEE ออนไลน์ฟรี ช่วยคำนวณพลังงานที่ร่างกายต้องการต่อวัน วางแผนลดน้ำหนัก เพิ่มกล้ามเนื้อ และควบคุมน้ำหนักอย่างแม่นยำ">
+<meta name="keywords" content="คำนวณ BMR, คำนวณ TDEE, BMR Calculator, TDEE Calculator, อัตราการเผาผลาญ, ลดน้ำหนัก, แคลอรีต่อวัน, ToolHub TH">
+<meta name="author" content="ToolHub TH">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/bmr-tdee-calculator.html">
+<link rel="icon" href="../images/logo.png" type="image/png">
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional"></noscript>
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1NCHJT7HR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V1NCHJT7HR');
+</script>
+
+<style>
+.bmr-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+.bmr-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  margin-bottom: 30px;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.input-group input, .input-group select {
+  padding: 10px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 0.95rem;
+}
+
+.input-group input:focus, .input-group select:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.btn-calc {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: 'Kanit', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+.btn-calc:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.result-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 25px;
+  display: none;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 15px;
+}
+
+.result-item {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.result-item span {
+  font-size: 0.88rem;
+  color: #64748b;
+  display: block;
+}
+
+.result-item strong {
+  font-size: 1.5rem;
+  color: #2563eb;
+  display: block;
+  margin-top: 4px;
+}
+
+.goals-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 20px;
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.goal-item {
+  background: #f1f5f9;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.goal-item h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #334155;
+}
+
+.goal-item strong {
+  font-size: 1.1rem;
+  color: #1e293b;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.feature-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.feature-card h3 {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"SoftwareApplication",
+ "name":"เครื่องคำนวณ BMR & TDEE",
+ "applicationCategory":"HealthApplication",
+ "operatingSystem":"Any",
+ "url":"https://pinwaru.github.io/toolhub-th/tools/bmr-tdee-calculator.html",
+ "description":"เครื่องคำนวณ BMR และ TDEE คำนวณพลังงานพื้นฐานและพลังงานที่ใช้ต่อวันสำหรับวางแผนลดน้ำหนักออนไลน์ฟรี",
+ "offers":{
+   "@type":"Offer",
+   "price":"0",
+   "priceCurrency":"THB"
+ },
+ "publisher":{
+   "@type":"Organization",
+   "name":"ToolHub TH"
+ }
+}
+</script>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="logo">
+  <img src="../images/logo-nav.png" alt="ToolHub TH Logo">
+  <span>ToolHub TH</span>
+</div>
+<div class="menu">
+  <a href="../index.html">หน้าแรก</a>
+  <a href="../calculators.html">เครื่องคิดเลข</a>
+  <a href="../blog.html">บทความ</a>
+  <a href="../about.html">เกี่ยวกับ</a>
+  <a href="../contact.html">ติดต่อ</a>
+</div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">หน้าแรก</a>
+  <span>›</span>
+  <a href="../calculators.html">เครื่องคิดเลข</a>
+  <span>›</span>
+  <span>คำนวณ BMR & TDEE</span>
+</div>
+
+<main>
+<div class="bmr-container">
+
+<div style="text-align: center; margin-bottom: 25px;">
+  <h1 style="margin-bottom: 8px;">🏃‍♂️ คำนวณ BMR & TDEE</h1>
+  <p style="color: #64748b; margin: 0;">คำนวณพลังงานพื้นฐานที่ต้องการและพลังงานรวมที่ใช้ต่อวัน เพื่อวางแผนคุมน้ำหนักอย่างได้ผล</p>
+</div>
+
+<div class="bmr-card">
+
+  <div class="input-grid">
+    <div class="input-group">
+      <label for="gender">เพศ:</label>
+      <select id="gender">
+        <option value="male">ชาย</option>
+        <option value="female">หญิง</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="age">อายุ (ปี):</label>
+      <input type="number" id="age" placeholder="25" min="1" max="120">
+    </div>
+    <div class="input-group">
+      <label for="weight">น้ำหนัก (กิโลกรัม):</label>
+      <input type="number" id="weight" placeholder="65" step="0.1" min="1">
+    </div>
+    <div class="input-group">
+      <label for="height">ส่วนสูง (เซนติเมตร):</label>
+      <input type="number" id="height" placeholder="170" step="0.1" min="1">
+    </div>
+  </div>
+
+  <div class="input-group" style="margin-bottom: 20px;">
+    <label for="activity">ระดับการออกกำลังกาย / กิจกรรมประจำวัน:</label>
+    <select id="activity">
+      <option value="1.2">นั่งทำงานอยู่กับที่ ไม่ได้ออกกำลังกายเลย</option>
+      <option value="1.375">ออกกำลังกายเบาๆ (1-3 วัน/สัปดาห์)</option>
+      <option value="1.55">ออกกำลังกายปานกลาง (3-5 วัน/สัปดาห์)</option>
+      <option value="1.725">ออกกำลังกายหนัก (6-7 วัน/สัปดาห์)</option>
+      <option value="1.9">ออกกำลังกายหนักมาก / เป็นนักกีฬาฝึกซ้อมทุกวัน</option>
+    </select>
+  </div>
+
+  <button class="btn-calc" onclick="calculateBMR()">🔥 คำนวณอัตราเผาผลาญ</button>
+
+  <div id="resultBox" class="result-box">
+    <h3 style="margin: 0; color: #1e293b;">ผลการคำนวณพลังงานประจำวัน</h3>
+    
+    <div class="result-grid">
+      <div class="result-item">
+        <span>BMR (พลังงานขั้นต่ำขณะพัก)</span>
+        <strong id="bmrValue">0 kcal</strong>
+      </div>
+      <div class="result-item">
+        <span>TDEE (พลังงานรวมที่ใช้จริงต่อวัน)</span>
+        <strong id="tdeeValue" style="color: #16a34a;">0 kcal</strong>
+      </div>
+    </div>
+
+    <div class="goals-card">
+      <h4 style="margin: 0 0 8px 0; color: #334155;">🎯 พลังงานที่ควรได้รับตามเป้าหมายของคุณ</h4>
+      <div class="goals-grid">
+        <div class="goal-item">
+          <h4>📉 เพื่อลดน้ำหนัก (-0.5 kg/สัปดาห์)</h4>
+          <strong id="loseWeight">0 kcal</strong>
+        </div>
+        <div class="goal-item">
+          <h4>⚖️ เพื่อรักษาน้ำหนักเดิม</h4>
+          <strong id="maintainWeight">0 kcal</strong>
+        </div>
+        <div class="goal-item">
+          <h4>📈 เพื่อเพิ่มน้ำหนัก / สร้างกล้ามเนื้อ</h4>
+          <strong id="gainWeight">0 kcal</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<section style="margin-top: 40px;">
+  <h2>💡 ความหมายของ BMR และ TDEE</h2>
+  
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>🔥 BMR (Basal Metabolic Rate)</h3>
+      <p>พลังงานขั้นต่ำสุดที่ร่างกายต้องการเพื่อ維持ชีวิต เช่น การหายใจ การเต้นของหัวใจ และการทำงานของอวัยวะภายในขณะพักผ่อน</p>
+    </div>
+    <div class="feature-card">
+      <h3>⚡ TDEE (Total Daily Energy Expenditure)</h3>
+      <p>พลังงานรวมทั้งหมดที่ร่างกายเผาผลาญในแต่ละวัน โดยนำ BMR มาคูณกับระดับกิจกรรมและออกกำลังกายของคุณ</p>
+    </div>
+    <div class="feature-card">
+      <h3>🥗 หลักการลด / เพิ่มน้ำหนัก</h3>
+      <p>กินน้อยกว่า TDEE = น้ำหนักลด | กินเท่ากับ TDEE = น้ำหนักคงที่ | กินมากกว่า TDEE = น้ำหนักเพิ่มขึ้น</p>
+    </div>
+  </div>
+</section>
+
+<!-- กล่องลิงก์ไปยังหน้าบทความคู่มือ -->
+<div class="tool" style="margin-top: 35px;">
+  <h2>📖 บทความที่เกี่ยวข้อง</h2>
+  <p>เจาะลึกวิธีคำนวณ BMR & TDEE พร้อมเทคนิคจัดตารางการกินเพื่อหุ่นดีอย่างยั่งยืน</p>
+  <a class="back" href="../blog/bmr-tdee-guide.html">อ่านคู่มือ BMR & TDEE →</a>
+</div>
+
+</div>
+</main>
+
+<footer>
+<h3>ToolHub TH</h3>
+<p>รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน</p>
+<p>
+<a href="../index.html">หน้าแรก</a> |
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+<a href="../blog.html">บทความ</a> |
+<a href="../about.html">เกี่ยวกับ</a> |
+<a href="../contact.html">ติดต่อ</a> |
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+</p>
+<p>© 2026 ToolHub TH. All Rights Reserved.</p>
+</footer>
+
+<script>
+function calculateBMR() {
+  const gender = document.getElementById('gender').value;
+  const age = parseFloat(document.getElementById('age').value);
+  const weight = parseFloat(document.getElementById('weight').value);
+  const height = parseFloat(document.getElementById('height').value);
+  const activity = parseFloat(document.getElementById('activity').value);
+
+  if (!age || !weight || !height || age <= 0 || weight <= 0 || height <= 0) {
+    alert("กรุณากรอกข้อมูล อายุ น้ำหนัก และส่วนสูง ให้ครบถ้วนและถูกต้องครับ");
+    return;
+  }
+
+  // สูตร Mifflin-St Jeor Equation
+  let bmr = 0;
+  if (gender === 'male') {
+    bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+  } else {
+    bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+  }
+
+  const tdee = bmr * activity;
+
+  document.getElementById('bmrValue').textContent = Math.round(bmr).toLocaleString() + " kcal";
+  document.getElementById('tdeeValue').textContent = Math.round(tdee).toLocaleString() + " kcal";
+
+  document.getElementById('loseWeight').textContent = Math.round(tdee - 500).toLocaleString() + " kcal";
+  document.getElementById('maintainWeight').textContent = Math.round(tdee).toLocaleString() + " kcal";
+  document.getElementById('gainWeight').textContent = Math.round(tdee + 500).toLocaleString() + " kcal";
+
+  document.getElementById('resultBox').style.display = 'block';
+}
+</script>
+
+</body>
+</html>

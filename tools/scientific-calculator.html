@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Scientific Calculator | เครื่องคิดเลขวิทยาศาสตร์ออนไลน์ | ToolHub TH</title>
+
+<meta name="description" content="เครื่องคิดเลขวิทยาศาสตร์ออนไลน์ฟรี รองรับ sin, cos, tan, log, ln, √, x², xʸ, π และการคำนวณทางคณิตศาสตร์ ใช้งานฟรีผ่านเว็บไซต์ ToolHub TH">
+
+<meta name="keywords" content="Scientific Calculator, เครื่องคิดเลขวิทยาศาสตร์, Calculator Online, sin cos tan, log, ln, sqrt, ToolHub TH">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/scientific-calculator.html">
+
+<meta property="og:title" content="Scientific Calculator | ToolHub TH">
+
+<meta property="og:description" content="เครื่องคิดเลขวิทยาศาสตร์ออนไลน์ฟรี รองรับฟังก์ชันทางคณิตศาสตร์ครบถ้วน ใช้งานง่ายผ่านเว็บ">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/scientific-calculator.html">
+
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional"></noscript>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1NCHJT7HR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V1NCHJT7HR');
+</script>
+ 
+<link rel="stylesheet" href="../css/scientific-calculator.css">
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebApplication",
+ "name":"Scientific Calculator",
+ "url":"https://pinwaru.github.io/toolhub-th/tools/scientific-calculator.html",
+ "applicationCategory":"UtilitiesApplication",
+ "operatingSystem":"All",
+ "offers":{
+   "@type":"Offer",
+   "price":"0",
+   "priceCurrency":"THB"
+ },
+ "publisher":{
+   "@type":"Organization",
+   "name":"ToolHub TH"
+ }
+}
+</script>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="../images/logo-nav.png" alt="ToolHub TH Logo">
+
+<span>ToolHub TH</span>
+
+</div>
+
+<div class="menu">
+
+<a href="../index.html">หน้าแรก</a>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<a href="../blog.html">บทความ</a>
+
+<a href="../about.html">เกี่ยวกับ</a>
+
+<a href="../contact.html">ติดต่อ</a>
+
+</div>
+
+</nav>
+
+<div class="breadcrumb">
+
+<a href="../index.html">หน้าแรก</a>
+
+<span>›</span>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<span>›</span>
+
+<span>Scientific Calculator</span>
+
+</div>
+
+<main>
+
+<div class="calculator">
+
+<h1>🧪 Scientific Calculator</h1>
+
+<p>
+
+เครื่องคิดเลขวิทยาศาสตร์ออนไลน์ฟรี รองรับฟังก์ชันคณิตศาสตร์พื้นฐานและขั้นสูง เช่น sin, cos, tan, log, ln, √, x², xʸ และ π ใช้งานได้ทั้งบนมือถือและคอมพิวเตอร์
+
+</p>
+
+<input
+id="display"
+type="text"
+value="0"
+readonly
+>
+
+<div class="buttons">
+
+<button data-action="clear" class="function">AC</button>
+<button data-action="backspace" class="function">⌫</button>
+<button data-value="(">(</button>
+<button data-value=")">)</button>
+<button data-value="/">÷</button>
+
+<button data-action="sin">sin</button>
+<button data-action="cos">cos</button>
+<button data-action="tan">tan</button>
+<button data-action="sqrt">√</button>
+<button data-value="%">%</button>
+
+<button data-value="7">7</button>
+<button data-value="8">8</button>
+<button data-value="9">9</button>
+<button data-value="*">×</button>
+<button data-action="square">x²</button>
+
+<button data-value="4">4</button>
+<button data-value="5">5</button>
+<button data-value="6">6</button>
+<button data-value="-">−</button>
+<button data-action="power">xʸ</button>
+
+<button data-value="1">1</button>
+<button data-value="2">2</button>
+<button data-value="3">3</button>
+<button data-value="+">+</button>
+<button data-action="pi">π</button>
+
+<button data-action="negate">±</button>
+<button data-value="0">0</button>
+<button data-value=".">.</button>
+<button data-action="equals" class="equal">=</button>
+<button data-action="log">log</button>
+
+<button data-action="ln">ln</button>
+
+</div>
+
+<hr>
+
+<h2>วิธีใช้งาน</h2>
+
+<ol>
+
+<li>กดตัวเลขและเครื่องหมายที่ต้องการ</li>
+
+<li>เลือกฟังก์ชัน เช่น sin, cos, tan, log หรือ √</li>
+
+<li>กดเครื่องหมาย = เพื่อคำนวณผลลัพธ์</li>
+
+<li>กด AC เพื่อล้างข้อมูลทั้งหมด หรือ ⌫ เพื่อลบทีละตัวอักษร</li>
+
+</ol>
+
+<p>
+
+ต้องการเรียนรู้การใช้งานเครื่องคิดเลขวิทยาศาสตร์เพิ่มเติม?
+
+</p>
+
+<p>
+
+<a class="back" href="../blog/scientific-calculator-guide.html">
+
+📖 อ่านบทความ Scientific Calculator
+
+</a>
+
+</p>
+
+<hr>
+
+<h2>ตัวอย่างการใช้งาน</h2>
+
+<ul>
+
+<li>🧮 คำนวณค่า <strong>sin(30)</strong>, <strong>cos(60)</strong> และ <strong>tan(45)</strong></li>
+
+<li>📐 หาค่ารากที่สองด้วย <strong>√</strong></li>
+
+<li>📈 คำนวณเลขยกกำลังด้วย <strong>x²</strong> และ <strong>xʸ</strong></li>
+
+<li>📊 คำนวณลอการิทึมด้วย <strong>log</strong> และ <strong>ln</strong></li>
+
+<li>🔢 ใช้ค่าคงที่ <strong>π</strong> สำหรับการคำนวณทางเรขาคณิต</li>
+
+</ul>
+
+<hr>
+
+<h2>คำถามที่พบบ่อย</h2>
+
+<h3>Scientific Calculator คืออะไร?</h3>
+
+<p>
+
+เป็นเครื่องคิดเลขที่รองรับการคำนวณทางคณิตศาสตร์ขั้นสูง เช่น ตรีโกณมิติ ลอการิทึม รากที่สอง และเลขยกกำลัง เหมาะสำหรับนักเรียน นักศึกษา วิศวกร และผู้ที่ทำงานด้านวิทยาศาสตร์
+
+</p>
+
+<h3>ใช้งานฟรีหรือไม่?</h3>
+
+<p>
+
+ใช้งานฟรี 100% ผ่านเว็บไซต์ ToolHub TH โดยไม่ต้องสมัครสมาชิก
+
+</p>
+
+<h3>รองรับมือถือหรือไม่?</h3>
+
+<p>
+
+รองรับทั้งโทรศัพท์มือถือ แท็บเล็ต และคอมพิวเตอร์ ใช้งานได้ผ่านเว็บเบราว์เซอร์ทุกประเภท
+
+</p>
+
+<footer>
+
+<h3>ToolHub TH</h3>
+
+<p>
+
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+
+</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
+
+</footer>
+
+</main>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"Scientific Calculator คืออะไร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Scientific Calculator คือเครื่องคิดเลขวิทยาศาสตร์ที่รองรับการคำนวณขั้นสูง เช่น sin, cos, tan, log, ln, รากที่สอง และเลขยกกำลัง"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"ใช้งานฟรีหรือไม่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ใช้งานฟรีผ่านเว็บไซต์ ToolHub TH โดยไม่ต้องสมัครสมาชิก"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"รองรับการใช้งานบนมือถือหรือไม่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"รองรับทั้งโทรศัพท์มือถือ แท็บเล็ต และคอมพิวเตอร์ ผ่านเว็บเบราว์เซอร์ทุกประเภท"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"เครื่องคิดเลข",
+      "item":"https://pinwaru.github.io/toolhub-th/calculators.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"Scientific Calculator",
+      "item":"https://pinwaru.github.io/toolhub-th/tools/scientific-calculator.html"
+    }
+  ]
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.6.0/math.min.js"></script>
+
+<script src="../js/scientific-calculator.js"></script>
+
+</body>
+
+</html>
