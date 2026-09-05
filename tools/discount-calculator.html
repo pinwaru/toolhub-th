@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>คำนวณส่วนลด & ส่วนลดซ้อน ออนไลน์ฟรี | ToolHub TH</title>
+
+<meta name="description" content="เครื่องคำนวณส่วนลดออนไลน์ฟรี หาราคาหลังหักส่วนลด ยอดที่ประหยัดได้ และคำนวณส่วนลดซ้อนหลายชั้น (เช่น ลด 20% แล้วลดเพิ่มอีก 10%) ได้ทันที">
+
+<meta name="keywords" content="คำนวณส่วนลด, Discount Calculator, ส่วนลดซ้อน, ราคาหลังหักส่วนลด, คำนวณราคาลด">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/discount-calculator.html">
+
+<meta property="og:title" content="คำนวณส่วนลด & ส่วนลดซ้อน ออนไลน์ฟรี | ToolHub TH">
+
+<meta property="og:description" content="คำนวณราคาหลังหักส่วนลดและส่วนลดซ้อนหลายชั้นได้ทันที ใช้งานฟรีผ่านมือถือและคอมพิวเตอร์">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/discount-calculator.html">
+
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional"></noscript>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1NCHJT7HR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V1NCHJT7HR');
+</script>
+
+<link rel="stylesheet" href="../css/discount-calculator.css">
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"SoftwareApplication",
+ "name":"เครื่องคำนวณส่วนลด & ส่วนลดซ้อน",
+ "applicationCategory":"FinanceApplication",
+ "operatingSystem":"Any",
+ "url":"https://pinwaru.github.io/toolhub-th/tools/discount-calculator.html",
+ "description":"เครื่องคำนวณส่วนลดออนไลน์ฟรี หาราคาหลังหักส่วนลด และคำนวณส่วนลดซ้อนหลายชั้น",
+ "offers":{
+   "@type":"Offer",
+   "price":"0",
+   "priceCurrency":"THB"
+ },
+ "publisher":{
+   "@type":"Organization",
+   "name":"ToolHub TH"
+ }
+}
+</script>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="../images/logo-nav.png" alt="ToolHub TH Logo">
+
+<span>ToolHub TH</span>
+
+</div>
+
+<div class="menu">
+
+<a href="../index.html">หน้าแรก</a>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<a href="../blog.html">บทความ</a>
+
+<a href="../about.html">เกี่ยวกับ</a>
+
+<a href="../contact.html">ติดต่อ</a>
+
+</div>
+
+</nav>
+
+<div class="breadcrumb">
+
+<a href="../index.html">หน้าแรก</a>
+
+<span>›</span>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<span>›</span>
+
+<span>เครื่องคำนวณส่วนลด & ส่วนลดซ้อน</span>
+
+</div>
+
+<div class="discount-container">
+
+<h1>🏷️ คำนวณส่วนลด & ส่วนลดซ้อน</h1>
+
+<p>
+กรอกราคาสินค้าและเปอร์เซ็นต์ส่วนลด ระบบจะคำนวณราคาหลังหักส่วนลดและยอดที่ประหยัดได้ให้ทันที รองรับการคำนวณ<strong>ส่วนลดซ้อน</strong>สูงสุด 2 ชั้น เช่น ลด 20% แล้วลดเพิ่มอีก 10% จากราคาที่ลดแล้ว
+</p>
+
+<div class="input-group">
+
+<label for="originalPrice">ราคาสินค้าเดิม (บาท)</label>
+
+<input
+type="number"
+id="originalPrice"
+placeholder="1000"
+min="0"
+aria-label="ราคาสินค้าเดิม">
+
+</div>
+
+<div class="input-group">
+
+<label for="discount1">ส่วนลดที่ 1 (%)</label>
+
+<input
+type="number"
+id="discount1"
+placeholder="20"
+min="0"
+max="100"
+aria-label="ส่วนลดที่ 1 เปอร์เซ็นต์">
+
+</div>
+
+<div class="input-group">
+
+<label for="discount2">ส่วนลดที่ 2 (%) <span class="input-hint-inline">(ถ้ามี ลดซ้อนจากราคาที่ลดแล้ว)</span></label>
+
+<input
+type="number"
+id="discount2"
+placeholder="0"
+min="0"
+max="100"
+aria-label="ส่วนลดที่ 2 เปอร์เซ็นต์">
+
+</div>
+
+<button id="calculateBtn">
+
+คำนวณ
+
+</button>
+
+<div class="result">
+
+<h2>ผลลัพธ์</h2>
+
+<p>ราคาหลังหักส่วนลด</p>
+
+<h3 id="finalPrice">-</h3>
+
+<div class="result-grid">
+
+<div class="item">
+<span class="label">ราคาเดิม</span>
+<span class="value" id="originalPriceResult">-</span>
+</div>
+
+<div class="item">
+<span class="label">ประหยัดไปทั้งหมด</span>
+<span class="value" id="totalSaved">-</span>
+</div>
+
+<div class="item">
+<span class="label">ส่วนลดรวมที่แท้จริง</span>
+<span class="value" id="effectiveDiscount">-</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="schedule" id="breakdownSection" style="display:none;">
+
+<h2>📊 ขั้นตอนการคำนวณ</h2>
+
+<div class="table-wrapper">
+
+<table id="breakdownTable">
+
+<thead>
+
+<tr>
+
+<th>ขั้นตอน</th>
+
+<th>ราคาก่อนลด</th>
+
+<th>ส่วนลด</th>
+
+<th>ราคาหลังลด</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<p class="disclaimer">
+⚠️ ส่วนลดซ้อนจะคำนวณแบบ "ลดต่อเนื่อง" คือลดครั้งที่ 2 จากราคาที่ลดครั้งแรกไปแล้ว ไม่ใช่การนำเปอร์เซ็นต์มาบวกกันตรงๆ เช่น ลด 20% ซ้อนลด 10% จะเท่ากับลดจริงประมาณ 28% ไม่ใช่ 30%
+</p>
+
+</div>
+
+<!-- ================= HOW TO ================= -->
+
+<section class="section">
+
+<h2>📖 วิธีใช้งาน</h2>
+
+<ol>
+
+<li>กรอกราคาสินค้าเดิม (บาท)</li>
+
+<li>กรอกเปอร์เซ็นต์ส่วนลดที่ 1</li>
+
+<li>หากมีส่วนลดซ้อนเพิ่ม ให้กรอกเปอร์เซ็นต์ส่วนลดที่ 2 (ไม่บังคับ)</li>
+
+<li>กดปุ่ม <strong>คำนวณ</strong></li>
+
+<li>ดูราคาหลังหักส่วนลด ยอดที่ประหยัดได้ และขั้นตอนการคำนวณส่วนลดซ้อน</li>
+
+</ol>
+
+</section>
+
+<!-- ================= FAQ ================= -->
+
+<section class="section">
+
+<h2>❓ คำถามที่พบบ่อย (FAQ)</h2>
+
+<h3>ส่วนลดซ้อนคำนวณอย่างไร?</h3>
+
+<p>ส่วนลดซ้อนจะคำนวณทีละชั้นจากราคาที่เหลืออยู่ ไม่ใช่การนำเปอร์เซ็นต์มาบวกกัน เช่น ราคา 1,000 บาท ลด 20% เหลือ 800 บาท จากนั้นลดเพิ่มอีก 10% จาก 800 บาท เหลือ 720 บาท ซึ่งเท่ากับลดจริงรวม 28% ไม่ใช่ 30%</p>
+
+<h3>ทำไมส่วนลด 20% + 10% ไม่เท่ากับลด 30%?</h3>
+
+<p>เพราะส่วนลดที่สองคำนวณจากฐานราคาที่เล็กลงแล้ว (ราคาหลังหักส่วนลดแรก) จึงได้มูลค่าส่วนลดที่น้อยกว่าการนำเปอร์เซ็นต์มาบวกกันตรงๆ เสมอ</p>
+
+<h3>ใส่ส่วนลดที่ 2 ได้หรือไม่ถ้าไม่มีส่วนลดซ้อน?</h3>
+
+<p>ได้ สามารถเว้นว่างหรือใส่ 0 ในช่องส่วนลดที่ 2 ระบบจะคำนวณให้เฉพาะส่วนลดที่ 1 เท่านั้น</p>
+
+<h3>ใช้งานฟรีหรือไม่?</h3>
+
+<p>ใช้งานฟรี 100% ผ่านเว็บไซต์ ToolHub TH ไม่ต้องสมัครสมาชิก และรองรับทั้งมือถือและคอมพิวเตอร์</p>
+
+</section>
+
+<!-- ================= RELATED TOOLS ================= -->
+
+<section class="section">
+<h2>🔗 เครื่องมือที่เกี่ยวข้อง</h2>
+<ul>
+<li><a href="percentage.html">📊 Percentage Calculator</a></li>
+<li><a href="vat-calculator.html">💰 VAT Calculator</a></li>
+<li><a href="tax-calculator.html">🧾 Tax Calculator</a></li>
+</ul>
+</section>
+
+<!-- ================= RELATED ARTICLE ================= -->
+
+<section class="section">
+<div class="tool" style="margin-top: 20px;">
+<h2>📖 บทความที่เกี่ยวข้อง</h2>
+<p>เข้าใจวิธีคำนวณราคาหลังหักส่วนลด และทำไมส่วนลดซ้อน (เช่น ลด 20%+10%) ไม่เท่ากับการบวกเปอร์เซ็นต์กันตรงๆ</p>
+<a class="back" href="../blog/discount-calculator-guide.html">อ่านคู่มือคำนวณส่วนลด & ส่วนลดซ้อน →</a>
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<h3>ToolHub TH</h3>
+
+<p>รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>© 2026 ToolHub TH. All Rights Reserved.</p>
+
+</footer>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"เครื่องคิดเลข",
+      "item":"https://pinwaru.github.io/toolhub-th/calculators.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"เครื่องคำนวณส่วนลด & ส่วนลดซ้อน",
+      "item":"https://pinwaru.github.io/toolhub-th/tools/discount-calculator.html"
+    }
+  ]
+}
+</script>
+
+<!-- WebPage Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "name":"เครื่องคำนวณส่วนลด & ส่วนลดซ้อน",
+  "url":"https://pinwaru.github.io/toolhub-th/tools/discount-calculator.html",
+  "description":"เครื่องคำนวณส่วนลดออนไลน์ฟรี หาราคาหลังหักส่วนลด และคำนวณส่วนลดซ้อนหลายชั้น",
+  "inLanguage":"th",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"https://pinwaru.github.io/toolhub-th/images/logo.png"
+    }
+  }
+}
+</script>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"ส่วนลดซ้อนคำนวณอย่างไร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ส่วนลดซ้อนจะคำนวณทีละชั้นจากราคาที่เหลืออยู่ ไม่ใช่การนำเปอร์เซ็นต์มาบวกกัน เช่น ราคา 1,000 บาท ลด 20% เหลือ 800 บาท จากนั้นลดเพิ่มอีก 10% จาก 800 บาท เหลือ 720 บาท ซึ่งเท่ากับลดจริงรวม 28% ไม่ใช่ 30%"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"ทำไมส่วนลด 20% + 10% ไม่เท่ากับลด 30%?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"เพราะส่วนลดที่สองคำนวณจากฐานราคาที่เล็กลงแล้ว จึงได้มูลค่าส่วนลดที่น้อยกว่าการนำเปอร์เซ็นต์มาบวกกันตรงๆ เสมอ"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"เครื่องคำนวณส่วนลดของ ToolHub TH ใช้งานฟรีหรือไม่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ใช้งานฟรี ไม่ต้องสมัครสมาชิก รองรับการคำนวณผ่านคอมพิวเตอร์และมือถือ"
+      }
+    }
+  ]
+}
+</script>
+
+<script src="../js/discount-calculator.js"></script>
+
+</body>
+
+</html>

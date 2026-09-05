@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>วิธีคำนวณส่วนลดและส่วนลดซ้อนแบบง่าย | ToolHub TH</title>
+
+<meta name="description" content="เรียนรู้วิธีคำนวณราคาหลังหักส่วนลด และทำไมส่วนลดซ้อน (เช่น ลด 20%+10%) ไม่เท่ากับการบวกเปอร์เซ็นต์กันตรงๆ พร้อมตัวอย่างจริง และเครื่องคำนวณส่วนลดออนไลน์ฟรีจาก ToolHub TH">
+
+<meta name="keywords" content="คำนวณส่วนลด, ส่วนลดซ้อน, วิธีคิดส่วนลด, Discount Calculator, ราคาหลังหักส่วนลด">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/blog/discount-calculator-guide.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="วิธีคำนวณส่วนลดและส่วนลดซ้อนแบบง่าย | ToolHub TH">
+<meta property="og:description" content="สอนคำนวณราคาหลังหักส่วนลด และทำไมส่วนลดซ้อนไม่เท่ากับการบวกเปอร์เซ็นต์ตรงๆ พร้อมเครื่องคำนวณส่วนลดออนไลน์ฟรี">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/blog/discount-calculator-guide.html">
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+<meta property="og:locale" content="th_TH">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="วิธีคำนวณส่วนลดและส่วนลดซ้อนแบบง่าย">
+<meta name="twitter:description" content="สอนวิธีคำนวณส่วนลดและส่วนลดซ้อน พร้อมตัวอย่างและเครื่องคำนวณออนไลน์ฟรี">
+<meta name="twitter:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../images/logo.png">
+
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional"></noscript>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1NCHJT7HR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V1NCHJT7HR');
+</script>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="../images/logo-nav.png" alt="ToolHub TH Logo">
+
+<span>ToolHub TH</span>
+
+</div>
+
+<div class="menu">
+
+<a href="../index.html">หน้าแรก</a>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<a href="../blog.html">บทความ</a>
+
+<a href="../about.html">เกี่ยวกับ</a>
+
+<a href="../contact.html">ติดต่อ</a>
+
+</div>
+
+</nav>
+
+<div class="breadcrumb">
+
+<a href="../index.html">หน้าแรก</a>
+
+<span>›</span>
+
+<a href="../blog.html">บทความ</a>
+
+<span>›</span>
+
+<span>ส่วนลดและส่วนลดซ้อน</span>
+
+</div>
+
+<main>
+
+<div class="container">
+
+<h1>วิธีคำนวณส่วนลดและส่วนลดซ้อนแบบง่าย</h1>
+
+<p>
+
+เวลาช้อปปิ้งเรามักเจอป้าย <strong>"ลด 20%"</strong> หรือบางร้านมีโปรโมชันซ้อนกันหลายชั้น เช่น <strong>"ลด 20% แล้วลดเพิ่มอีก 10%"</strong> ซึ่งหลายคนเข้าใจผิดว่าเท่ากับลด 30% ทันที บทความนี้จะอธิบายวิธีคำนวณส่วนลดและส่วนลดซ้อนอย่างถูกต้อง
+
+</p>
+
+<p>
+
+การเข้าใจวิธีคิดส่วนลดจะช่วยให้ประเมินราคาสินค้าจริง เปรียบเทียบโปรโมชัน และวางแผนงบประมาณได้แม่นยำขึ้น
+
+</p>
+
+<hr>
+
+<h2>สรุปสูตรการคิดส่วนลด</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>รายการ</th>
+
+<th>สูตรคำนวณ</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>มูลค่าส่วนลด</td>
+
+<td>ราคาสินค้า × เปอร์เซ็นต์ส่วนลด ÷ 100</td>
+
+</tr>
+
+<tr>
+
+<td>ราคาหลังหักส่วนลด</td>
+
+<td>ราคาสินค้า − มูลค่าส่วนลด</td>
+
+</tr>
+
+<tr>
+
+<td>ส่วนลดซ้อน (ชั้นที่ 2)</td>
+
+<td>ราคาหลังหักส่วนลดชั้นแรก × (1 − เปอร์เซ็นต์ส่วนลดที่ 2 ÷ 100)</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<h2>วิธีคิดส่วนลดแบบชั้นเดียว</h2>
+
+<p>
+
+ใช้สูตร
+
+</p>
+
+<p>
+
+<strong>มูลค่าส่วนลด = ราคาสินค้า × เปอร์เซ็นต์ส่วนลด ÷ 100</strong>
+
+</p>
+
+<p>
+
+<strong>ราคาหลังหักส่วนลด = ราคาสินค้า − มูลค่าส่วนลด</strong>
+
+</p>
+
+<h3>ตัวอย่าง</h3>
+
+<ul>
+
+<li>ราคาสินค้า 1,000 บาท</li>
+
+<li>ลด 20%</li>
+
+<li>มูลค่าส่วนลด = 200 บาท</li>
+
+<li>ราคาหลังหักส่วนลด = 800 บาท</li>
+
+</ul>
+
+<h2>ส่วนลดซ้อนคำนวณอย่างไร?</h2>
+
+<p>
+
+จุดที่หลายคนเข้าใจผิดคือการนำเปอร์เซ็นต์ส่วนลดมาบวกกันตรงๆ เช่น 20% + 10% = 30% ซึ่ง<strong>ไม่ถูกต้อง</strong> เพราะส่วนลดซ้อนจะคำนวณ<strong>ทีละชั้นจากราคาที่เหลืออยู่</strong> ไม่ใช่จากราคาเดิม
+
+</p>
+
+<h3>ตัวอย่าง: ลด 20% ซ้อนลด 10%</h3>
+
+<ul>
+
+<li>ราคาสินค้าเดิม 1,000 บาท</li>
+
+<li>ลดครั้งที่ 1 (20%) → เหลือ 800 บาท</li>
+
+<li>ลดซ้อนครั้งที่ 2 (10% ของ 800 บาท) → เหลือ 720 บาท</li>
+
+<li>ส่วนลดที่แท้จริงรวม = (1,000 − 720) ÷ 1,000 × 100 = <strong>28%</strong> ไม่ใช่ 30%</li>
+
+</ul>
+
+<p>
+
+จะเห็นว่าราคาสุดท้ายคือ 720 บาท ซึ่งเท่ากับส่วนลดจริง 28% เท่านั้น เพราะส่วนลดชั้นที่สองคำนวณจากฐานราคาที่เล็กลงแล้ว
+
+</p>
+
+<h2>ส่วนลดซ้อนใช้ในกรณีใดบ้าง?</h2>
+
+<ul>
+
+<li>โปรโมชันช้อปปิ้งออนไลน์ที่มีทั้งส่วนลดร้านค้าและคูปองเพิ่มเติม</li>
+
+<li>โปรโมชันเทศกาลลดราคา เช่น ลดราคาหลักแล้วมีคูปองส่วนลดเพิ่ม</li>
+
+<li>การเปรียบเทียบราคาระหว่างร้านค้าที่มีวิธีจัดโปรโมชันต่างกัน</li>
+
+<li>งานบัญชีและการตั้งราคาขายของธุรกิจ</li>
+
+</ul>
+
+<h2>ใช้เครื่องคำนวณส่วนลดออนไลน์ฟรี</h2>
+
+<p>
+
+ไม่ต้องคำนวณเอง เพียงกรอกราคาสินค้าและเปอร์เซ็นต์ส่วนลด ระบบจะคำนวณราคาหลังหักส่วนลด ยอดที่ประหยัดได้ และรองรับส่วนลดซ้อนสูงสุด 2 ชั้นให้อัตโนมัติ
+
+</p>
+
+<p style="text-align:center;">
+
+<a class="back" href="../tools/discount-calculator.html">
+
+🏷️ เปิดเครื่องคำนวณส่วนลดฟรี
+
+</a>
+
+</p>
+
+<h2>บทความที่เกี่ยวข้อง</h2>
+
+<ul>
+
+<li><a href="percentage-calculator-guide.html">วิธีคิดเปอร์เซ็นต์แบบง่าย</a></li>
+
+<li><a href="vat-guide.html">VAT 7% คืออะไร?</a></li>
+
+</ul>
+
+<h2>คำถามที่พบบ่อย (FAQ)</h2>
+
+<h3>ส่วนลดซ้อนคำนวณอย่างไร?</h3>
+
+<p>
+
+ส่วนลดซ้อนคำนวณทีละชั้นจากราคาที่เหลืออยู่ ไม่ใช่การนำเปอร์เซ็นต์มาบวกกัน เช่น ลด 20% แล้วซ้อนลด 10% จะได้ส่วนลดจริงรวมประมาณ 28% ไม่ใช่ 30%
+
+</p>
+
+<h3>ทำไมส่วนลด 20% + 10% ไม่เท่ากับลด 30%?</h3>
+
+<p>
+
+เพราะส่วนลดที่สองคำนวณจากฐานราคาที่เล็กลงแล้ว (ราคาหลังหักส่วนลดแรก) จึงได้มูลค่าส่วนลดที่น้อยกว่าการนำเปอร์เซ็นต์มาบวกกันตรงๆ เสมอ
+
+</p>
+
+<h3>คำนวณส่วนลดจากราคาที่รวมส่วนลดแล้วได้หรือไม่?</h3>
+
+<p>
+
+ได้ โดยนำราคาที่เห็นมาหารด้วย (1 − เปอร์เซ็นต์ส่วนลด ÷ 100) จะได้ราคาก่อนหักส่วนลด แล้วนำผลต่างมาหามูลค่าส่วนลด
+
+</p>
+
+<hr>
+
+<p style="text-align:center;">
+
+<a class="back" href="../blog.html">
+
+← กลับหน้าบทความ
+
+</a>
+
+</p>
+
+</div>
+</main>
+
+<footer>
+
+<h3>ToolHub TH</h3>
+
+<p>
+
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+
+</p>
+
+<p>
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
+
+</footer>
+
+<!-- Article Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"วิธีคำนวณส่วนลดและส่วนลดซ้อนแบบง่าย",
+  "description":"เรียนรู้วิธีคำนวณราคาหลังหักส่วนลด และทำไมส่วนลดซ้อน (เช่น ลด 20%+10%) ไม่เท่ากับการบวกเปอร์เซ็นต์กันตรงๆ",
+  "author":{
+    "@type":"Organization",
+    "name":"ToolHub TH"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"https://pinwaru.github.io/toolhub-th/images/logo.png"
+    }
+  },
+  "datePublished":"2026-09-05",
+  "dateModified":"2026-09-05",
+  "mainEntityOfPage":"https://pinwaru.github.io/toolhub-th/blog/discount-calculator-guide.html"
+}
+</script>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"ส่วนลดซ้อนคำนวณอย่างไร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ส่วนลดซ้อนคำนวณทีละชั้นจากราคาที่เหลืออยู่ ไม่ใช่การนำเปอร์เซ็นต์มาบวกกัน เช่น ลด 20% แล้วซ้อนลด 10% จะได้ส่วนลดจริงรวมประมาณ 28% ไม่ใช่ 30%"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"ทำไมส่วนลด 20% + 10% ไม่เท่ากับลด 30%?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"เพราะส่วนลดที่สองคำนวณจากฐานราคาที่เล็กลงแล้ว จึงได้มูลค่าส่วนลดที่น้อยกว่าการนำเปอร์เซ็นต์มาบวกกันตรงๆ เสมอ"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"คำนวณส่วนลดจากราคาที่รวมส่วนลดแล้วได้หรือไม่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ได้ โดยนำราคาที่เห็นมาหารด้วย (1 − เปอร์เซ็นต์ส่วนลด ÷ 100) จะได้ราคาก่อนหักส่วนลด แล้วนำผลต่างมาหามูลค่าส่วนลด"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"บทความ",
+      "item":"https://pinwaru.github.io/toolhub-th/blog.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"วิธีคำนวณส่วนลดและส่วนลดซ้อน",
+      "item":"https://pinwaru.github.io/toolhub-th/blog/discount-calculator-guide.html"
+    }
+  ]
+}
+</script>
+
+<!-- WebSite Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "url":"https://pinwaru.github.io/toolhub-th/",
+  "name":"ToolHub TH",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH"
+  }
+}
+</script>
+
+</body>
+
+</html>
