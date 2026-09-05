@@ -54,6 +54,12 @@
 
   <!-- หมวดเครื่องมือ (Tools & Calculators) -->
   <url>
+    <loc>https://pinwaru.github.io/toolhub-th/tools/discount-calculator.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://pinwaru.github.io/toolhub-th/tools/pregnancy-calculator.html</loc>
     <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -193,6 +199,12 @@
   </url>
 
   <!-- หมวดบทความ (Blog Guides) -->
+  <url>
+    <loc>https://pinwaru.github.io/toolhub-th/blog/discount-calculator-guide.html</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://pinwaru.github.io/toolhub-th/blog/pregnancy-calculator-guide.html</loc>
     <lastmod>2026-08-15</lastmod>
