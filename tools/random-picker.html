@@ -157,6 +157,59 @@ textarea:focus {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* เอฟเฟกฉลองตอนโชว์ผู้โชคดี */
+
+.winner-box.celebrate {
+  animation: fadeIn 0.3s ease-in-out, celebratePop 0.5s ease-out, celebrateGlow 1.2s ease-in-out 2;
+}
+
+@keyframes celebratePop {
+  0%   { transform: scale(0.85); }
+  45%  { transform: scale(1.07); }
+  70%  { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+@keyframes celebrateGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(34, 197, 94, 0); }
+  50%      { box-shadow: 0 0 22px rgba(34, 197, 94, 0.55); }
+}
+
+/* คอนเฟตตี้ฉลองผู้โชคดี */
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -16px;
+  border-radius: 2px;
+  opacity: 0.95;
+  --rot: 0deg;
+  animation-name: confettiFall;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(var(--rot));
+    opacity: 0;
+  }
+}
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
