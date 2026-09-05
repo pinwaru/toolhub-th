@@ -72,22 +72,52 @@ function formatCountdown(totalSeconds) {
 // =========================
 // Beep sound (Web Audio API, no external files)
 // =========================
+//
+// หมายเหตุ: ห้ามสร้าง AudioContext ใหม่ตอนเวลาหมด (ข้างใน setInterval)
+// เพราะเบราว์เซอร์ส่วนใหญ่ (โดยเฉพาะ Safari/iOS) จะสร้างมาในสถานะ
+// "suspended" ถ้าไม่ได้เกิดขึ้นจากการคลิก/แตะของผู้ใช้โดยตรง ทำให้เสียง
+// เล่นไม่ออกแบบเงียบๆ โดยไม่มี error ใดๆ วิธีแก้คือสร้าง/ปลดล็อก
+// AudioContext ไว้ล่วงหน้าตอนผู้ใช้กดปุ่ม "เริ่ม" (ซึ่งเป็น user gesture จริง)
+// แล้วเก็บ context เดิมไว้ใช้ซ้ำตอนเวลาหมด
+
+let audioCtx = null;
+
+function unlockAudio() {
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+    }
+}
 
 function playBeep() {
     try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = ctx.createOscillator();
-        const gain = ctx.createGain();
+        if (!audioCtx) {
+            unlockAudio();
+        }
 
-        oscillator.type = "sine";
-        oscillator.frequency.value = 880;
-        gain.gain.value = 0.2;
+        const emit = () => {
+            const oscillator = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
 
-        oscillator.connect(gain);
-        gain.connect(ctx.destination);
+            oscillator.type = "sine";
+            oscillator.frequency.value = 880;
+            gain.gain.value = 0.2;
 
-        oscillator.start();
-        oscillator.stop(ctx.currentTime + 0.4);
+            oscillator.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            oscillator.start();
+            oscillator.stop(audioCtx.currentTime + 0.4);
+        };
+
+        if (audioCtx.state === "suspended") {
+            // เผื่อกรณีที่ยังไม่ถูกปลดล็อกสำเร็จ ให้ resume ก่อนแล้วค่อยเล่นเสียง
+            audioCtx.resume().then(emit);
+        } else {
+            emit();
+        }
     } catch (e) {
         // เบราว์เซอร์บางตัวอาจไม่รองรับ Web Audio API
     }
@@ -190,6 +220,10 @@ function getCountdownInputSeconds() {
 }
 
 cdStartBtn.addEventListener("click", () => {
+    // ปลดล็อก/สร้าง AudioContext ทันทีตอนคลิก (user gesture จริง) เพื่อให้
+    // เสียงแจ้งเตือนตอนเวลาหมดเล่นได้แน่นอน แม้เวลาหมดจะผ่านไปหลายนาทีแล้ว
+    unlockAudio();
+
     if (!cdRunning) {
         cdRemaining = getCountdownInputSeconds();
 
