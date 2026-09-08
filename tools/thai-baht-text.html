@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>แปลงจำนวนเงินเป็นตัวหนังสือไทย (บาทถ้วน) ฟรี | ToolHub TH</title>
+
+<meta name="description" content="เครื่องมือแปลงตัวเลขจำนวนเงินเป็นตัวหนังสือภาษาไทยออนไลน์ฟรี ใช้เขียนเช็ค ใบเสร็จ ใบกำกับภาษี เอกสารราชการ พิมพ์ตัวเลขแล้วได้คำอ่านบาทถ้วนทันที">
+
+<meta name="keywords" content="แปลงตัวเลขเป็นตัวหนังสือ, จำนวนเงินเป็นตัวอักษร, บาทถ้วน, เขียนเช็คภาษาไทย, ตัวเลขเป็นคำอ่านภาษาไทย, Thai Baht Text">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/thai-baht-text.html">
+
+<meta property="og:title" content="แปลงจำนวนเงินเป็นตัวหนังสือไทย (บาทถ้วน) ฟรี | ToolHub TH">
+
+<meta property="og:description" content="พิมพ์ตัวเลขจำนวนเงิน แล้วแปลงเป็นคำอ่านภาษาไทยทันที ใช้เขียนเช็คและเอกสารการเงินได้ถูกต้อง">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/thai-baht-text.html">
+
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional"></noscript>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1NCHJT7HR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V1NCHJT7HR');
+</script>
+  
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<img src="../images/logo-nav.png" alt="ToolHub TH Logo">
+
+<span>ToolHub TH</span>
+
+</div>
+
+<div class="menu">
+
+<a href="../index.html">หน้าแรก</a>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<a href="../blog.html">บทความ</a>
+
+<a href="../about.html">เกี่ยวกับ</a>
+
+<a href="../contact.html">ติดต่อ</a>
+
+</div>
+
+</nav>
+
+<div class="breadcrumb">
+
+<a href="../index.html">หน้าแรก</a>
+
+<span>›</span>
+
+<a href="../tools.html">เครื่องมือ</a>
+
+<span>›</span>
+
+<span>แปลงจำนวนเงินเป็นตัวหนังสือ</span>
+
+</div>
+
+<main>
+
+<div class="container">
+
+<h1>💸 แปลงจำนวนเงินเป็นตัวหนังสือไทย</h1>
+
+<p>
+
+พิมพ์จำนวนเงิน แล้วระบบจะแปลงเป็นคำอ่านภาษาไทยแบบ "บาทถ้วน" ให้ทันที ใช้เขียนเช็ค ใบเสร็จรับเงิน ใบกำกับภาษี สัญญา และเอกสารราชการต่าง ๆ ได้อย่างถูกต้อง ใช้งานฟรี ไม่ต้องติดตั้งแอป
+
+</p>
+
+<div class="tool">
+
+<h2>กรอกจำนวนเงิน</h2>
+
+<input
+type="text"
+inputmode="decimal"
+id="bahtAmount"
+placeholder="เช่น 1234.50">
+
+<br><br>
+
+<button onclick="convertBahtText()">
+
+แปลงเป็นตัวหนังสือ
+
+</button>
+
+<button onclick="resetBahtText()">
+
+ล้างข้อมูล
+
+</button>
+
+</div>
+
+<br>
+
+<div class="result" id="bahtResult">
+
+<p>ผลลัพธ์จะแสดงที่นี่</p>
+
+</div>
+
+<hr>
+
+<h2>📌 ตัวอย่างการแปลง</h2>
+
+<table>
+
+<tr>
+
+<th>ตัวเลข</th>
+
+<th>คำอ่านภาษาไทย</th>
+
+</tr>
+
+<tr>
+
+<td>1</td>
+
+<td>หนึ่งบาทถ้วน</td>
+
+</tr>
+
+<tr>
+
+<td>11</td>
+
+<td>สิบเอ็ดบาทถ้วน</td>
+
+</tr>
+
+<tr>
+
+<td>1,234.50</td>
+
+<td>หนึ่งพันสองร้อยสามสิบสี่บาทห้าสิบสตางค์</td>
+
+</tr>
+
+<tr>
+
+<td>1,000,000</td>
+
+<td>หนึ่งล้านบาทถ้วน</td>
+
+</tr>
+
+</table>
+
+<hr>
+
+<h2>❓ คำถามที่พบบ่อย</h2>
+
+<p>
+
+<strong>ทำไมต้องมีคำว่า "เอ็ด" แทน "หนึ่ง"?</strong><br>
+
+ตามหลักภาษาไทย เมื่อเลขหลักหน่วยเป็น 1 และมีตัวเลขมากกว่า 1 หลัก จะอ่านว่า "เอ็ด" แทน "หนึ่ง" เช่น 11 อ่านว่า สิบเอ็ด ไม่ใช่ สิบหนึ่ง
+
+</p>
+
+<p>
+
+<strong>ถ้าไม่มีสตางค์ต้องเขียนอย่างไร?</strong><br>
+
+หากจำนวนเงินเป็นจำนวนเต็มไม่มีเศษสตางค์ จะปิดท้ายด้วยคำว่า "ถ้วน" เสมอ เช่น 500 บาท อ่านว่า ห้าร้อยบาทถ้วน
+
+</p>
+
+<p>
+
+<strong>รองรับตัวเลขจำนวนมากแค่ไหน?</strong><br>
+
+เครื่องมือนี้รองรับจำนวนเงินได้สูงสุดถึงหลักล้านล้าน เหมาะสำหรับใช้งานทั่วไป เอกสารบัญชี และธุรกิจ
+
+</p>
+
+</div>
+
+</main>
+
+<script>
+
+function numberToThaiText(numStr){
+
+numStr=numStr.replace(/\D/g,"");
+
+if(numStr==="")return "";
+
+numStr=numStr.replace(/^0+/,"")||"0";
+
+if(numStr==="0")return "ศูนย์";
+
+const digitTH=["ศูนย์","หนึ่ง","สอง","สาม","สี่","ห้า","หก","เจ็ด","แปด","เก้า"];
+
+const place=["","สิบ","ร้อย","พัน","หมื่น","แสน"];
+
+let groups=[];
+
+let s=numStr;
+
+while(s.length>0){
+
+groups.unshift(s.slice(-6));
+
+s=s.slice(0,-6);
+
+}
+
+const numGroups=groups.length;
+
+let resultParts=[];
+
+groups.forEach((g,idx)=>{
+
+if(parseInt(g)===0){
+
+resultParts.push("");
+
+return;
+
+}
+
+let groupText="";
+
+const len=g.length;
+
+for(let i=0;i<len;i++){
+
+const digit=parseInt(g[i]);
+
+const pos=len-i-1;
+
+if(digit===0)continue;
+
+if(pos===0){
+
+if(digit===1&&len>1){
+
+groupText+="เอ็ด";
+
+}else{
+
+groupText+=digitTH[digit];
+
+}
+
+}else if(pos===1){
+
+if(digit===1){
+
+groupText+="สิบ";
+
+}else if(digit===2){
+
+groupText+="ยี่สิบ";
+
+}else{
+
+groupText+=digitTH[digit]+"สิบ";
+
+}
+
+}else{
+
+groupText+=digitTH[digit]+place[pos];
+
+}
+
+}
+
+const millionSuffix="ล้าน".repeat(numGroups-idx-1);
+
+resultParts.push(groupText+millionSuffix);
+
+});
+
+return resultParts.join("");
+
+}
+
+function thaiBahtText(amount){
+
+amount=parseFloat(amount);
+
+if(isNaN(amount))return null;
+
+const negative=amount<0;
+
+amount=Math.abs(amount);
+
+amount=Math.round(amount*100)/100;
+
+const baht=Math.floor(amount);
+
+const satang=Math.round((amount-baht)*100);
+
+let text=numberToThaiText(baht.toString())+"บาท";
+
+if(satang===0){
+
+text+="ถ้วน";
+
+}else{
+
+text+=numberToThaiText(satang.toString())+"สตางค์";
+
+}
+
+if(negative)text="ลบ"+text;
+
+return text;
+
+}
+
+function convertBahtText(){
+
+const raw=document.getElementById("bahtAmount").value.replace(/,/g,"").trim();
+
+if(raw===""||isNaN(parseFloat(raw))){
+
+document.getElementById("bahtResult").innerHTML=
+
+"<p>กรุณากรอกตัวเลขจำนวนเงินให้ถูกต้อง</p>";
+
+return;
+
+}
+
+const words=thaiBahtText(raw);
+
+const formatted=parseFloat(raw).toLocaleString("th-TH",{minimumFractionDigits:2,maximumFractionDigits:2});
+
+document.getElementById("bahtResult").innerHTML=
+
+`
+
+<h2>ผลการแปลง</h2>
+
+<table>
+
+<tr>
+
+<th>จำนวนเงิน</th>
+
+<td>${formatted} บาท</td>
+
+</tr>
+
+<tr>
+
+<th>ตัวหนังสือ</th>
+
+<td><strong>${words}</strong></td>
+
+</tr>
+
+</table>
+
+`;
+
+}
+
+function resetBahtText(){
+
+document.getElementById("bahtAmount").value="";
+
+document.getElementById("bahtResult").innerHTML=
+
+"<p>ผลลัพธ์จะแสดงที่นี่</p>";
+
+}
+
+</script>
+
+<footer>
+
+<h3>ToolHub TH</h3>
+
+<p>
+
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+
+</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
+
+</footer>
+
+<!-- WebApplication Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Thai Baht Text Converter",
+  "url":"https://pinwaru.github.io/toolhub-th/tools/thai-baht-text.html",
+  "applicationCategory":"UtilitiesApplication",
+  "operatingSystem":"Any",
+  "inLanguage":"th",
+  "description":"เครื่องมือแปลงจำนวนเงินเป็นตัวหนังสือภาษาไทยออนไลน์ฟรี ใช้เขียนเช็ค ใบเสร็จ และเอกสารการเงิน",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"https://pinwaru.github.io/toolhub-th/images/logo.png"
+    }
+  }
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"เครื่องมือ",
+      "item":"https://pinwaru.github.io/toolhub-th/tools.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"แปลงจำนวนเงินเป็นตัวหนังสือ",
+      "item":"https://pinwaru.github.io/toolhub-th/tools/thai-baht-text.html"
+    }
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"ทำไมต้องมีคำว่า เอ็ด แทน หนึ่ง?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ตามหลักภาษาไทย เมื่อเลขหลักหน่วยเป็น 1 และมีตัวเลขมากกว่า 1 หลัก จะอ่านว่า เอ็ด แทน หนึ่ง เช่น 11 อ่านว่า สิบเอ็ด"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"ถ้าไม่มีสตางค์ต้องเขียนอย่างไร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"หากจำนวนเงินเป็นจำนวนเต็มไม่มีเศษสตางค์ จะปิดท้ายด้วยคำว่า ถ้วน เสมอ เช่น 500 บาท อ่านว่า ห้าร้อยบาทถ้วน"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"เครื่องมือนี้ใช้งานฟรีหรือไม่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ใช้งานฟรี ไม่ต้องสมัครสมาชิก ประมวลผลในเบราว์เซอร์ทันที ไม่ส่งข้อมูลไปเซิร์ฟเวอร์"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+
+</html>
