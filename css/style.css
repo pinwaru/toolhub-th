@@ -121,6 +121,134 @@ ul{
 }
 
 /* =======================================
+   Navbar - Dropdown categories (เครื่องมือ / เกี่ยวกับ)
+======================================= */
+
+.menu{
+    align-items:center;
+}
+
+.dropdown{
+    position:relative;
+}
+
+.dropdown-toggle{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    background:none;
+    border:none;
+    padding:0;
+    font-family:'Kanit',sans-serif;
+    font-size:16px;
+    font-weight:600;
+    color:#333;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.dropdown-toggle:hover,
+.dropdown.open .dropdown-toggle{
+    color:#2563eb;
+}
+
+.dropdown-toggle .caret{
+    font-size:11px;
+    transition:transform .2s ease;
+}
+
+.dropdown.open .dropdown-toggle .caret{
+    transform:rotate(180deg);
+}
+
+.dropdown-panel{
+    position:absolute;
+    top:calc(100% + 16px);
+    left:0;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    box-shadow:0 16px 40px rgba(15,23,42,.12);
+    padding:18px;
+    display:none;
+    z-index:1000;
+}
+
+.dropdown.open .dropdown-panel{
+    display:flex;
+}
+
+/* dropdown ธรรมดา (เกี่ยวกับ): รายการเดียวเรียงลง */
+
+.dropdown-panel:not(.mega){
+    flex-direction:column;
+    min-width:200px;
+    gap:2px;
+}
+
+.dropdown-panel:not(.mega) a{
+    padding:9px 10px;
+    border-radius:8px;
+    font-weight:500;
+    white-space:nowrap;
+}
+
+.dropdown-panel:not(.mega) a:hover{
+    background:#eff6ff;
+}
+
+/* mega dropdown (เครื่องมือ): หลายคอลัมน์ตามหมวดหมู่ */
+
+.dropdown-panel.mega{
+    flex-direction:row;
+    gap:28px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:24px;
+}
+
+.dropdown-col{
+    min-width:170px;
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+}
+
+.dropdown-col h4{
+    font-size:13px;
+    color:#94a3b8;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    margin-bottom:8px;
+    font-weight:700;
+}
+
+.dropdown-col a{
+    padding:6px 8px;
+    margin:0 -8px;
+    border-radius:8px;
+    font-size:14.5px;
+    font-weight:500;
+    white-space:nowrap;
+}
+
+.dropdown-col a:hover{
+    background:#eff6ff;
+}
+
+.dropdown-col-all{
+    justify-content:flex-end;
+    border-left:1px solid #f1f5f9;
+    padding-left:24px;
+    gap:10px;
+}
+
+.dropdown-view-all{
+    font-weight:700 !important;
+    color:#2563eb !important;
+}
+
+/* =======================================
    Hero
 ======================================= */
 
@@ -1174,6 +1302,38 @@ a:focus-visible{
     .menu a{
 
         font-size:15px;
+
+    }
+
+    .dropdown-panel,
+    .dropdown-panel.mega{
+
+        position:static;
+        transform:none;
+        left:auto;
+        top:auto;
+        box-shadow:none;
+        border-radius:10px;
+        margin-top:10px;
+        width:100%;
+        max-width:320px;
+
+    }
+
+    .dropdown-panel.mega{
+
+        flex-direction:column;
+        gap:14px;
+
+    }
+
+    .dropdown-col-all{
+
+        border-left:none;
+        border-top:1px solid #f1f5f9;
+        padding-left:0;
+        padding-top:14px;
+        align-items:center;
 
     }
 
