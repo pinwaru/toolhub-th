@@ -164,7 +164,8 @@ ul{
 .dropdown-panel{
     position:absolute;
     top:calc(100% + 16px);
-    left:0;
+    right:0;
+    left:auto;
     background:#fff;
     border:1px solid #e5e7eb;
     border-radius:14px;
@@ -172,6 +173,10 @@ ul{
     padding:18px;
     display:none;
     z-index:1000;
+    max-height:calc(100vh - 110px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
 }
 
 .dropdown.open .dropdown-panel{
