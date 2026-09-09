@@ -201,9 +201,12 @@ ul{
 
 .dropdown-panel.mega{
     flex-direction:row;
+    flex-wrap:wrap;
     gap:28px;
-    left:50%;
-    transform:translateX(-50%);
+    right:0;
+    left:auto;
+    transform:none;
+    max-width:calc(100vw - 40px);
     padding:24px;
 }
 
