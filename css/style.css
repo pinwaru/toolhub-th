@@ -1331,6 +1331,7 @@ a:focus-visible{
     .dropdown-panel.mega{
 
         flex-direction:column;
+        flex-wrap:nowrap;
         gap:14px;
 
     }
