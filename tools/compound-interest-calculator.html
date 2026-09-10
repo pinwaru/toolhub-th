@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>เครื่องคำนวณดอกเบี้ยทบต้น (Compound Interest) ฟรี | ToolHub TH</title>
+
+<meta name="description" content="คำนวณดอกเบี้ยทบต้นออนไลน์ฟรี ใส่เงินต้น อัตราดอกเบี้ย ระยะเวลา และเงินฝากเพิ่มต่องวด ดูยอดเงินรวมและดอกเบี้ยที่ได้รับพร้อมตารางสรุปรายปี เหมาะสำหรับวางแผนออมเงินและลงทุน">
+
+<meta name="keywords" content="ดอกเบี้ยทบต้น, compound interest, คำนวณเงินออม, คำนวณเงินฝากประจำ, คำนวณดอกเบี้ยเงินฝาก, วางแผนการเงิน">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/compound-interest-calculator.html">
+
+<meta property="og:title" content="เครื่องคำนวณดอกเบี้ยทบต้น (Compound Interest) ฟรี | ToolHub TH">
+
+<meta property="og:description" content="คำนวณดอกเบี้ยทบต้น พร้อมเงินฝากเพิ่มต่องวด ดูยอดเงินรวมและตารางสรุปรายปี ใช้วางแผนออมเงินและลงทุนได้ทันที">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/compound-interest-calculator.html">
+
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional"></noscript>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1NCHJT7HR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V1NCHJT7HR');
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Compound Interest Calculator",
+  "url":"https://pinwaru.github.io/toolhub-th/tools/compound-interest-calculator.html",
+  "applicationCategory":"FinanceApplication",
+  "operatingSystem":"Any",
+  "inLanguage":"th",
+  "description":"เครื่องมือคำนวณดอกเบี้ยทบต้นออนไลน์ฟรี พร้อมเงินฝากเพิ่มต่องวดและตารางสรุปรายปี",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"https://pinwaru.github.io/toolhub-th/images/logo.png"
+    }
+  }
+}
+</script>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="logo">
+<a href="../index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+<img src="../images/logo-nav.png" alt="ToolHub TH Logo">
+<span>ToolHub TH</span>
+</a>
+</div>
+<div class="menu">
+<a href="../index.html">หน้าแรก</a>
+<div class="dropdown">
+<button type="button" class="dropdown-toggle" aria-expanded="false">เครื่องมือ <span class="caret">▾</span></button>
+<div class="dropdown-panel mega">
+<div class="dropdown-col">
+<h4>💰 การเงิน</h4>
+<a href="../tools/tax-calculator.html">คำนวณภาษี & เงินเดือนสุทธิ</a>
+<a href="../tools/vat-calculator.html">คำนวณ VAT</a>
+<a href="../tools/discount-calculator.html">คำนวณส่วนลด</a>
+<a href="../tools/loan-calculator.html">คำนวณสินเชื่อ/ผ่อนชำระ</a>
+<a href="../tools/currency-converter.html">แปลงสกุลเงิน</a>
+<a href="../tools/thai-baht-text.html">แปลงเลขเป็นตัวหนังสือไทย</a>
+<a href="../tools/compound-interest-calculator.html">คำนวณดอกเบี้ยทบต้น</a>
+</div>
+<div class="dropdown-col">
+<h4>🔢 คณิตศาสตร์</h4>
+<a href="../tools/standard-calculator.html">เครื่องคิดเลขพื้นฐาน</a>
+<a href="../tools/scientific-calculator.html">เครื่องคิดเลขวิทยาศาสตร์</a>
+<a href="../tools/percentage.html">คำนวณเปอร์เซ็นต์</a>
+<a href="../tools/gpa-calculator.html">คำนวณ GPA</a>
+<a href="../tools/grade-calculator.html">คำนวณเกรด</a>
+</div>
+<div class="dropdown-col">
+<h4>❤️ สุขภาพ</h4>
+<a href="../tools/bmi-calculator.html">คำนวณ BMI</a>
+<a href="../tools/bmr-tdee-calculator.html">คำนวณ BMR & TDEE</a>
+<a href="../tools/pregnancy-calculator.html">คำนวณอายุครรภ์ & กำหนดคลอด</a>
+<a href="../tools/age-calculator.html">คำนวณอายุ</a>
+</div>
+<div class="dropdown-col">
+<h4>🔄 แปลงหน่วย & วันที่</h4>
+<a href="../tools/unit-converter.html">แปลงหน่วย</a>
+<a href="../tools/temperature-converter.html">แปลงอุณหภูมิ</a>
+<a href="../tools/date-calculator.html">คำนวณวันที่</a>
+</div>
+<div class="dropdown-col">
+<h4>🛠️ เครื่องมือทั่วไป</h4>
+<a href="../tools/countdown-timer.html">นาฬิกาจับเวลา & นับถอยหลัง</a>
+<a href="../tools/random-picker.html">สุ่มชื่อ & วงล้อสุ่ม</a>
+<a href="../tools/qr-generator.html">สร้าง QR Code</a>
+<a href="../tools/password-generator.html">สร้างรหัสผ่าน</a>
+<a href="../tools/image-compressor.html">บีบอัดรูปภาพ</a>
+<a href="../tools/text-case-converter.html">แปลงตัวพิมพ์เล็ก-ใหญ่</a>
+<a href="../tools/word-counter.html">นับคำ & ตัวอักษร</a>
+</div>
+<div class="dropdown-col dropdown-col-all">
+<a class="dropdown-view-all" href="../tools.html">ดูเครื่องมือทั้งหมด →</a>
+<a class="dropdown-view-all" href="../calculators.html">ดูเครื่องมือคำนวณ →</a>
+</div>
+</div>
+</div>
+<a href="../blog.html">บทความ</a>
+<div class="dropdown">
+<button type="button" class="dropdown-toggle" aria-expanded="false">เกี่ยวกับ <span class="caret">▾</span></button>
+<div class="dropdown-panel">
+<a href="../about.html">เกี่ยวกับเรา</a>
+<a href="../contact.html">ติดต่อเรา</a>
+<a href="../donate.html">สนับสนุนเรา</a>
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="breadcrumb">
+
+<a href="../index.html">หน้าแรก</a>
+
+<span>›</span>
+
+<a href="../tools.html">เครื่องมือ</a>
+
+<span>›</span>
+
+<span>คำนวณดอกเบี้ยทบต้น</span>
+
+</div>
+
+<main>
+
+<div class="container">
+
+<h1>📈 เครื่องคำนวณดอกเบี้ยทบต้น</h1>
+
+<p>
+
+ใส่เงินต้น อัตราดอกเบี้ยต่อปี ระยะเวลา และความถี่ในการทบต้น ระบบจะคำนวณยอดเงินรวม ดอกเบี้ยที่ได้รับ พร้อมตารางสรุปรายปีให้ทันที ใช้วางแผนออมเงิน เงินฝากประจำ หรือการลงทุนระยะยาวได้ฟรี
+
+</p>
+
+<div class="tool">
+
+<h2>กรอกข้อมูล</h2>
+
+<label>เงินต้นเริ่มต้น (บาท)</label>
+<input type="number" id="principal" placeholder="เช่น 10000" min="0">
+
+<br><br>
+
+<label>อัตราดอกเบี้ยต่อปี (%)</label>
+<input type="number" id="rate" placeholder="เช่น 3" min="0" step="0.01">
+
+<br><br>
+
+<label>ระยะเวลา (ปี)</label>
+<input type="number" id="years" placeholder="เช่น 10" min="1" step="1">
+
+<br><br>
+
+<label>ความถี่ในการทบต้น</label>
+<select id="frequency">
+<option value="1">รายปี</option>
+<option value="2">ทุก 6 เดือน</option>
+<option value="4">รายไตรมาส</option>
+<option value="12" selected>รายเดือน</option>
+</select>
+
+<br><br>
+
+<label>เงินฝากเพิ่มต่องวด (ไม่บังคับ)</label>
+<input type="number" id="deposit" placeholder="เช่น 500" min="0" value="0">
+
+<br><br>
+
+<button onclick="calculateCompoundInterest()">
+
+คำนวณ
+
+</button>
+
+<button onclick="resetCompoundInterest()">
+
+ล้างข้อมูล
+
+</button>
+
+</div>
+
+<br>
+
+<div class="result" id="ciResult">
+
+<p>ผลลัพธ์จะแสดงที่นี่</p>
+
+</div>
+
+<hr>
+
+<h2>📌 สูตรที่ใช้คำนวณ</h2>
+
+<div class="formula-box">
+
+A = P(1 + r/n)<sup>nt</sup> + เงินฝากเพิ่มสะสมแบบทบต้นในแต่ละงวด
+
+</div>
+
+<p>
+
+โดย A คือยอดเงินรวมสุดท้าย, P คือเงินต้น, r คืออัตราดอกเบี้ยต่อปี (ทศนิยม), n คือจำนวนครั้งที่ทบต้นต่อปี และ t คือจำนวนปี
+
+</p>
+
+<hr>
+
+<h2>❓ คำถามที่พบบ่อย</h2>
+
+<p>
+
+<strong>ดอกเบี้ยทบต้นต่างจากดอกเบี้ยธรรมดาอย่างไร?</strong><br>
+
+ดอกเบี้ยธรรมดาคิดจากเงินต้นเท่านั้น ส่วนดอกเบี้ยทบต้นจะนำดอกเบี้ยที่ได้ในแต่ละงวดไปรวมเป็นเงินต้นใหม่ ทำให้ยอดเงินเติบโตเร็วขึ้นเรื่อยๆ ตามเวลา
+
+</p>
+
+<p>
+
+<strong>ทบต้นบ่อยขึ้นดีกว่าเสมอไหม?</strong><br>
+
+ใช่ ยิ่งทบต้นบ่อย (เช่น รายเดือนเทียบกับรายปี) ยอดเงินสุดท้ายจะสูงกว่าเล็กน้อยที่อัตราดอกเบี้ยเท่ากัน เพราะดอกเบี้ยถูกคำนวณซ้อนกันถี่ขึ้น
+
+</p>
+
+<p>
+
+<strong>เงินฝากเพิ่มต่องวดคำนวณอย่างไร?</strong><br>
+
+ระบบจะบวกเงินฝากเพิ่มเข้าไปทุกครั้งที่ถึงรอบทบต้น (ตามความถี่ที่เลือก) แล้วคำนวณดอกเบี้ยทบต้นต่อจากยอดใหม่ในงวดถัดไป
+
+</p>
+
+<hr>
+
+<section class="section">
+
+<h2>🔗 เครื่องมือที่เกี่ยวข้อง</h2>
+
+<ul>
+
+<li><a href="loan-calculator.html">🏦 Loan Calculator</a></li>
+
+<li><a href="currency-converter.html">💲 Currency Converter</a></li>
+
+<li><a href="percentage.html">🧮 Percentage</a></li>
+
+</ul>
+
+</section>
+
+<section class="section">
+<div class="tool" style="margin-top: 20px;">
+<h2>📖 บทความที่เกี่ยวข้อง</h2>
+<p>เรียนรู้หลักการดอกเบี้ยทบต้น สูตรคำนวณ และเทคนิควางแผนออมเงินระยะยาว</p>
+<a class="back" href="../blog/compound-interest-guide.html">อ่านคู่มือดอกเบี้ยทบต้น →</a>
+</div>
+</section>
+
+</div>
+
+</main>
+
+<script>
+
+function formatBaht(num){
+
+return Number(num).toLocaleString("th-TH",{minimumFractionDigits:2,maximumFractionDigits:2});
+
+}
+
+function calculateCompoundInterest(){
+
+const principal=parseFloat(document.getElementById("principal").value);
+const rate=parseFloat(document.getElementById("rate").value);
+const years=parseInt(document.getElementById("years").value);
+const n=parseInt(document.getElementById("frequency").value);
+const deposit=parseFloat(document.getElementById("deposit").value)||0;
+
+if(isNaN(principal)||principal<0||isNaN(rate)||rate<0||isNaN(years)||years<1){
+
+document.getElementById("ciResult").innerHTML=
+
+"<p>กรุณากรอกเงินต้น อัตราดอกเบี้ย และระยะเวลาให้ถูกต้อง</p>";
+
+return;
+
+}
+
+const i=(rate/100)/n;
+const totalPeriods=n*years;
+
+let balance=principal;
+let totalDeposit=principal;
+const yearlyRows=[];
+
+for(let p=1;p<=totalPeriods;p++){
+
+balance=balance*(1+i)+deposit;
+totalDeposit+=deposit;
+
+if(p%n===0){
+
+const yearNum=p/n;
+const interestSoFar=balance-totalDeposit;
+
+yearlyRows.push(`<tr><td>ปีที่ ${yearNum}</td><td>${formatBaht(totalDeposit)}</td><td>${formatBaht(interestSoFar)}</td><td>${formatBaht(balance)}</td></tr>`);
+
+}
+
+}
+
+const totalInterest=balance-totalDeposit;
+
+let tableRows=yearlyRows.join("");
+
+document.getElementById("ciResult").innerHTML=
+
+`
+
+<h2>ผลการคำนวณ</h2>
+
+<table>
+
+<tr>
+
+<th>เงินต้น + เงินฝากสะสม</th>
+
+<td>${formatBaht(totalDeposit)} บาท</td>
+
+</tr>
+
+<tr>
+
+<th>ดอกเบี้ยที่ได้รับทั้งหมด</th>
+
+<td>${formatBaht(totalInterest)} บาท</td>
+
+</tr>
+
+<tr>
+
+<th>ยอดเงินรวมสุดท้าย</th>
+
+<td><strong>${formatBaht(balance)} บาท</strong></td>
+
+</tr>
+
+</table>
+
+<h3 style="margin-top:20px;">ตารางสรุปรายปี</h3>
+
+<table>
+
+<tr>
+
+<th>ปี</th>
+
+<th>เงินต้น+เงินฝากสะสม</th>
+
+<th>ดอกเบี้ยสะสม</th>
+
+<th>ยอดเงินรวม</th>
+
+</tr>
+
+${tableRows}
+
+</table>
+
+`;
+
+}
+
+function resetCompoundInterest(){
+
+document.getElementById("principal").value="";
+document.getElementById("rate").value="";
+document.getElementById("years").value="";
+document.getElementById("deposit").value="0";
+document.getElementById("frequency").value="12";
+
+document.getElementById("ciResult").innerHTML=
+
+"<p>ผลลัพธ์จะแสดงที่นี่</p>";
+
+}
+
+</script>
+
+<footer>
+
+<h3>ToolHub TH</h3>
+
+<p>
+
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+
+</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
+
+</footer>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"เครื่องมือ",
+      "item":"https://pinwaru.github.io/toolhub-th/tools.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"คำนวณดอกเบี้ยทบต้น",
+      "item":"https://pinwaru.github.io/toolhub-th/tools/compound-interest-calculator.html"
+    }
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"ดอกเบี้ยทบต้นต่างจากดอกเบี้ยธรรมดาอย่างไร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ดอกเบี้ยธรรมดาคิดจากเงินต้นเท่านั้น ส่วนดอกเบี้ยทบต้นจะนำดอกเบี้ยที่ได้ในแต่ละงวดไปรวมเป็นเงินต้นใหม่ ทำให้ยอดเงินเติบโตเร็วขึ้นเรื่อยๆ ตามเวลา"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"ทบต้นบ่อยขึ้นดีกว่าเสมอไหม?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"ใช่ ยิ่งทบต้นบ่อยยอดเงินสุดท้ายจะสูงกว่าเล็กน้อยที่อัตราดอกเบี้ยเท่ากัน เพราะดอกเบี้ยถูกคำนวณซ้อนกันถี่ขึ้น"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+
+</html>
