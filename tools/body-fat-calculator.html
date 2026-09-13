@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>เครื่องคำนวณไขมันในร่างกาย (Body Fat %) ฟรี | ToolHub TH</title>
+
+<meta name="description" content="คำนวณเปอร์เซ็นต์ไขมันในร่างกายออนไลน์ฟรี ด้วยวิธี US Navy Method ใช้แค่สายวัด ไม่ต้องใช้เครื่องมือพิเศษ พร้อมแปลผลตามเกณฑ์มาตรฐานและคำนวณมวลไขมัน/มวลกล้ามเนื้อ">
+
+<meta name="keywords" content="Body Fat Calculator, คำนวณไขมันในร่างกาย, เปอร์เซ็นต์ไขมัน, US Navy Method, มวลกล้ามเนื้อ">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/body-fat-calculator.html">
+
+<meta property="og:title" content="เครื่องคำนวณไขมันในร่างกาย (Body Fat %) ฟรี | ToolHub TH">
+
+<meta property="og:description" content="คำนวณเปอร์เซ็นต์ไขมันในร่างกายด้วยวิธี US Navy Method ใช้แค่สายวัด พร้อมแปลผลตามเกณฑ์มาตรฐาน">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/body-fat-calculator.html">
+
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional"></noscript>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1NCHJT7HR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V1NCHJT7HR');
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Body Fat Calculator",
+  "url":"https://pinwaru.github.io/toolhub-th/tools/body-fat-calculator.html",
+  "applicationCategory":"HealthApplication",
+  "operatingSystem":"Any",
+  "inLanguage":"th",
+  "description":"เครื่องมือคำนวณเปอร์เซ็นต์ไขมันในร่างกายออนไลน์ฟรี ด้วยวิธี US Navy Method",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"https://pinwaru.github.io/toolhub-th/images/logo.png"
+    }
+  }
+}
+</script>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="logo">
+<a href="../index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+<img src="../images/logo-nav.png" alt="ToolHub TH Logo">
+<span>ToolHub TH</span>
+</a>
+</div>
+<div class="menu">
+<a href="../index.html">หน้าแรก</a>
+<div class="dropdown">
+<button type="button" class="dropdown-toggle" aria-expanded="false">เครื่องมือ <span class="caret">▾</span></button>
+<div class="dropdown-panel mega">
+<div class="dropdown-col">
+<h4>💰 การเงิน</h4>
+<a href="../tools/tax-calculator.html">คำนวณภาษี & เงินเดือนสุทธิ</a>
+<a href="../tools/vat-calculator.html">คำนวณ VAT</a>
+<a href="../tools/discount-calculator.html">คำนวณส่วนลด</a>
+<a href="../tools/loan-calculator.html">คำนวณสินเชื่อ/ผ่อนชำระ</a>
+<a href="../tools/currency-converter.html">แปลงสกุลเงิน</a>
+<a href="../tools/thai-baht-text.html">แปลงเลขเป็นตัวหนังสือไทย</a>
+<a href="../tools/compound-interest-calculator.html">คำนวณดอกเบี้ยทบต้น</a>
+</div>
+<div class="dropdown-col">
+<h4>🔢 คณิตศาสตร์</h4>
+<a href="../tools/standard-calculator.html">เครื่องคิดเลขพื้นฐาน</a>
+<a href="../tools/scientific-calculator.html">เครื่องคิดเลขวิทยาศาสตร์</a>
+<a href="../tools/percentage.html">คำนวณเปอร์เซ็นต์</a>
+<a href="../tools/gpa-calculator.html">คำนวณ GPA</a>
+<a href="../tools/grade-calculator.html">คำนวณเกรด</a>
+</div>
+<div class="dropdown-col">
+<h4>❤️ สุขภาพ</h4>
+<a href="../tools/bmi-calculator.html">คำนวณ BMI</a>
+<a href="../tools/bmr-tdee-calculator.html">คำนวณ BMR & TDEE</a>
+<a href="../tools/pregnancy-calculator.html">คำนวณอายุครรภ์ & กำหนดคลอด</a>
+<a href="../tools/age-calculator.html">คำนวณอายุ</a>
+<a href="../tools/body-fat-calculator.html">คำนวณไขมันในร่างกาย</a>
+</div>
+<div class="dropdown-col">
+<h4>🔄 แปลงหน่วย & วันที่</h4>
+<a href="../tools/unit-converter.html">แปลงหน่วย</a>
+<a href="../tools/temperature-converter.html">แปลงอุณหภูมิ</a>
+<a href="../tools/date-calculator.html">คำนวณวันที่</a>
+</div>
+<div class="dropdown-col">
+<h4>🛠️ เครื่องมือทั่วไป</h4>
+<a href="../tools/countdown-timer.html">นาฬิกาจับเวลา & นับถอยหลัง</a>
+<a href="../tools/random-picker.html">สุ่มชื่อ & วงล้อสุ่ม</a>
+<a href="../tools/qr-generator.html">สร้าง QR Code</a>
+<a href="../tools/password-generator.html">สร้างรหัสผ่าน</a>
+<a href="../tools/image-compressor.html">บีบอัดรูปภาพ</a>
+<a href="../tools/text-case-converter.html">แปลงตัวพิมพ์เล็ก-ใหญ่</a>
+<a href="../tools/word-counter.html">นับคำ & ตัวอักษร</a>
+</div>
+<div class="dropdown-col dropdown-col-all">
+<a class="dropdown-view-all" href="../tools.html">ดูเครื่องมือทั้งหมด →</a>
+<a class="dropdown-view-all" href="../calculators.html">ดูเครื่องมือคำนวณ →</a>
+</div>
+</div>
+</div>
+<a href="../blog.html">บทความ</a>
+<div class="dropdown">
+<button type="button" class="dropdown-toggle" aria-expanded="false">เกี่ยวกับ <span class="caret">▾</span></button>
+<div class="dropdown-panel">
+<a href="../about.html">เกี่ยวกับเรา</a>
+<a href="../contact.html">ติดต่อเรา</a>
+<a href="../donate.html">สนับสนุนเรา</a>
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+</div>
+</div>
+</div>
+</nav>
+<script src="../js/nav.js"></script>
+
+<div class="breadcrumb">
+
+<a href="../index.html">หน้าแรก</a>
+
+<span>›</span>
+
+<a href="../calculators.html">เครื่องคิดเลข</a>
+
+<span>›</span>
+
+<span>Body Fat Calculator</span>
+
+</div>
+
+<main>
+
+<div class="container">
+
+<h1>💪 เครื่องคำนวณไขมันในร่างกาย</h1>
+
+<p>
+
+คำนวณเปอร์เซ็นต์ไขมันในร่างกายด้วยวิธี US Navy Method ซึ่งใช้เพียงสายวัดตัว ไม่ต้องใช้เครื่องมือพิเศษหรือคีมวัดไขมัน (Caliper) พร้อมแปลผลตามเกณฑ์มาตรฐานและคำนวณมวลไขมัน/มวลกล้ามเนื้อโดยประมาณ
+
+</p>
+
+<div class="tool">
+
+<h2>กรอกข้อมูล</h2>
+
+<label>เพศ</label>
+<select id="bfGender" onchange="toggleHipField()">
+<option value="male">ชาย</option>
+<option value="female">หญิง</option>
+</select>
+
+<br><br>
+
+<input type="number" id="bfHeight" placeholder="ส่วนสูง (เซนติเมตร)" min="1" step="0.1">
+
+<br><br>
+
+<input type="number" id="bfNeck" placeholder="รอบคอ (เซนติเมตร)" min="1" step="0.1">
+
+<br><br>
+
+<input type="number" id="bfWaist" placeholder="รอบเอว วัดที่สะดือ (เซนติเมตร)" min="1" step="0.1">
+
+<br><br>
+
+<input type="number" id="bfHip" placeholder="รอบสะโพก (เซนติเมตร) — สำหรับเพศหญิง" min="1" step="0.1" style="display:none;">
+
+<br><br>
+
+<input type="number" id="bfWeight" placeholder="น้ำหนักตัว (กิโลกรัม) — ไม่บังคับ" min="1" step="0.1">
+
+<br><br>
+
+<button onclick="calculateBodyFat()">
+
+คำนวณ
+
+</button>
+
+<button onclick="resetBodyFat()">
+
+ล้างข้อมูล
+
+</button>
+
+</div>
+
+<br>
+
+<div class="result" id="bfResult">
+
+<p>ผลลัพธ์จะแสดงที่นี่</p>
+
+</div>
+
+<hr>
+
+<h2>📊 เกณฑ์เปอร์เซ็นต์ไขมันในร่างกาย</h2>
+
+<table>
+
+<tr>
+
+<th>ระดับ</th>
+
+<th>เพศชาย</th>
+
+<th>เพศหญิง</th>
+
+</tr>
+
+<tr>
+
+<td>ไขมันจำเป็น (Essential Fat)</td>
+
+<td>2–5%</td>
+
+<td>10–13%</td>
+
+</tr>
+
+<tr>
+
+<td>นักกีฬา (Athletes)</td>
+
+<td>6–13%</td>
+
+<td>14–20%</td>
+
+</tr>
+
+<tr>
+
+<td>ฟิต (Fitness)</td>
+
+<td>14–17%</td>
+
+<td>21–24%</td>
+
+</tr>
+
+<tr>
+
+<td>ปกติ (Average)</td>
+
+<td>18–24%</td>
+
+<td>25–31%</td>
+
+</tr>
+
+<tr>
+
+<td>อ้วน (Obese)</td>
+
+<td>25% ขึ้นไป</td>
+
+<td>32% ขึ้นไป</td>
+
+</tr>
+
+</table>
+
+<p style="font-size:14px;color:#64748b;">
+
+อ้างอิงเกณฑ์จาก American Council on Exercise (ACE)
+
+</p>
+
+<hr>
+
+<h2>📌 สูตรที่ใช้คำนวณ (US Navy Method)</h2>
+
+<div class="formula-box">
+
+ชาย: %BF = 495 / (1.0324 − 0.19077×log₁₀(เอว−คอ) + 0.15456×log₁₀(ส่วนสูง)) − 450<br><br>
+
+หญิง: %BF = 495 / (1.29579 − 0.35004×log₁₀(เอว+สะโพก−คอ) + 0.22100×log₁₀(ส่วนสูง)) − 450
+
+</div>
+
+<p>
+
+โดยทุกค่าวัดเป็นเซนติเมตร วิธีนี้พัฒนาโดยกองทัพเรือสหรัฐฯ (US Navy) เพื่อประเมินไขมันในร่างกายโดยไม่ต้องใช้เครื่องมือพิเศษ มีความแม่นยำใกล้เคียงกับการชั่งน้ำหนักใต้น้ำในหลายกรณี
+
+</p>
+
+<hr>
+
+<h2>❓ คำถามที่พบบ่อย</h2>
+
+<p>
+
+<strong>วิธีวัดรอบเอว รอบคอ และรอบสะโพกที่ถูกต้องทำอย่างไร?</strong><br>
+
+วัดรอบคอใต้ลูกกระเดือกเล็กน้อย วัดรอบเอวที่ระดับสะดือขณะหายใจออกตามปกติ (ไม่แขม่วท้อง) และวัดรอบสะโพกที่จุดกว้างที่สุดของสะโพก ควรวัดให้สายวัดแนบตัวแต่ไม่รัดแน่นเกินไป
+
+</p>
+
+<p>
+
+<strong>Body Fat % ต่างจาก BMI อย่างไร?</strong><br>
+
+BMI คำนวณจากน้ำหนักและส่วนสูงเท่านั้น ไม่สามารถแยกได้ว่าน้ำหนักที่มาจากไขมันหรือกล้ามเนื้อ ส่วน Body Fat % บอกสัดส่วนไขมันในร่างกายโดยตรง ทำให้ประเมินสุขภาพได้แม่นยำกว่า โดยเฉพาะในคนที่มีกล้ามเนื้อมาก เช่น นักกีฬา ซึ่งอาจมี BMI สูงแต่ไขมันในร่างกายต่ำ
+
+</p>
+
+<p>
+
+<strong>ผลลัพธ์แม่นยำแค่ไหน?</strong><br>
+
+US Navy Method เป็นวิธีประเมินที่สะดวกและได้รับความนิยม แต่มีค่าคลาดเคลื่อนได้บ้าง (ประมาณ ±3-4%) เมื่อเทียบกับวิธีวัดที่แม่นยำกว่า เช่น DEXA Scan จึงเหมาะสำหรับติดตามแนวโน้มการเปลี่ยนแปลงมากกว่าใช้เป็นค่าวินิจฉัยทางการแพทย์
+
+</p>
+
+<hr>
+
+<section class="section">
+
+<h2>🔗 เครื่องมือที่เกี่ยวข้อง</h2>
+
+<ul>
+
+<li><a href="bmi-calculator.html">⚖️ BMI Calculator</a></li>
+
+<li><a href="bmr-tdee-calculator.html">🔥 BMR & TDEE Calculator</a></li>
+
+<li><a href="age-calculator.html">🎂 Age Calculator</a></li>
+
+</ul>
+
+</section>
+
+<section class="section">
+<div class="tool" style="margin-top: 20px;">
+<h2>📖 บทความที่เกี่ยวข้อง</h2>
+<p>วิธีคำนวณไขมันในร่างกายด้วยตัวเอง และการแปลผลตามเกณฑ์มาตรฐาน</p>
+<a class="back" href="../blog/body-fat-guide.html">อ่านคู่มือคำนวณไขมันในร่างกาย →</a>
+</div>
+</section>
+
+</div>
+
+</main>
+
+<script>
+
+function toggleHipField(){
+
+const gender=document.getElementById("bfGender").value;
+document.getElementById("bfHip").style.display=(gender==="female")?"block":"none";
+
+}
+
+function calculateBodyFat(){
+
+const gender=document.getElementById("bfGender").value;
+const height=parseFloat(document.getElementById("bfHeight").value);
+const neck=parseFloat(document.getElementById("bfNeck").value);
+const waist=parseFloat(document.getElementById("bfWaist").value);
+const hip=parseFloat(document.getElementById("bfHip").value);
+const weight=parseFloat(document.getElementById("bfWeight").value);
+
+if(isNaN(height)||height<=0||isNaN(neck)||neck<=0||isNaN(waist)||waist<=0){
+
+document.getElementById("bfResult").innerHTML=
+
+"<p>กรุณากรอกส่วนสูง รอบคอ และรอบเอวให้ถูกต้อง</p>";
+
+return;
+
+}
+
+if(gender==="female"&&(isNaN(hip)||hip<=0)){
+
+document.getElementById("bfResult").innerHTML=
+
+"<p>กรุณากรอกรอบสะโพกสำหรับเพศหญิง</p>";
+
+return;
+
+}
+
+let bodyFat;
+
+if(gender==="male"){
+
+if(waist<=neck){
+
+document.getElementById("bfResult").innerHTML=
+
+"<p>รอบเอวต้องมากกว่ารอบคอ กรุณาตรวจสอบข้อมูลที่กรอก</p>";
+
+return;
+
+}
+
+bodyFat=495/(1.0324-0.19077*Math.log10(waist-neck)+0.15456*Math.log10(height))-450;
+
+}else{
+
+if((waist+hip)<=neck){
+
+document.getElementById("bfResult").innerHTML=
+
+"<p>ผลรวมรอบเอวและรอบสะโพกต้องมากกว่ารอบคอ กรุณาตรวจสอบข้อมูลที่กรอก</p>";
+
+return;
+
+}
+
+bodyFat=495/(1.29579-0.35004*Math.log10(waist+hip-neck)+0.22100*Math.log10(height))-450;
+
+}
+
+if(!isFinite(bodyFat)||bodyFat<=0){
+
+document.getElementById("bfResult").innerHTML=
+
+"<p>ไม่สามารถคำนวณได้ กรุณาตรวจสอบข้อมูลที่กรอกอีกครั้ง</p>";
+
+return;
+
+}
+
+bodyFat=Math.round(bodyFat*10)/10;
+
+let category="";
+
+if(gender==="male"){
+
+if(bodyFat<6)category="ไขมันจำเป็น (Essential Fat)";
+else if(bodyFat<14)category="นักกีฬา (Athletes)";
+else if(bodyFat<18)category="ฟิต (Fitness)";
+else if(bodyFat<25)category="ปกติ (Average)";
+else category="อ้วน (Obese)";
+
+}else{
+
+if(bodyFat<14)category="ไขมันจำเป็น (Essential Fat)";
+else if(bodyFat<21)category="นักกีฬา (Athletes)";
+else if(bodyFat<25)category="ฟิต (Fitness)";
+else if(bodyFat<32)category="ปกติ (Average)";
+else category="อ้วน (Obese)";
+
+}
+
+let extraRow="";
+
+if(!isNaN(weight)&&weight>0){
+
+const fatMass=Math.round(weight*(bodyFat/100)*10)/10;
+const leanMass=Math.round((weight-fatMass)*10)/10;
+
+extraRow=`
+
+<tr>
+
+<th>มวลไขมันโดยประมาณ</th>
+
+<td>${fatMass} กก.</td>
+
+</tr>
+
+<tr>
+
+<th>มวลกล้ามเนื้อ/ส่วนที่เหลือ</th>
+
+<td>${leanMass} กก.</td>
+
+</tr>
+
+`;
+
+}
+
+document.getElementById("bfResult").innerHTML=
+
+`
+
+<h2>ผลการคำนวณ</h2>
+
+<table>
+
+<tr>
+
+<th>เปอร์เซ็นต์ไขมันในร่างกาย</th>
+
+<td><strong>${bodyFat}%</strong></td>
+
+</tr>
+
+<tr>
+
+<th>ระดับ</th>
+
+<td>${category}</td>
+
+</tr>
+
+${extraRow}
+
+</table>
+
+`;
+
+}
+
+function resetBodyFat(){
+
+document.getElementById("bfGender").value="male";
+document.getElementById("bfHeight").value="";
+document.getElementById("bfNeck").value="";
+document.getElementById("bfWaist").value="";
+document.getElementById("bfHip").value="";
+document.getElementById("bfWeight").value="";
+toggleHipField();
+
+document.getElementById("bfResult").innerHTML=
+
+"<p>ผลลัพธ์จะแสดงที่นี่</p>";
+
+}
+
+</script>
+
+<footer>
+
+<h3>ToolHub TH</h3>
+
+<p>
+
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+
+</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+<a href="../calculators.html">เครื่องคิดเลข</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
+
+</footer>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"เครื่องมือ",
+      "item":"https://pinwaru.github.io/toolhub-th/tools.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"Body Fat Calculator",
+      "item":"https://pinwaru.github.io/toolhub-th/tools/body-fat-calculator.html"
+    }
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"Body Fat % ต่างจาก BMI อย่างไร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"BMI คำนวณจากน้ำหนักและส่วนสูงเท่านั้น ไม่สามารถแยกได้ว่าน้ำหนักที่มาจากไขมันหรือกล้ามเนื้อ ส่วน Body Fat % บอกสัดส่วนไขมันในร่างกายโดยตรง ทำให้ประเมินสุขภาพได้แม่นยำกว่า"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"ผลลัพธ์แม่นยำแค่ไหน?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"US Navy Method เป็นวิธีประเมินที่สะดวกและได้รับความนิยม แต่มีค่าคลาดเคลื่อนได้บ้างประมาณ 3-4% เมื่อเทียบกับวิธีวัดที่แม่นยำกว่า เช่น DEXA Scan"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+
+</html>
