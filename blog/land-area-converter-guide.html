@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ไร่ งาน ตารางวา คืออะไร? วิธีอ่านหน่วยที่ดินในโฉนด | ToolHub TH</title>
+
+<meta name="description" content="อธิบายหน่วยพื้นที่ที่ดินไทย ไร่ งาน ตารางวา พร้อมสูตรแปลงเป็นตารางเมตร วิธีอ่านโฉนดที่ดิน และตัวอย่างการคำนวณราคาที่ดินต่อตารางวา">
+
+<meta name="keywords" content="ไร่ งาน ตารางวา, หน่วยที่ดินไทย, อ่านโฉนดที่ดิน, 1 ไร่ กี่ตารางเมตร, แปลงหน่วยที่ดิน, ราคาที่ดินต่อตารางวา">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/blog/land-area-converter-guide.html">
+
+<meta property="og:title" content="ไร่ งาน ตารางวา คืออะไร? วิธีอ่านหน่วยที่ดินในโฉนด | ToolHub TH">
+<meta property="og:description" content="อธิบายหน่วยพื้นที่ที่ดินไทย พร้อมสูตรแปลงเป็นตารางเมตร และวิธีอ่านโฉนดที่ดิน">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/blog/land-area-converter-guide.html">
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+<meta property="og:locale" content="th_TH">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ไร่ งาน ตารางวา คืออะไร? วิธีอ่านหน่วยที่ดินในโฉนด">
+<meta name="twitter:description" content="อธิบายหน่วยพื้นที่ที่ดินไทย พร้อมสูตรแปลงเป็นตารางเมตร">
+<meta name="twitter:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../images/logo.png">
+
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional"></noscript>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1NCHJT7HR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V1NCHJT7HR');
+</script>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="logo">
+<a href="../index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+<img src="../images/logo-nav.png" alt="ToolHub TH Logo">
+<span>ToolHub TH</span>
+</a>
+</div>
+<div class="menu">
+<a href="../index.html">หน้าแรก</a>
+<div class="dropdown">
+<button type="button" class="dropdown-toggle" aria-expanded="false">เครื่องมือ <span class="caret">▾</span></button>
+<div class="dropdown-panel mega">
+<div class="dropdown-col">
+<h4>💰 การเงิน</h4>
+<a href="../tools/tax-calculator.html">คำนวณภาษี &amp; เงินเดือนสุทธิ</a>
+<a href="../tools/vat-calculator.html">คำนวณ VAT</a>
+<a href="../tools/discount-calculator.html">คำนวณส่วนลด</a>
+<a href="../tools/loan-calculator.html">คำนวณสินเชื่อ/ผ่อนชำระ</a>
+<a href="../tools/currency-converter.html">แปลงสกุลเงิน</a>
+<a href="../tools/thai-baht-text.html">แปลงเลขเป็นตัวหนังสือไทย</a>
+<a href="../tools/compound-interest-calculator.html">คำนวณดอกเบี้ยทบต้น</a>
+</div>
+<div class="dropdown-col">
+<h4>🔢 คณิตศาสตร์</h4>
+<a href="../tools/standard-calculator.html">เครื่องคิดเลขพื้นฐาน</a>
+<a href="../tools/scientific-calculator.html">เครื่องคิดเลขวิทยาศาสตร์</a>
+<a href="../tools/percentage.html">คำนวณเปอร์เซ็นต์</a>
+<a href="../tools/gpa-calculator.html">คำนวณ GPA</a>
+<a href="../tools/grade-calculator.html">คำนวณเกรด</a>
+</div>
+<div class="dropdown-col">
+<h4>❤️ สุขภาพ</h4>
+<a href="../tools/bmi-calculator.html">คำนวณ BMI</a>
+<a href="../tools/bmr-tdee-calculator.html">คำนวณ BMR &amp; TDEE</a>
+<a href="../tools/pregnancy-calculator.html">คำนวณอายุครรภ์ &amp; กำหนดคลอด</a>
+<a href="../tools/age-calculator.html">คำนวณอายุ</a>
+<a href="../tools/body-fat-calculator.html">คำนวณไขมันในร่างกาย</a>
+</div>
+<div class="dropdown-col">
+<h4>🔄 แปลงหน่วย &amp; วันที่</h4>
+<a href="../tools/unit-converter.html">แปลงหน่วย</a>
+<a href="../tools/land-area-converter.html">แปลงหน่วยที่ดิน ไร่-งาน-วา</a>
+<a href="../tools/temperature-converter.html">แปลงอุณหภูมิ</a>
+<a href="../tools/date-calculator.html">คำนวณวันที่</a>
+</div>
+<div class="dropdown-col">
+<h4>🛠️ เครื่องมือทั่วไป</h4>
+<a href="../tools/countdown-timer.html">นาฬิกาจับเวลา &amp; นับถอยหลัง</a>
+<a href="../tools/random-picker.html">สุ่มชื่อ &amp; วงล้อสุ่ม</a>
+<a href="../tools/qr-generator.html">สร้าง QR Code</a>
+<a href="../tools/password-generator.html">สร้างรหัสผ่าน</a>
+<a href="../tools/image-compressor.html">บีบอัดรูปภาพ</a>
+<a href="../tools/text-case-converter.html">แปลงตัวพิมพ์เล็ก-ใหญ่</a>
+<a href="../tools/word-counter.html">นับคำ &amp; ตัวอักษร</a>
+</div>
+<div class="dropdown-col dropdown-col-all">
+<a class="dropdown-view-all" href="../tools.html">ดูเครื่องมือทั้งหมด →</a>
+<a class="dropdown-view-all" href="../calculators.html">ดูเครื่องมือคำนวณ →</a>
+</div>
+</div>
+</div>
+<a href="../blog.html">บทความ</a>
+<div class="dropdown">
+<button type="button" class="dropdown-toggle" aria-expanded="false">เกี่ยวกับ <span class="caret">▾</span></button>
+<div class="dropdown-panel">
+<a href="../about.html">เกี่ยวกับเรา</a>
+<a href="../contact.html">ติดต่อเรา</a>
+<a href="../donate.html">สนับสนุนเรา</a>
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="breadcrumb">
+
+<a href="../index.html">หน้าแรก</a>
+
+<span>›</span>
+
+<a href="../blog.html">บทความ</a>
+
+<span>›</span>
+
+<span>หน่วยที่ดินไทย</span>
+
+</div>
+
+<main>
+
+<div class="container">
+
+<h1>ไร่ งาน ตารางวา คืออะไร? วิธีอ่านหน่วยที่ดินในโฉนด</h1>
+
+<p>
+
+เวลาดูโฉนดที่ดินหรือประกาศขายที่ดิน เรามักเจอตัวเลขเขียนแบบ "3 ไร่ 1 งาน 25 ตารางวา" ซึ่งต่างจากหน่วยตารางเมตรที่คุ้นเคยกัน บทความนี้จะอธิบายว่าแต่ละหน่วยหมายถึงอะไร แปลงกันอย่างไร และใช้คำนวณราคาที่ดินได้อย่างไร
+
+</p>
+
+<hr>
+
+<h2>หน่วยพื้นที่ที่ดินไทยมีอะไรบ้าง</h2>
+
+<p>
+
+ระบบหน่วยที่ดินไทยใช้ 3 หน่วยหลักเรียงจากใหญ่ไปเล็ก คือ ไร่ งาน และตารางวา โดยแต่ละหน่วยมีความสัมพันธ์กันแบบคงที่
+
+</p>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>หน่วย</th>
+
+<th>เท่ากับ</th>
+
+<th>ตารางเมตร</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>1 ไร่</td>
+
+<td>4 งาน หรือ 400 ตารางวา</td>
+
+<td>1,600 ตร.ม.</td>
+
+</tr>
+
+<tr>
+
+<td>1 งาน</td>
+
+<td>100 ตารางวา</td>
+
+<td>400 ตร.ม.</td>
+
+</tr>
+
+<tr>
+
+<td>1 ตารางวา</td>
+
+<td>พื้นที่ 2 ม. × 2 ม.</td>
+
+<td>4 ตร.ม.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<p>
+
+จำง่าย ๆ คือ 1 ไร่ เท่ากับที่ดินสี่เหลี่ยมจัตุรัสขนาดประมาณ 40 เมตร × 40 เมตร
+
+</p>
+
+<h2>วิธีแปลงตารางเมตรเป็นไร่-งาน-ตารางวา</h2>
+
+<p>
+
+ขั้นตอนคือแปลงเป็นตารางวาก่อน แล้วค่อยแยกออกเป็นไร่และงานตามลำดับ
+
+</p>
+
+<ol>
+
+<li>นำพื้นที่ (ตร.ม.) หารด้วย 4 จะได้จำนวนตารางวาทั้งหมด</li>
+
+<li>นำตารางวาทั้งหมดหารด้วย 400 ส่วนที่เป็นจำนวนเต็มคือจำนวน "ไร่"</li>
+
+<li>นำเศษที่เหลือหารด้วย 100 ส่วนที่เป็นจำนวนเต็มคือจำนวน "งาน"</li>
+
+<li>เศษสุดท้ายที่เหลือคือจำนวน "ตารางวา"</li>
+
+</ol>
+
+<h2>ตัวอย่างการคำนวณจริง</h2>
+
+<p>
+
+สมมติที่ดินมีพื้นที่ 5,300 ตารางเมตร
+
+</p>
+
+<ul>
+
+<li>5,300 ÷ 4 = 1,325 ตารางวา</li>
+
+<li>1,325 ÷ 400 = 3 เศษ 125 → ได้ <strong>3 ไร่</strong></li>
+
+<li>125 ÷ 100 = 1 เศษ 25 → ได้ <strong>1 งาน</strong></li>
+
+<li>เหลือ <strong>25 ตารางวา</strong></li>
+
+</ul>
+
+<p>
+
+สรุปคือ 5,300 ตารางเมตร เท่ากับ <strong>3 ไร่ 1 งาน 25 ตารางวา</strong> หรือคิดเป็น 3.313 ไร่ ก็ได้เช่นกัน ทั้งสองแบบถูกต้องเหมือนกัน เพียงแต่โฉนดที่ดินไทยนิยมเขียนแบบแยกหน่วยย่อยมากกว่าเขียนเป็นทศนิยม
+
+</p>
+
+<h2>ใช้คำนวณราคาที่ดินอย่างไร</h2>
+
+<p>
+
+ราคาที่ดินในไทยมักประกาศเป็น "บาทต่อตารางวา" ดังนั้นเมื่อแปลงพื้นที่เป็นตารางวาได้แล้ว ก็นำไปคูณกับราคาต่อตารางวาได้ทันที
+
+</p>
+
+<p>
+
+ตัวอย่าง: ที่ดิน 3 ไร่ 1 งาน 25 ตารางวา (= 1,325 ตารางวา) ราคาตารางวาละ 20,000 บาท จะมีมูลค่า 1,325 × 20,000 = 26,500,000 บาท
+
+</p>
+
+<h2>เทียบกับหน่วยสากล</h2>
+
+<p>
+
+หากต้องเทียบกับเอกสารต่างประเทศ สามารถใช้ค่าประมาณดังนี้
+
+</p>
+
+<ul>
+
+<li>1 เฮกตาร์ = 10,000 ตร.ม. = 6 ไร่ 1 งาน</li>
+
+<li>1 เอเคอร์ ≈ 4,046.86 ตร.ม. ≈ 2 ไร่ 2 งาน 11.7 ตารางวา</li>
+
+</ul>
+
+<h2>ใช้เครื่องมือแปลงหน่วยที่ดินออนไลน์ฟรี</h2>
+
+<p>
+
+ไม่ต้องคำนวณเอง เพียงกรอกพื้นที่เป็นตารางเมตร ระบบจะแปลงเป็นไร่-งาน-ตารางวาให้ทันที หรือจะกรอกจากโฉนดแล้วแปลงกลับเป็นตารางเมตรก็ได้เช่นกัน
+
+</p>
+
+<p style="text-align:center;">
+
+<a class="back" href="../tools/land-area-converter.html">
+
+🏞️ เปิดเครื่องมือแปลงหน่วยที่ดินฟรี
+
+</a>
+
+</p>
+
+<h2>บทความที่เกี่ยวข้อง</h2>
+
+<ul>
+
+<li><a href="unit-converter-guide.html">วิธีใช้เครื่องแปลงหน่วย</a></li>
+
+<li><a href="percentage-calculator-guide.html">วิธีคำนวณเปอร์เซ็นต์แบบง่าย</a></li>
+
+<li><a href="loan-calculator-guide.html">วิธีคำนวณสินเชื่อและค่างวด</a></li>
+
+</ul>
+
+<h2>คำถามที่พบบ่อย (FAQ)</h2>
+
+<h3>1 ไร่ เท่ากับกี่ตารางเมตร?</h3>
+
+<p>
+
+1 ไร่ เท่ากับ 1,600 ตารางเมตร หรือเทียบเป็นรูปสี่เหลี่ยมจัตุรัสขนาดประมาณ 40 เมตร × 40 เมตร
+
+</p>
+
+<h3>1 งาน เท่ากับกี่ตารางวา?</h3>
+
+<p>
+
+1 งาน เท่ากับ 100 ตารางวา หรือ 400 ตารางเมตร และ 4 งาน รวมกันเป็น 1 ไร่
+
+</p>
+
+<h3>ทำไมโฉนดไม่เขียนเป็นทศนิยมของไร่?</h3>
+
+<p>
+
+การเขียนแบบไร่-งาน-ตารางวา ช่วยให้ระบุพื้นที่ได้ละเอียดถึงหน่วยตารางวาโดยไม่ต้องใช้ทศนิยมยาว ๆ ซึ่งสะดวกกว่าในการจดทะเบียนและซื้อขายที่ดิน
+
+</p>
+
+<hr>
+
+<p style="text-align:center;">
+
+<a class="back" href="../blog.html">
+
+← กลับหน้าบทความ
+
+</a>
+
+</p>
+
+</div>
+</main>
+
+<footer>
+
+<h3>ToolHub TH</h3>
+
+<p>
+
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน
+
+</p>
+
+<p>
+
+<a href="../tools.html">เครื่องมือ</a> |
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
+
+</footer>
+
+<script src="../js/nav.js"></script>
+
+<!-- Article Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"ไร่ งาน ตารางวา คืออะไร? วิธีอ่านหน่วยที่ดินในโฉนด",
+  "description":"อธิบายหน่วยพื้นที่ที่ดินไทย ไร่ งาน ตารางวา พร้อมสูตรแปลงเป็นตารางเมตร และวิธีคำนวณราคาที่ดิน",
+  "author":{
+    "@type":"Organization",
+    "name":"ToolHub TH"
+  },
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"https://pinwaru.github.io/toolhub-th/images/logo.png"
+    }
+  },
+  "datePublished":"2026-09-17",
+  "dateModified":"2026-09-17",
+  "mainEntityOfPage":"https://pinwaru.github.io/toolhub-th/blog/land-area-converter-guide.html"
+}
+</script>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"1 ไร่ เท่ากับกี่ตารางเมตร?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"1 ไร่ เท่ากับ 1,600 ตารางเมตร หรือเทียบเป็นรูปสี่เหลี่ยมจัตุรัสขนาดประมาณ 40 เมตร x 40 เมตร"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"1 งาน เท่ากับกี่ตารางวา?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"1 งาน เท่ากับ 100 ตารางวา หรือ 400 ตารางเมตร และ 4 งาน รวมกันเป็น 1 ไร่"
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"ทำไมโฉนดไม่เขียนเป็นทศนิยมของไร่?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"การเขียนแบบไร่-งาน-ตารางวา ช่วยให้ระบุพื้นที่ได้ละเอียดถึงหน่วยตารางวาโดยไม่ต้องใช้ทศนิยมยาว ซึ่งสะดวกกว่าในการจดทะเบียนและซื้อขายที่ดิน"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {
+      "@type":"ListItem",
+      "position":1,
+      "name":"หน้าแรก",
+      "item":"https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type":"ListItem",
+      "position":2,
+      "name":"บทความ",
+      "item":"https://pinwaru.github.io/toolhub-th/blog.html"
+    },
+    {
+      "@type":"ListItem",
+      "position":3,
+      "name":"หน่วยที่ดินไทย",
+      "item":"https://pinwaru.github.io/toolhub-th/blog/land-area-converter-guide.html"
+    }
+  ]
+}
+</script>
+
+<!-- WebSite Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "url":"https://pinwaru.github.io/toolhub-th/",
+  "name":"ToolHub TH",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH"
+  }
+}
+</script>
+
+</body>
+
+</html>
