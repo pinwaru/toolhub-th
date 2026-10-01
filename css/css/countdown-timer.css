@@ -1,0 +1,289 @@
+.timer-container{
+    max-width:650px;
+    margin:50px auto;
+    padding:35px;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 8px 24px rgba(15,23,42,.08);
+    animation:fadeUp .4s ease;
+    text-align:center;
+}
+
+.timer-container h1{
+    margin-bottom:10px;
+    color:#2563eb;
+}
+
+.timer-container > p.desc{
+    margin-bottom:25px;
+    color:#666;
+    line-height:1.6;
+}
+
+.mode-tabs{
+    display:flex;
+    gap:10px;
+    margin-bottom:30px;
+    background:#f1f5f9;
+    padding:6px;
+    border-radius:12px;
+}
+
+.mode-tabs button{
+    flex:1;
+    padding:12px;
+    border:none;
+    background:transparent;
+    border-radius:8px;
+    font-family:'Kanit',sans-serif;
+    font-weight:600;
+    font-size:16px;
+    color:#555;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.mode-tabs button.active{
+    background:#2563eb;
+    color:#fff;
+    box-shadow:0 2px 8px rgba(37,99,235,.3);
+}
+
+.mode-panel{
+    display:none;
+}
+
+.mode-panel.active{
+    display:block;
+}
+
+.time-display{
+    font-size:72px;
+    font-weight:700;
+    color:#1e293b;
+    margin:20px 0;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:2px;
+}
+
+.time-display.warning{
+    color:#dc2626;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{ opacity:1; }
+    50%{ opacity:.4; }
+}
+
+.countdown-inputs{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin-bottom:25px;
+}
+
+.countdown-inputs .field{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.countdown-inputs label{
+    font-size:13px;
+    color:#888;
+    margin-bottom:6px;
+}
+
+.countdown-inputs input{
+    width:70px;
+    padding:12px;
+    font-size:22px;
+    text-align:center;
+    font-family:'Kanit',sans-serif;
+    border:2px solid #ddd;
+    border-radius:10px;
+}
+
+.countdown-inputs input:focus{
+    border-color:#2563eb;
+    outline:none;
+}
+
+.preset-buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.preset-buttons button{
+    padding:8px 16px;
+    border:2px solid #ddd;
+    background:#fff;
+    border-radius:20px;
+    font-family:'Kanit',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.preset-buttons button:hover{
+    border-color:#2563eb;
+    color:#2563eb;
+}
+
+.control-buttons{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.control-buttons button{
+    padding:16px 32px;
+    font-size:18px;
+    font-family:'Kanit',sans-serif;
+    font-weight:700;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.25s;
+    color:#fff;
+}
+
+.btn-start{
+    background:#16a34a;
+}
+
+.btn-start:hover{
+    background:#15803d;
+    transform:translateY(-2px);
+}
+
+.btn-pause{
+    background:#f59e0b;
+}
+
+.btn-pause:hover{
+    background:#d97706;
+    transform:translateY(-2px);
+}
+
+.btn-reset{
+    background:#64748b;
+}
+
+.btn-reset:hover{
+    background:#475569;
+    transform:translateY(-2px);
+}
+
+.btn-lap{
+    background:#2563eb;
+}
+
+.btn-lap:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+.control-buttons button:disabled{
+    background:#cbd5e1;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.lap-list{
+    margin-top:25px;
+    max-height:220px;
+    overflow-y:auto;
+    text-align:left;
+}
+
+.lap-list table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.lap-list th,
+.lap-list td{
+    padding:10px;
+    border-bottom:1px solid #e5e7eb;
+    text-align:center;
+    font-variant-numeric:tabular-nums;
+}
+
+.lap-list th{
+    color:#888;
+    font-weight:600;
+    font-size:13px;
+}
+
+.back{
+    display:block;
+    margin-top:30px;
+    text-align:center;
+    font-weight:600;
+    color:#2563eb;
+    text-decoration:none;
+}
+
+.back:hover{
+    text-decoration:underline;
+}
+
+.disclaimer{
+    margin-top:25px;
+    padding:14px 18px;
+    background:#fffbeb;
+    border:1px solid #fde68a;
+    border-radius:10px;
+    font-size:14px;
+    color:#78350f;
+    line-height:1.6;
+    text-align:left;
+}
+
+@media (max-width:768px){
+
+    .timer-container{
+        margin:20px auto;
+        padding:22px;
+    }
+
+    .time-display{
+        font-size:52px;
+    }
+
+    .countdown-inputs input{
+        width:56px;
+        font-size:18px;
+        padding:10px;
+    }
+
+    .control-buttons button{
+        padding:14px 22px;
+        font-size:16px;
+    }
+}
+
+@media (max-width:480px){
+
+    .timer-container{
+        margin:15px;
+        padding:18px;
+    }
+
+    .time-display{
+        font-size:42px;
+        letter-spacing:1px;
+    }
+
+    .mode-tabs button{
+        font-size:14px;
+        padding:10px;
+    }
+}

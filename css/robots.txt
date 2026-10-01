@@ -1,0 +1,7 @@
+User-agent: *
+
+Allow: /
+
+Disallow: /404.html
+
+Sitemap: https://pinwaru.github.io/toolhub-th/sitemap.xml

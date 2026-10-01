@@ -1,0 +1,354 @@
+/* =======================================
+   GPA Calculator
+======================================= */
+
+.gpa-container{
+    max-width:900px;
+    margin:50px auto;
+    padding:35px;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.gpa-container h1{
+    margin:0;
+    text-align:center;
+    color:#2563eb;
+    font-size:38px;
+}
+
+.gpa-container>p{
+    text-align:center;
+    color:#666;
+    margin:15px 0 35px;
+    line-height:1.7;
+}
+
+/* =======================================
+   Subject List
+======================================= */
+
+#subjects{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.subject-row{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr auto;
+    gap:15px;
+    align-items:center;
+    padding:18px;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    transition:.25s;
+}
+
+.subject-row:hover{
+    border-color:#2563eb;
+    box-shadow:0 8px 18px rgba(37,99,235,.08);
+}
+
+.subject-row input,
+.subject-row select{
+    width:100%;
+    padding:14px;
+    border:2px solid #dbe2ea;
+    border-radius:10px;
+    font-size:16px;
+    font-family:'Kanit',sans-serif;
+    transition:.25s;
+    background:#fff;
+}
+
+.subject-row input:focus,
+.subject-row select:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+.subject-row select{
+    cursor:pointer;
+}
+
+/* =======================================
+   Buttons
+======================================= */
+
+.button-group{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:30px;
+}
+
+.button-group button{
+    flex:1;
+    min-width:180px;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:17px;
+    font-family:'Kanit',sans-serif;
+    font-weight:600;
+    color:#fff;
+    transition:.25s;
+}
+
+#addSubject{
+    background:#2563eb;
+}
+
+#calculateBtn{
+    background:#16a34a;
+}
+
+#resetBtn{
+    background:#ef4444;
+}
+
+#addSubject:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+#calculateBtn:hover{
+    background:#15803d;
+    transform:translateY(-2px);
+}
+
+#resetBtn:hover{
+    background:#dc2626;
+    transform:translateY(-2px);
+}
+
+.button-group button:active{
+    transform:scale(.98);
+}
+
+/* =======================================
+   Delete Button
+======================================= */
+
+.delete-subject{
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:10px;
+    background:#ef4444;
+    color:#fff;
+    cursor:pointer;
+    font-size:18px;
+    transition:.25s;
+}
+
+.delete-subject:hover{
+    background:#dc2626;
+    transform:scale(1.05);
+}
+
+/* =======================================
+   Result
+======================================= */
+
+.result{
+    margin-top:40px;
+    padding:30px;
+    background:#f8fafc;
+    border-radius:16px;
+    border:1px solid #e5e7eb;
+}
+
+.result h2{
+    margin:0 0 25px;
+    text-align:center;
+    color:#2563eb;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.result-card{
+    background:#fff;
+    padding:25px 20px;
+    text-align:center;
+    border-radius:14px;
+    box-shadow:0 5px 15px rgba(0,0,0,.06);
+    transition:.25s;
+}
+
+.result-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(37,99,235,.12);
+}
+
+.result-card h3{
+    margin:0;
+    color:#666;
+    font-size:18px;
+    font-weight:600;
+}
+
+.result-card p{
+    margin:15px 0 0;
+    font-size:34px;
+    font-weight:700;
+    color:#2563eb;
+    word-break:break-word;
+}
+
+/* =======================================
+   Animation
+======================================= */
+
+.subject-row,
+.result-card{
+    animation:fadeUp .35s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =======================================
+   Responsive
+======================================= */
+
+@media (max-width:768px){
+
+    .gpa-container{
+
+        margin:25px 15px;
+        padding:25px;
+
+    }
+
+    .gpa-container h1{
+
+        font-size:30px;
+
+    }
+
+    .subject-row{
+
+        grid-template-columns:1fr;
+        gap:12px;
+
+    }
+
+    .button-group{
+
+        flex-direction:column;
+
+    }
+
+    .button-group button{
+
+        width:100%;
+        min-width:100%;
+
+    }
+
+    .delete-subject{
+
+        width:100%;
+        height:50px;
+
+    }
+
+    .result-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .result-card p{
+
+        font-size:28px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .gpa-container{
+
+        padding:20px;
+
+    }
+
+    .gpa-container h1{
+
+        font-size:26px;
+
+    }
+
+    .gpa-container>p{
+
+        font-size:15px;
+
+    }
+
+    .subject-row{
+
+        padding:15px;
+
+    }
+
+    .subject-row input,
+    .subject-row select{
+
+        font-size:15px;
+        padding:12px;
+
+    }
+
+    .result{
+
+        padding:20px;
+
+    }
+
+    .result-card{
+
+        padding:20px 15px;
+
+    }
+
+    .result-card h3{
+
+        font-size:16px;
+
+    }
+
+    .result-card p{
+
+        font-size:24px;
+
+    }
+
+}
