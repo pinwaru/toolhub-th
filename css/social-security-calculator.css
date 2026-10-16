@@ -1,0 +1,423 @@
+.sso-container{
+    max-width:760px;
+    margin:50px auto;
+    padding:35px;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 8px 24px rgba(15,23,42,.08);
+    animation:fadeUp .4s ease;
+}
+
+.sso-container h1{
+    text-align:center;
+    margin-bottom:10px;
+    color:#2563eb;
+}
+
+.sso-container > p{
+    text-align:center;
+    margin-bottom:25px;
+    color:#666;
+    line-height:1.6;
+}
+
+.sso-container .input-group{
+    margin-bottom:20px;
+}
+
+.sso-container .input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#333;
+}
+
+.sso-container .input-group input,
+.sso-container .input-group select{
+    width:100%;
+    padding:14px;
+    font-size:18px;
+    font-family:'Kanit',sans-serif;
+    border:2px solid #ddd;
+    border-radius:10px;
+    background:#fff;
+    transition:.25s;
+}
+
+.sso-container .input-group input:focus,
+.sso-container .input-group select:focus{
+    border-color:#2563eb;
+    outline:none;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+.sso-container .input-hint{
+    display:block;
+    margin-top:6px;
+    font-size:13px;
+    color:#888;
+}
+
+.sso-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.sso-container h2.sso-subtitle{
+    margin:30px 0 14px;
+    font-size:20px;
+    color:#1e293b;
+}
+
+.sso-error{
+    display:none;
+    margin-bottom:16px;
+    padding:12px 16px;
+    background:#fef2f2;
+    border:1px solid #fecaca;
+    border-radius:10px;
+    color:#991b1b;
+    font-size:15px;
+}
+
+#calculateBtn{
+    width:100%;
+    padding:16px;
+    background:#2563eb;
+    color:#fff;
+    font-size:20px;
+    font-family:'Kanit',sans-serif;
+    font-weight:700;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+#calculateBtn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+#calculateBtn:active{
+    transform:scale(.98);
+}
+
+#calculateBtn:focus-visible{
+    outline:3px solid rgba(37,99,235,.25);
+    outline-offset:2px;
+}
+
+.sso-container .result{
+    margin-top:35px;
+    padding:25px;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+    border-radius:12px;
+    text-align:center;
+}
+
+.sso-container .result h2{
+    margin-top:0;
+    margin-bottom:20px;
+}
+
+.sso-container .result h3{
+    font-size:30px;
+    color:#2563eb;
+    margin-bottom:18px;
+    word-break:break-word;
+}
+
+.sso-container .result p{
+    margin:10px 0;
+    color:#555;
+}
+
+.sso-container .result-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:20px;
+    text-align:left;
+}
+
+.sso-container .result-grid .item{
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    padding:14px 16px;
+}
+
+.sso-container .result-grid .item span{
+    display:block;
+}
+
+.sso-container .result-grid .item .label{
+    font-size:13px;
+    color:#888;
+    margin-bottom:4px;
+}
+
+.sso-container .result-grid .item .value{
+    font-size:18px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+/* =======================================
+   ตารางรายละเอียด
+======================================= */
+
+.sso-schedule{
+    margin-top:40px;
+}
+
+.sso-schedule h2{
+    margin-bottom:18px;
+    text-align:center;
+    color:#2563eb;
+}
+
+.sso-table-wrapper{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+#ssoTable{
+    width:100%;
+    min-width:640px;
+    border-collapse:collapse;
+    background:#fff;
+}
+
+#ssoTable th,
+#ssoTable td{
+    padding:12px;
+    border:1px solid #e5e7eb;
+    text-align:center;
+}
+
+#ssoTable td.left{
+    text-align:left;
+}
+
+#ssoTable th{
+    background:#2563eb;
+    color:#fff;
+    font-weight:600;
+}
+
+#ssoTable tbody tr:nth-child(even){
+    background:#f8fafc;
+}
+
+#ssoTable tbody tr.active-row{
+    background:#dcfce7;
+    font-weight:700;
+}
+
+.sso-disclaimer{
+    margin-top:20px;
+    padding:14px 18px;
+    background:#fffbeb;
+    border:1px solid #fde68a;
+    border-radius:10px;
+    font-size:14px;
+    color:#78350f;
+    line-height:1.6;
+}
+
+/* ตารางอัตราในส่วนความรู้ */
+.rate-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:16px 0;
+    background:#fff;
+}
+
+.rate-table th,
+.rate-table td{
+    padding:10px 12px;
+    border:1px solid #e5e7eb;
+    text-align:center;
+}
+
+.rate-table td:first-child{
+    text-align:left;
+}
+
+.rate-table th{
+    background:#eff6ff;
+    color:#1e3a8a;
+}
+
+/* =======================================
+   Responsive
+======================================= */
+
+@media (max-width:768px){
+
+    .sso-container{
+        margin:20px auto;
+        padding:22px;
+    }
+
+    .sso-container h1{
+        font-size:30px;
+    }
+
+    .sso-container > p{
+        font-size:16px;
+    }
+
+    .sso-container .input-group input,
+    .sso-container .input-group select{
+        font-size:16px;
+        padding:13px;
+    }
+
+    #calculateBtn{
+        font-size:18px;
+        padding:15px;
+    }
+
+    .sso-container .result{
+        padding:20px;
+    }
+
+    .sso-container .result h3{
+        font-size:24px;
+    }
+
+    .sso-container .result-grid,
+    .sso-row{
+        grid-template-columns:1fr;
+    }
+}
+
+@media (max-width:480px){
+
+    .sso-container{
+        margin:15px;
+        padding:18px;
+    }
+
+    .sso-container h1{
+        font-size:26px;
+    }
+
+    .sso-container .result h3{
+        font-size:22px;
+    }
+
+    #ssoTable th,
+    #ssoTable td{
+        padding:10px;
+        font-size:14px;
+    }
+}
+
+/* =======================================
+   สถานะสิทธิ์ / ขั้นถัดไป / ช่องเลือก
+======================================= */
+
+.sso-status{
+    display:none;
+    margin:0 0 18px;
+    padding:12px 16px;
+    border-radius:10px;
+    font-weight:600;
+    text-align:left;
+    line-height:1.6;
+}
+
+.sso-status.ok{
+    background:#dcfce7;
+    border:1px solid #86efac;
+    color:#14532d;
+}
+
+.sso-status.no{
+    background:#fef2f2;
+    border:1px solid #fecaca;
+    color:#991b1b;
+}
+
+.sso-next{
+    display:none;
+    margin-top:16px;
+    padding:12px 16px;
+    background:#eff6ff;
+    border:1px solid #bfdbfe;
+    border-radius:10px;
+    color:#1e3a8a;
+    font-size:15px;
+    line-height:1.6;
+    text-align:left;
+}
+
+.sso-container .input-group input[type="date"]{
+    min-height:52px;
+}
+
+.sso-check{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.sso-container .input-group .sso-check input{
+    width:auto;
+}
+
+#ssoTable td.center{
+    text-align:center;
+}
+
+/* =======================================
+   หมายเหตุผลลัพธ์ / ตารางอ้างอิง
+======================================= */
+
+.sso-note{
+    display:none;
+    margin-top:16px;
+    padding:12px 16px;
+    background:#fffbeb;
+    border:1px solid #fde68a;
+    border-radius:10px;
+    color:#78350f;
+    font-size:15px;
+    line-height:1.6;
+    text-align:left;
+}
+
+.sso-container .input-group select{
+    appearance:auto;
+}
+
+.sso-ref-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:16px 0;
+    background:#fff;
+}
+
+.sso-ref-table th,
+.sso-ref-table td{
+    padding:10px 12px;
+    border:1px solid #e5e7eb;
+    text-align:center;
+}
+
+.sso-ref-table td:first-child{
+    text-align:left;
+}
+
+.sso-ref-table th{
+    background:#eff6ff;
+    color:#1e3a8a;
+}
