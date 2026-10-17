@@ -43,217 +43,632 @@ ul{
 }
 
 /* =======================================
-   Navbar
+   Navbar (v2) — glass header, mega menu, mobile sheet
 ======================================= */
 
-.navbar{
+:root{
+    --nav-h:68px;
+    --nav-ink:#1e293b;
+    --nav-muted:#64748b;
+    --nav-line:rgba(15,23,42,.08);
+    --nav-tint:#eff6ff;
+    --nav-brand:#2563eb;
+}
 
+.navbar{
     position:sticky;
     top:0;
     z-index:999;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:16px;
+    padding:10px 32px;
+    background:rgba(255,255,255,.86);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid var(--nav-line);
+    transition:box-shadow .25s ease;
+}
 
-    padding:18px 40px;
+.navbar.menu-open{
+    background:#fff;
+}
 
-    background:rgba(255,255,255,.96);
-
-    backdrop-filter:blur(10px);
-
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-
+.navbar.is-scrolled{
+    box-shadow:0 6px 24px rgba(15,23,42,.08);
 }
 
 .logo{
-
     display:flex;
     align-items:center;
-    gap:14px;
-
+    flex-shrink:0;
 }
 
+.logo a{
+    gap:10px !important;
+}
+
+/* ตัดข้อความที่ฝังอยู่ในรูปโลโก้ออก เหลือเฉพาะไอคอนกล่องเครื่องมือ */
 .logo img{
-
-    width:70px;
-
-    height:50px;
-
-    object-fit:contain;
-
+    width:58px;
+    height:auto;
+    aspect-ratio:140/80;
+    object-fit:cover;
+    object-position:top;
+    display:block;
 }
 
 .logo span{
-
-    font-size:28px;
-
+    font-size:23px;
     font-weight:700;
-
-    color:#2563eb;
-
+    letter-spacing:-.01em;
+    color:var(--nav-brand);
+    white-space:nowrap;
 }
 
-.menu{
+/* ---------- เมนูหลัก (เดสก์ท็อป) ---------- */
 
+.menu{
     display:flex;
-
-    gap:24px;
-
-    flex-wrap:wrap;
-
-}
-
-.menu a{
-
-    font-weight:600;
-
-    color:#333;
-
-    transition:.25s;
-
-}
-
-.menu a:hover{
-
-    color:#2563eb;
-
-}
-
-/* =======================================
-   Navbar - Dropdown categories (เครื่องมือ / เกี่ยวกับ)
-======================================= */
-
-.menu{
     align-items:center;
+    gap:4px;
 }
+
+.menu > a,
+.dropdown-toggle{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:9px 15px;
+    border:0;
+    border-radius:999px;
+    background:none;
+    font-family:'Kanit',sans-serif;
+    font-size:15.5px;
+    font-weight:500;
+    line-height:1.3;
+    color:var(--nav-ink);
+    cursor:pointer;
+    transition:background .2s ease,color .2s ease;
+}
+
+.menu > a:hover,
+.dropdown-toggle:hover,
+.dropdown.open > .dropdown-toggle{
+    background:var(--nav-tint);
+    color:var(--nav-brand);
+}
+
+.menu > a[aria-current="page"],
+.menu > a.is-current,
+.dropdown-toggle.is-current{
+    color:var(--nav-brand);
+    background:var(--nav-tint);
+    font-weight:600;
+}
+
+.dropdown-toggle .caret{
+    font-size:10px;
+    opacity:.7;
+    transition:transform .2s ease;
+}
+
+.dropdown.open > .dropdown-toggle .caret{
+    transform:rotate(180deg);
+}
+
+.menu a:focus-visible,
+.dropdown-toggle:focus-visible,
+.nav-burger:focus-visible,
+.col-head:focus-visible{
+    outline:2px solid var(--nav-brand);
+    outline-offset:2px;
+}
+
+/* ---------- แผงเมนูย่อย ---------- */
 
 .dropdown{
     position:relative;
 }
 
-.dropdown-toggle{
-    display:inline-flex;
-    align-items:center;
-    gap:5px;
-    background:none;
-    border:none;
-    padding:0;
-    font-family:'Kanit',sans-serif;
-    font-size:16px;
-    font-weight:600;
-    color:#333;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.dropdown-toggle:hover,
-.dropdown.open .dropdown-toggle{
-    color:#2563eb;
-}
-
-.dropdown-toggle .caret{
-    font-size:11px;
-    transition:transform .2s ease;
-}
-
-.dropdown.open .dropdown-toggle .caret{
-    transform:rotate(180deg);
+.dropdown.has-mega{
+    position:static;
 }
 
 .dropdown-panel{
     position:absolute;
-    top:calc(100% + 16px);
+    top:100%;
     right:0;
-    left:auto;
-    background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:14px;
-    box-shadow:0 16px 40px rgba(15,23,42,.12);
-    padding:18px;
+    margin-top:10px;
     display:none;
     z-index:1000;
-    max-height:calc(100vh - 110px);
-    overflow-y:auto;
+    background:#fff;
+    border:1px solid var(--nav-line);
+    border-radius:18px;
+    box-shadow:0 24px 60px -12px rgba(15,23,42,.22),0 4px 14px rgba(15,23,42,.06);
     overscroll-behavior:contain;
     -webkit-overflow-scrolling:touch;
 }
 
-.dropdown.open .dropdown-panel{
+.dropdown.open > .dropdown-panel{
     display:flex;
+    animation:ddIn .18s ease-out;
 }
 
-/* dropdown ธรรมดา (เกี่ยวกับ): รายการเดียวเรียงลง */
+@keyframes ddIn{
+    from{opacity:0;transform:translateY(-6px);}
+    to{opacity:1;transform:none;}
+}
+
+/* เมนูธรรมดา (เกี่ยวกับ) */
 
 .dropdown-panel:not(.mega){
     flex-direction:column;
-    min-width:200px;
+    min-width:220px;
     gap:2px;
+    padding:8px;
 }
 
 .dropdown-panel:not(.mega) a{
-    padding:9px 10px;
-    border-radius:8px;
+    padding:10px 12px;
+    border-radius:10px;
+    font-size:15px;
     font-weight:500;
+    color:var(--nav-ink);
     white-space:nowrap;
+    transition:background .15s ease,color .15s ease;
 }
 
 .dropdown-panel:not(.mega) a:hover{
-    background:#eff6ff;
+    background:var(--nav-tint);
+    color:var(--nav-brand);
 }
 
-/* mega dropdown (เครื่องมือ): หลายคอลัมน์ตามหมวดหมู่ */
+/* mega menu (เครื่องมือ) */
 
 .dropdown-panel.mega{
-    flex-direction:row;
-    flex-wrap:wrap;
-    gap:28px;
-    right:0;
-    left:auto;
-    transform:none;
-    max-width:calc(100vw - 40px);
-    padding:24px;
+    left:50%;
+    right:auto;
+    transform:translateX(-50%);
+    width:min(1220px,calc(100vw - 32px));
+    max-height:calc(100vh - var(--nav-h) - 24px);
+    max-height:calc(100dvh - var(--nav-h) - 24px);
+    overflow-y:auto;
+    padding:26px 28px 0;
+    display:none;
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    column-gap:26px;
+    row-gap:24px;
+    align-content:start;
+}
+
+.dropdown.open > .dropdown-panel.mega{
+    display:grid;
+    animation:ddInMega .18s ease-out;
+}
+
+@keyframes ddInMega{
+    from{opacity:0;transform:translate(-50%,-6px);}
+    to{opacity:1;transform:translate(-50%,0);}
 }
 
 .dropdown-col{
-    min-width:170px;
     display:flex;
     flex-direction:column;
-    gap:3px;
+    gap:2px;
+    min-width:0;
+}
+
+.dropdown-col:first-child{
+    grid-column:span 2;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    column-gap:14px;
+    align-content:start;
+}
+
+.dropdown-col:first-child > h4{
+    grid-column:1 / -1;
 }
 
 .dropdown-col h4{
-    font-size:13px;
-    color:#94a3b8;
-    text-transform:uppercase;
-    letter-spacing:.04em;
-    margin-bottom:8px;
-    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:0 0 8px;
+    font-size:14px;
+    font-weight:600;
+    color:var(--nav-ink);
 }
 
-.dropdown-col a{
-    padding:6px 8px;
-    margin:0 -8px;
-    border-radius:8px;
+.col-head{
+    all:unset;
+    box-sizing:border-box;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    width:100%;
+    font-family:'Kanit',sans-serif;
     font-size:14.5px;
-    font-weight:500;
-    white-space:nowrap;
+    font-weight:600;
+    color:var(--nav-ink);
 }
 
-.dropdown-col a:hover{
+.dd-ico{
+    display:inline-grid;
+    place-items:center;
+    flex:0 0 auto;
+    width:30px;
+    height:30px;
+    border-radius:9px;
+    font-size:15px;
+    line-height:1;
     background:#eff6ff;
 }
 
-.dropdown-col-all{
-    justify-content:flex-end;
-    border-left:1px solid #f1f5f9;
-    padding-left:24px;
-    gap:10px;
+.dropdown-col:nth-child(1) .dd-ico{background:#e0f2fe;}
+.dropdown-col:nth-child(2) .dd-ico{background:#ede9fe;}
+.dropdown-col:nth-child(3) .dd-ico{background:#ffe4e6;}
+.dropdown-col:nth-child(4) .dd-ico{background:#dcfce7;}
+.dropdown-col:nth-child(5) .dd-ico{background:#fef3c7;}
+
+.col-label{
+    flex:1 1 auto;
+    min-width:0;
 }
 
-.dropdown-view-all{
-    font-weight:700 !important;
-    color:#2563eb !important;
+.col-count{
+    margin-left:0;
+    white-space:nowrap;
+    font-size:12px;
+    font-weight:400;
+    color:var(--nav-muted);
+}
+
+.col-chev{
+    display:none;
+}
+
+.dropdown-col a{
+    display:block;
+    padding:7px 10px;
+    margin:0 -10px;
+    border-radius:9px;
+    font-size:14px;
+    font-weight:400;
+    line-height:1.35;
+    color:#334155;
+    transition:background .15s ease,color .15s ease;
+}
+
+.dropdown-col a:hover{
+    background:var(--nav-tint);
+    color:var(--nav-brand);
+}
+
+.dropdown-col a[aria-current="page"]{
+    background:var(--nav-tint);
+    color:var(--nav-brand);
+    font-weight:600;
+}
+
+/* แถบท้ายเมนู: ดูทั้งหมด */
+
+.dropdown-col.dropdown-col-all{
+    grid-column:1 / -1;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    bottom:0;
+    margin:0 -28px;
+    padding:14px 28px;
+    background:linear-gradient(#f8fafc,#f1f5f9);
+    border-top:1px solid var(--nav-line);
+}
+
+.dropdown-col-all .col-note{
+    font-size:13px;
+    color:var(--nav-muted);
+}
+
+.dropdown-col .dropdown-view-all{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin:0;
+    padding:8px 18px;
+    border-radius:999px;
+    background:var(--nav-brand);
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+}
+
+.dropdown-col .dropdown-view-all:hover{
+    background:#1d4ed8;
+    color:#fff;
+}
+
+/* หน้าจอแคบกว่า 1100px: 4 ช่อง */
+
+@media (max-width:1100px) and (min-width:861px){
+    .dropdown-panel.mega{
+        grid-template-columns:repeat(4,minmax(0,1fr));
+    }
+    .menu > a,
+    .dropdown-toggle{
+        padding:8px 11px;
+        font-size:15px;
+    }
+}
+
+/* ---------- ปุ่มแฮมเบอร์เกอร์ + ฉากหลัง (สร้างด้วย JS) ---------- */
+
+.nav-burger{
+    display:none;
+    position:relative;
+    width:44px;
+    height:44px;
+    padding:0;
+    border:1px solid var(--nav-line);
+    border-radius:12px;
+    background:#fff;
+    cursor:pointer;
+}
+
+.nav-burger span{
+    position:absolute;
+    left:12px;
+    right:12px;
+    height:2px;
+    border-radius:2px;
+    background:var(--nav-ink);
+    transition:transform .22s ease,opacity .15s ease,top .22s ease;
+}
+
+.nav-burger span:nth-child(1){top:15px;}
+.nav-burger span:nth-child(2){top:21px;}
+.nav-burger span:nth-child(3){top:27px;}
+
+.navbar.menu-open .nav-burger span:nth-child(1){top:21px;transform:rotate(45deg);}
+.navbar.menu-open .nav-burger span:nth-child(2){opacity:0;}
+.navbar.menu-open .nav-burger span:nth-child(3){top:21px;transform:rotate(-45deg);}
+
+.nav-scrim{
+    position:fixed;
+    inset:0;
+    z-index:998;
+    background:rgba(15,23,42,.38);
+    opacity:0;
+    visibility:hidden;
+    transition:opacity .25s ease,visibility .25s ease;
+}
+
+html.nav-open .nav-scrim{
+    opacity:1;
+    visibility:visible;
+}
+
+html.nav-open,
+html.nav-open body{
+    overflow:hidden;
+}
+
+/* ---------- มือถือ / แท็บเล็ตเล็ก ---------- */
+
+@media (max-width:860px){
+
+    .navbar{
+        padding:8px 16px;
+        flex-wrap:wrap;
+    }
+
+    .logo img{width:48px;}
+    .logo span{font-size:21px;}
+
+    html.has-js .nav-burger{
+        display:block;
+    }
+
+    /* ไม่มี JS: แสดงลิงก์หลักแบบเรียงต่อกัน */
+    .menu{
+        flex-wrap:wrap;
+        gap:2px;
+        width:100%;
+    }
+
+    html.has-js .menu{
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        width:auto;
+        flex-direction:column;
+        flex-wrap:nowrap;
+        align-items:stretch;
+        gap:0;
+        padding:6px 16px 20px;
+        overflow-x:hidden;
+        background:#fff;
+        border-bottom:1px solid var(--nav-line);
+        box-shadow:0 24px 40px -16px rgba(15,23,42,.25);
+        max-height:calc(100vh - var(--nav-h));
+        max-height:calc(100dvh - var(--nav-h));
+        overflow-y:auto;
+        overscroll-behavior:contain;
+    }
+
+    html.has-js .navbar.menu-open .menu{
+        display:flex;
+        animation:ddIn .2s ease-out;
+    }
+
+    html.has-js .menu > a,
+    html.has-js .dropdown-toggle{
+        width:100%;
+        justify-content:space-between;
+        padding:0 6px;
+        min-height:52px;
+        border-radius:0;
+        font-size:16.5px;
+        border-bottom:1px solid #f1f5f9;
+        background:none;
+    }
+
+    html.has-js .menu > a:hover,
+    html.has-js .dropdown-toggle:hover,
+    html.has-js .dropdown.open > .dropdown-toggle{
+        background:none;
+    }
+
+    html.has-js .menu > a[aria-current="page"],
+    html.has-js .menu > a.is-current,
+    html.has-js .dropdown-toggle.is-current{
+        background:none;
+    }
+
+    html.has-js .dropdown,
+    html.has-js .dropdown.has-mega{
+        position:static;
+        width:100%;
+    }
+
+    html.has-js .dropdown-panel,
+    html.has-js .dropdown-panel.mega{
+        position:static;
+        transform:none;
+        width:100%;
+        max-width:none;
+        max-height:none;
+        margin:0;
+        border:0;
+        border-radius:0;
+        box-shadow:none;
+        background:none;
+        overflow:visible;
+        animation:none;
+    }
+
+    html.has-js .dropdown.open > .dropdown-panel{
+        display:flex;
+        animation:none;
+    }
+
+    html.has-js .dropdown.open > .dropdown-panel.mega{
+        display:flex;
+        flex-direction:column;
+        animation:none;
+        padding:6px 0 10px;
+        gap:0;
+    }
+
+    html.has-js .dropdown-panel:not(.mega){
+        padding:2px 0 6px;
+    }
+
+    html.has-js .dropdown-panel:not(.mega) a{
+        padding:0 14px;
+        min-height:46px;
+        display:flex;
+        align-items:center;
+        font-size:15.5px;
+    }
+
+    /* หมวดหมู่แบบพับได้ */
+
+    html.has-js .dropdown-col,
+    html.has-js .dropdown-col:first-child{
+        display:flex;
+        flex-direction:column;
+        gap:0;
+        margin:0;
+        border-radius:14px;
+        background:#f8fafc;
+        margin-bottom:8px;
+    }
+
+    html.has-js .dropdown-col h4{
+        margin:0;
+    }
+
+    html.has-js .col-head{
+        cursor:pointer;
+        padding:12px 14px;
+        min-height:50px;
+        font-size:15.5px;
+    }
+
+    html.has-js .col-chev{
+        display:inline-block;
+        width:8px;
+        height:8px;
+        margin-left:10px;
+        border-right:2px solid var(--nav-muted);
+        border-bottom:2px solid var(--nav-muted);
+        transform:rotate(45deg) translateY(-2px);
+        transition:transform .2s ease;
+    }
+
+    html.has-js .dropdown-col.col-open .col-chev{
+        transform:rotate(-135deg) translateY(-2px);
+    }
+
+    html.has-js .dropdown-col:not(.col-open):not(.dropdown-col-all) > a{
+        display:none;
+    }
+
+    html.has-js .dropdown-col a{
+        margin:0;
+        padding:0 14px 0 54px;
+        min-height:44px;
+        display:flex;
+        align-items:center;
+        font-size:15px;
+        border-radius:0;
+    }
+
+    html.has-js .dropdown-col.col-open{
+        padding-bottom:8px;
+    }
+
+    html.has-js .dropdown-col.dropdown-col-all{
+        position:static;
+        flex-direction:column;
+        align-items:stretch;
+        margin:4px 0 0;
+        padding:0;
+        background:none;
+        border:0;
+    }
+
+    html.has-js .dropdown-col-all .col-note{
+        display:none;
+    }
+
+    html.has-js .dropdown-col .dropdown-view-all{
+        justify-content:center;
+        min-height:48px;
+        padding:0 18px;
+        font-size:15.5px;
+    }
+}
+
+@media (prefers-reduced-motion:reduce){
+    .dropdown.open > .dropdown-panel,
+    .dropdown.open > .dropdown-panel.mega,
+    html.has-js .navbar.menu-open .menu{
+        animation:none;
+    }
+    .nav-scrim,
+    .nav-burger span,
+    .dropdown-toggle .caret,
+    .col-chev{
+        transition:none;
+    }
 }
 
 /* =======================================
@@ -1227,12 +1642,6 @@ a:focus-visible{
 
 @media (max-width:992px){
 
-    .navbar{
-
-        padding:18px 20px;
-
-    }
-
     .hero-title h1{
 
         font-size:48px;
@@ -1276,102 +1685,7 @@ a:focus-visible{
 
 @media (max-width:768px){
 
-    .navbar{
-
-        flex-direction:column;
-
-        align-items:center;
-
-        gap:16px;
-
-        padding:20px;
-
-    }
-
-    .logo{
-
-        justify-content:center;
-
-    }
-
-    .logo img{
-
-        width:60px;
-
-        height:44px;
-
-    }
-
-    .logo span{
-
-        font-size:24px;
-
-    }
-
-    .menu{
-
-        flex-direction:column;
-        width:100%;
-        justify-content:center;
-        gap:14px;
-
-    }
-
-    .menu > a,
-    .menu > .dropdown{
-
-        width:100%;
-        text-align:center;
-
-    }
-
-    .menu a{
-
-        font-size:15px;
-
-    }
-
-    .dropdown-toggle{
-
-        width:100%;
-        justify-content:center;
-
-    }
-
-    .dropdown-panel,
-    .dropdown-panel.mega{
-
-        position:static;
-        transform:none;
-        left:auto;
-        top:auto;
-        box-shadow:none;
-        border-radius:10px;
-        margin-top:10px;
-        width:100%;
-        max-width:100%;
-
-    }
-
-    .dropdown-panel.mega{
-
-        flex-direction:column;
-        flex-wrap:nowrap;
-        gap:14px;
-
-    }
-
-    .dropdown-col-all{
-
-        border-left:none;
-        border-top:1px solid #f1f5f9;
-        padding-left:0;
-        padding-top:14px;
-        align-items:center;
-
-    }
-
-    header{
+        header{
 
         padding:50px 20px;
 
@@ -1458,44 +1772,6 @@ a:focus-visible{
 ======================================= */
 
 @media (max-width:480px){
-
-    .navbar{
-
-        padding:16px;
-
-    }
-
-    .logo{
-
-        gap:10px;
-
-    }
-
-    .logo img{
-
-        width:52px;
-
-        height:40px;
-
-    }
-
-    .logo span{
-
-        font-size:20px;
-
-    }
-
-    .menu{
-
-        gap:10px;
-
-    }
-
-    .menu a{
-
-        font-size:14px;
-
-    }
 
     .hero-title h1{
 
