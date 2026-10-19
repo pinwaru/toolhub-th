@@ -100,7 +100,12 @@ function saveCache(base, rates, time) {
 }
 
 function loadCache(base) {
-    const raw = localStorage.getItem(getCacheKey(base));
+    let raw = null;
+    try {
+        raw = localStorage.getItem(getCacheKey(base));
+    } catch (e) {
+        return null;
+    }
     if (!raw) return null;
 
     try {
@@ -158,7 +163,7 @@ async function fetchRates(base) {
 /* ===========================
    Convert Main Logic
 =========================== */
-async function convertCurrency() {
+async function convertCurrency(silent = false) {
     if (isConverting) return;
     isConverting = true;
 
@@ -166,8 +171,10 @@ async function convertCurrency() {
         const amount = parseFloat(amountInput.value);
 
         if (isNaN(amount) || amount <= 0) {
-            alert("กรุณากรอกจำนวนเงินให้ถูกต้อง");
-            amountInput.focus();
+            if (!silent) {
+                alert("กรุณากรอกจำนวนเงินให้ถูกต้อง");
+                amountInput.focus();
+            }
             return;
         }
 
@@ -267,14 +274,14 @@ function resetConverter() {
 /* ===========================
    Event Listeners
 =========================== */
-if (convertBtn) convertBtn.addEventListener("click", convertCurrency);
+if (convertBtn) convertBtn.addEventListener("click", () => convertCurrency());
 if (swapBtn) swapBtn.addEventListener("click", swapCurrencies);
 if (copyBtn) copyBtn.addEventListener("click", copyResult);
 if (resetBtn) resetBtn.addEventListener("click", resetConverter);
 
 if (amountInput) {
     amountInput.addEventListener("input", () => {
-        if (amountInput.value.trim() !== "") convertCurrency();
+        if (amountInput.value.trim() !== "") convertCurrency(true);
     });
     amountInput.addEventListener("focus", () => amountInput.select());
     amountInput.addEventListener("blur", () => {
@@ -286,8 +293,8 @@ if (amountInput) {
     });
 }
 
-if (fromCurrency) fromCurrency.addEventListener("change", convertCurrency);
-if (toCurrency) toCurrency.addEventListener("change", convertCurrency);
+if (fromCurrency) fromCurrency.addEventListener("change", () => convertCurrency());
+if (toCurrency) toCurrency.addEventListener("change", () => convertCurrency());
 
 // Popular Shortcut Items
 document.querySelectorAll(".popular-item").forEach(item => {
@@ -338,7 +345,7 @@ window.addEventListener("online", () => {
 // Auto Refresh ทุก 1 ชั่วโมง
 setInterval(() => {
     if (currentBase) {
-        localStorage.removeItem(getCacheKey(currentBase));
+        try { localStorage.removeItem(getCacheKey(currentBase)); } catch (e) { /* ignore */ }
         fetchRates(currentBase);
     }
 }, CACHE_TIME);

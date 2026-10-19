@@ -219,12 +219,20 @@ function getCountdownInputSeconds() {
     return (h * 3600) + (m * 60) + s;
 }
 
+let cdPaused = false;   // true เมื่อกดหยุดชั่วคราว (กดเริ่มอีกครั้งจะนับต่อจากเวลาที่เหลือ)
+let cdEndTime = 0;      // เวลาสิ้นสุดตามนาฬิกาจริง (กันเวลาเพี้ยนเมื่อแท็บถูกพักการทำงาน)
+
+function setCountdownInputsDisabled(disabled) {
+    cdHours.disabled = disabled;
+    cdMinutes.disabled = disabled;
+    cdSeconds.disabled = disabled;
+}
+
 cdStartBtn.addEventListener("click", () => {
-    // ปลดล็อก/สร้าง AudioContext ทันทีตอนคลิก (user gesture จริง) เพื่อให้
-    // เสียงแจ้งเตือนตอนเวลาหมดเล่นได้แน่นอน แม้เวลาหมดจะผ่านไปหลายนาทีแล้ว
+
     unlockAudio();
 
-    if (!cdRunning) {
+    if (!cdPaused) {
         cdRemaining = getCountdownInputSeconds();
 
         if (cdRemaining <= 0) {
@@ -233,21 +241,26 @@ cdStartBtn.addEventListener("click", () => {
         }
     }
 
+    cdPaused = false;
     cdRunning = true;
-    cdDisplay.classList.remove("warning");
+    cdEndTime = Date.now() + cdRemaining * 1000;
+    cdDisplay.classList.toggle("warning", cdRemaining <= 10);
 
+    clearInterval(cdInterval);
     cdInterval = setInterval(() => {
-        cdRemaining -= 1;
+        cdRemaining = Math.max(0, Math.ceil((cdEndTime - Date.now()) / 1000));
 
         if (cdRemaining <= 0) {
             cdDisplay.textContent = formatCountdown(0);
             clearInterval(cdInterval);
             cdRunning = false;
+            cdPaused = false;
             cdDisplay.classList.remove("warning");
             playBeep();
 
             cdStartBtn.disabled = false;
             cdPauseBtn.disabled = true;
+            setCountdownInputsDisabled(false);
             return;
         }
 
@@ -257,18 +270,18 @@ cdStartBtn.addEventListener("click", () => {
             cdDisplay.classList.add("warning");
         }
 
-    }, 1000);
+    }, 250);
 
     cdStartBtn.disabled = true;
     cdPauseBtn.disabled = false;
-    cdHours.disabled = true;
-    cdMinutes.disabled = true;
-    cdSeconds.disabled = true;
+    setCountdownInputsDisabled(true);
 });
 
 cdPauseBtn.addEventListener("click", () => {
     clearInterval(cdInterval);
+    cdRemaining = Math.max(0, Math.ceil((cdEndTime - Date.now()) / 1000));
     cdRunning = false;
+    cdPaused = cdRemaining > 0;
 
     cdStartBtn.disabled = false;
     cdPauseBtn.disabled = true;
@@ -277,6 +290,7 @@ cdPauseBtn.addEventListener("click", () => {
 cdResetBtn.addEventListener("click", () => {
     clearInterval(cdInterval);
     cdRunning = false;
+    cdPaused = false;
     cdRemaining = 0;
 
     cdHours.value = 0;

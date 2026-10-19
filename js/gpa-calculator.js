@@ -228,7 +228,9 @@ document.addEventListener("keydown",(e)=>{
 
             e.preventDefault();
 
-            resetCalculator();
+            if (confirm("ต้องการล้างข้อมูลทั้งหมดหรือไม่?")) {
+                resetCalculator();
+            }
 
             break;
 

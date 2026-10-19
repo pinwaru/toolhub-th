@@ -82,7 +82,10 @@ function calculate() {
 
         }
 
-        expression = result.toString();
+        // ตัดเศษทศนิยมคลาดเคลื่อนจากจุดลอยตัว เช่น 0.1 + 0.2 = 0.30000000000000004 -> 0.3
+        expression = (typeof result === "number" && !Number.isInteger(result))
+            ? String(parseFloat(result.toPrecision(14)))
+            : String(result);
 
         updateDisplay();
 

@@ -50,11 +50,20 @@ function convertCase(type) {
 function copyText() {
   if (!inputText.value) return;
   inputText.select();
-  navigator.clipboard.writeText(inputText.value);
-  alert('คัดลอกข้อความเรียบร้อยแล้ว!');
+  const done = () => alert('คัดลอกข้อความเรียบร้อยแล้ว!');
+  const fallback = () => {
+    try {
+      if (document.execCommand('copy')) { done(); return; }
+    } catch (e) { /* ignore */ }
+    alert('ไม่สามารถคัดลอกอัตโนมัติได้ กรุณาคัดลอกด้วยตนเอง');
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(inputText.value).then(done, fallback);
+  } else {
+    fallback();
+  }
 }
 
-// ฟังก์ชันล้างข้อความ
 function clearText() {
   inputText.value = '';
   charCount.textContent = '0';
