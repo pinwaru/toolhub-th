@@ -397,12 +397,16 @@
 }
 
 .appliance-table th{
-    padding:8px 6px;
-    font-size:13px;
+    padding:10px 8px;
+    font-size:14px;
     font-weight:600;
-    color:#64748b;
+    color:#fff;
+    background:#2563eb;
     text-align:left;
 }
+
+.appliance-table th:first-child{ border-radius:8px 0 0 8px; }
+.appliance-table th:last-child{ border-radius:0 8px 8px 0; }
 
 .appliance-table td{ padding:4px 4px; }
 
