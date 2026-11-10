@@ -2468,3 +2468,20 @@ padding:25px;
 /* =======================================
    End of File
 ======================================= */
+
+
+/* ปุ่มคัดลอกผลลัพธ์ */
+.copy-btn{
+  display:inline-block;
+  margin-top:14px;
+  padding:10px 18px;
+  border:1px solid #2563eb;
+  background:#fff;
+  color:#2563eb;
+  border-radius:10px;
+  font:inherit;
+  font-weight:600;
+  cursor:pointer;
+}
+.copy-btn:hover{background:#eff6ff;}
+.copy-wrap{text-align:center;margin:-6px 0 18px;}

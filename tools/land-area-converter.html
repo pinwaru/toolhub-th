@@ -203,7 +203,7 @@ placeholder="กรอกพื้นที่ (ตารางเมตร)">
 
 <br>
 
-<div class="result" id="resultSqm">
+<div class="result" id="resultSqm" data-copy="off">
 
 <p>ผลลัพธ์จะแสดงที่นี่</p>
 
@@ -261,7 +261,7 @@ placeholder="ตารางวา">
 
 <br>
 
-<div class="result" id="resultRai">
+<div class="result" id="resultRai" data-copy="off">
 
 <p>ผลลัพธ์จะแสดงที่นี่</p>
 
@@ -389,6 +389,58 @@ placeholder="ตารางวา">
 
 <script>
 
+const copyText={sqm:"",rai:""};
+
+function copyResult(key,btn){
+
+const text=copyText[key];
+
+if(!text)return;
+
+const done=function(){
+
+const old=btn.textContent;
+
+btn.textContent="✅ คัดลอกแล้ว";
+
+setTimeout(function(){btn.textContent=old;},1800);
+
+};
+
+const fallback=function(){
+
+const ta=document.createElement("textarea");
+
+ta.value=text;
+
+ta.setAttribute("readonly","");
+
+ta.style.position="fixed";
+
+ta.style.opacity="0";
+
+document.body.appendChild(ta);
+
+ta.select();
+
+try{document.execCommand("copy");done();}catch(e){btn.textContent="คัดลอกไม่สำเร็จ";}
+
+document.body.removeChild(ta);
+
+};
+
+if(navigator.clipboard&&window.isSecureContext){
+
+navigator.clipboard.writeText(text).then(done,fallback);
+
+}else{
+
+fallback();
+
+}
+
+}
+
 function formatNum(n){
 
 return n.toLocaleString("th-TH",{maximumFractionDigits:2});
@@ -476,7 +528,13 @@ document.getElementById("resultSqm").innerHTML=
 
 </table>
 
+<button type="button" class="copy-btn" onclick="copyResult('sqm',this)">📋 คัดลอกผลลัพธ์</button>
+
 `;
+
+copyText.sqm=
+formatNum(sqm)+" ตารางเมตร = "+rai+" ไร่ "+ngan+" งาน "+formatNum(wa)+" ตารางวา"+
+"\n(≈ "+raiDecimal.toFixed(3)+" ไร่ / "+formatNum(totalWa)+" ตารางวา)";
 
 }
 
@@ -568,11 +626,19 @@ document.getElementById("resultRai").innerHTML=
 
 </table>
 
+<button type="button" class="copy-btn" onclick="copyResult('rai',this)">📋 คัดลอกผลลัพธ์</button>
+
 `;
+
+copyText.rai=
+formatNum(rai)+" ไร่ "+formatNum(ngan)+" งาน "+formatNum(wa)+" ตารางวา = "+formatNum(sqm)+" ตารางเมตร"+
+"\n(≈ "+raiDecimal.toFixed(3)+" ไร่ / "+formatNum(totalWa)+" ตารางวา)";
 
 }
 
 function resetSqm(){
+
+copyText.sqm="";
 
 document.getElementById("sqmInput").value="";
 
@@ -582,6 +648,8 @@ document.getElementById("resultSqm").innerHTML=
 }
 
 function resetRai(){
+
+copyText.rai="";
 
 document.getElementById("raiInput").value="";
 
@@ -627,6 +695,7 @@ document.getElementById("resultRai").innerHTML=
 </footer>
 
 <script src="../js/nav.js"></script>
+<script src="../js/copy-result.js"></script>
 
 <!-- WebApplication Schema -->
 
