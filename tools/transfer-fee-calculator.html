@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>คำนวณค่าธรรมเนียมโอนที่ดิน บ้าน คอนโด ค่าโอน 2% อากรแสตมป์ ภาษีธุรกิจเฉพาะ ฟรี | ToolHub TH</title>
+
+<meta name="description" content="เครื่องคำนวณค่าใช้จ่ายโอนกรรมสิทธิ์ที่ดิน บ้าน คอนโด ฟรี คำนวณค่าธรรมเนียมการโอน 2% ค่าจดจำนอง 1% อากรแสตมป์ 0.5% ภาษีธุรกิจเฉพาะ 3.3% และภาษีหัก ณ ที่จ่าย พร้อมมาตรการลดค่าโอน 0.01%">
+
+<meta name="keywords" content="คำนวณค่าโอนที่ดิน, ค่าธรรมเนียมการโอน, ค่าโอนบ้าน, ค่าโอนคอนโด, อากรแสตมป์, ภาษีธุรกิจเฉพาะ, ภาษีหัก ณ ที่จ่าย ขายที่ดิน, ค่าจดจำนอง, ลดค่าโอน 0.01%">
+
+<meta name="author" content="ToolHub TH">
+
+<meta name="robots" content="index,follow">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://pinwaru.github.io/toolhub-th/tools/transfer-fee-calculator.html">
+
+<meta property="og:title" content="คำนวณค่าธรรมเนียมโอนที่ดิน บ้าน คอนโด ค่าโอน 2% อากรแสตมป์ ภาษีธุรกิจเฉพาะ ฟรี | ToolHub TH">
+
+<meta property="og:description" content="คำนวณค่าโอน 2% อากรแสตมป์ ภาษีธุรกิจเฉพาะ และภาษีหัก ณ ที่จ่ายเมื่อโอนที่ดิน บ้าน คอนโด ได้ทันที">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://pinwaru.github.io/toolhub-th/tools/transfer-fee-calculator.html">
+
+<meta property="og:image" content="https://pinwaru.github.io/toolhub-th/images/logo.png">
+
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="twitter:title" content="คำนวณค่าธรรมเนียมโอนที่ดิน บ้าน คอนโด ค่าโอน 2% อากรแสตมป์ ภาษีธุรกิจเฉพาะ ฟรี | ToolHub TH">
+
+<meta name="twitter:description" content="คำนวณค่าโอน 2% อากรแสตมป์ ภาษีธุรกิจเฉพาะ และภาษีหัก ณ ที่จ่ายเมื่อโอนที่ดิน บ้าน คอนโด">
+
+<link rel="icon" href="../images/logo.png" type="image/png">
+
+<link rel="manifest" href="../manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&display=optional"></noscript>
+
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1NCHJT7HR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V1NCHJT7HR');
+</script>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+<div class="logo">
+<a href="../index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;">
+<img src="../images/logo-nav.png" alt="ToolHub TH Logo">
+<span>ToolHub TH</span>
+</a>
+</div>
+<div class="menu">
+<a href="../index.html">หน้าแรก</a>
+<div class="dropdown">
+<button type="button" class="dropdown-toggle" aria-expanded="false">เครื่องมือ <span class="caret">▾</span></button>
+<div class="dropdown-panel mega">
+<div class="dropdown-col">
+<h4>💰 การเงิน</h4>
+<a href="../tools/tax-calculator.html">คำนวณภาษี &amp; เงินเดือนสุทธิ</a>
+<a href="../tools/overtime-calculator.html">คำนวณ OT &amp; ค่าล่วงเวลา</a>
+<a href="../tools/severance-pay-calculator.html">คำนวณค่าชดเชย &amp; อายุงาน</a>
+<a href="../tools/social-security-calculator.html">คำนวณประกันสังคม &amp; บำนาญ</a>
+<a href="../tools/transfer-fee-calculator.html">คำนวณค่าโอนที่ดิน บ้าน คอนโด</a>
+<a href="../tools/vat-calculator.html">คำนวณ VAT</a>
+<a href="../tools/discount-calculator.html">คำนวณส่วนลด</a>
+<a href="../tools/loan-calculator.html">คำนวณสินเชื่อ/ผ่อนชำระ</a>
+<a href="../tools/flat-to-effective-rate.html">แปลงดอกเบี้ย Flat → Effective</a>
+<a href="../tools/currency-converter.html">แปลงสกุลเงิน</a>
+<a href="../tools/thai-baht-text.html">แปลงเลขเป็นตัวหนังสือไทย</a>
+<a href="../tools/compound-interest-calculator.html">คำนวณดอกเบี้ยทบต้น</a>
+<a href="../tools/electricity-calculator.html">คำนวณค่าไฟ</a>
+</div>
+<div class="dropdown-col">
+<h4>🔢 คณิตศาสตร์</h4>
+<a href="../tools/standard-calculator.html">เครื่องคิดเลขพื้นฐาน</a>
+<a href="../tools/scientific-calculator.html">เครื่องคิดเลขวิทยาศาสตร์</a>
+<a href="../tools/percentage.html">คำนวณเปอร์เซ็นต์</a>
+<a href="../tools/gpa-calculator.html">คำนวณ GPA</a>
+<a href="../tools/grade-calculator.html">คำนวณเกรด</a>
+</div>
+<div class="dropdown-col">
+<h4>❤️ สุขภาพ</h4>
+<a href="../tools/bmi-calculator.html">คำนวณ BMI</a>
+<a href="../tools/bmr-tdee-calculator.html">คำนวณ BMR &amp; TDEE</a>
+<a href="../tools/pregnancy-calculator.html">คำนวณอายุครรภ์ &amp; กำหนดคลอด</a>
+<a href="../tools/age-calculator.html">คำนวณอายุ</a>
+<a href="../tools/body-fat-calculator.html">คำนวณไขมันในร่างกาย</a>
+</div>
+<div class="dropdown-col">
+<h4>🔄 แปลงหน่วย &amp; วันที่</h4>
+<a href="../tools/unit-converter.html">แปลงหน่วย</a>
+<a href="../tools/land-area-converter.html">แปลงหน่วยที่ดิน ไร่-งาน-วา</a>
+<a href="../tools/temperature-converter.html">แปลงอุณหภูมิ</a>
+<a href="../tools/date-calculator.html">คำนวณวันที่</a>
+<a href="../tools/be-ce-year-converter.html">แปลงปี พ.ศ. ↔ ค.ศ.</a>
+</div>
+<div class="dropdown-col">
+<h4>🛠️ เครื่องมือทั่วไป</h4>
+<a href="../tools/countdown-timer.html">นาฬิกาจับเวลา &amp; นับถอยหลัง</a>
+<a href="../tools/random-picker.html">สุ่มชื่อ &amp; วงล้อสุ่ม</a>
+<a href="../tools/qr-generator.html">สร้าง QR Code</a>
+<a href="../tools/password-generator.html">สร้างรหัสผ่าน</a>
+<a href="../tools/image-compressor.html">บีบอัดรูปภาพ</a>
+<a href="../tools/pdf-converter.html">แปลงรูปเป็น PDF</a>
+<a href="../tools/text-case-converter.html">แปลงตัวพิมพ์เล็ก-ใหญ่</a>
+<a href="../tools/word-counter.html">นับคำ &amp; ตัวอักษร</a>
+</div>
+<div class="dropdown-col dropdown-col-all">
+<a class="dropdown-view-all" href="../tools.html">ดูเครื่องมือทั้งหมด →</a>
+</div>
+</div>
+</div>
+<a href="../blog.html">บทความ</a>
+<div class="dropdown">
+<button type="button" class="dropdown-toggle" aria-expanded="false">เกี่ยวกับ <span class="caret">▾</span></button>
+<div class="dropdown-panel">
+<a href="../about.html">เกี่ยวกับเรา</a>
+<a href="../contact.html">ติดต่อเรา</a>
+<a href="../donate.html">สนับสนุนเรา</a>
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+</div>
+</div>
+</div>
+</nav>
+<script src="../js/nav.js"></script>
+<script src="../js/copy-result.js"></script>
+
+<div class="breadcrumb">
+
+<a href="../index.html">หน้าแรก</a>
+
+<span>›</span>
+
+<a href="../tools.html">เครื่องมือ</a>
+
+<span>›</span>
+
+<span>คำนวณค่าโอนที่ดิน</span>
+
+</div>
+
+<main>
+
+<div class="container">
+
+<h1>🏠 คำนวณค่าธรรมเนียมโอนที่ดิน บ้าน คอนโด</h1>
+
+<p>
+
+คำนวณค่าใช้จ่ายวันโอนกรรมสิทธิ์ ได้แก่
+<strong>ค่าธรรมเนียมการโอน 2%</strong>
+<strong>ค่าจดจำนอง 1%</strong>
+<strong>อากรแสตมป์ 0.5%</strong>
+<strong>ภาษีธุรกิจเฉพาะ 3.3%</strong>
+และ<strong>ภาษีเงินได้หัก ณ ที่จ่าย</strong> พร้อมรองรับมาตรการลดค่าโอนและค่าจดจำนองเหลือ 0.01% (ถ้าเข้าเงื่อนไข)
+
+</p>
+
+<div class="tool">
+
+<h2>กรอกข้อมูลทรัพย์สิน</h2>
+
+<label for="appraisal">ราคาประเมินทุนทรัพย์ (บาท)</label>
+
+<input
+type="number"
+inputmode="decimal"
+id="appraisal"
+placeholder="ราคาประเมินของกรมที่ดิน เช่น 3000000"
+min="0"
+step="any">
+
+<br><br>
+
+<label for="salePrice">ราคาซื้อขายจริง (บาท) <small>(เว้นว่าง = เท่าราคาประเมิน)</small></label>
+
+<input
+type="number"
+inputmode="decimal"
+id="salePrice"
+placeholder="ราคาที่ตกลงซื้อขายกัน"
+min="0"
+step="any">
+
+<br><br>
+
+<label for="mortgage">วงเงินจำนอง (บาท) <small>(ถ้าไม่กู้ เว้นว่างได้)</small></label>
+
+<input
+type="number"
+inputmode="decimal"
+id="mortgage"
+placeholder="วงเงินกู้ที่จดจำนอง"
+min="0"
+step="any">
+
+<br><br>
+
+<label for="heldYears">ผู้ขายถือครองมาแล้วกี่ปี</label>
+
+<input
+type="number"
+inputmode="numeric"
+id="heldYears"
+placeholder="จำนวนปี เช่น 3 (นับตามปีปฏิทิน)"
+min="0"
+step="1">
+
+<br><br>
+
+<label for="source">ผู้ขายได้ทรัพย์สินนี้มาอย่างไร</label>
+
+<select id="source">
+<option value="buy">ซื้อมา / ได้มาโดยทั่วไป</option>
+<option value="inherit">มรดก หรือการให้โดยเสน่หา</option>
+</select>
+
+<br><br>
+
+<label>
+<input type="checkbox" id="regUnder1">
+ชื่อในทะเบียนบ้านหลังที่ขายน้อยกว่า 1 ปี (กรณีบ้านพร้อมที่ดิน)
+</label>
+
+<br><br>
+
+<label>
+<input type="checkbox" id="reduce">
+ขอใช้มาตรการลดค่าโอน/ค่าจดจำนองเหลือ 0.01% (ที่อยู่อาศัยราคาไม่เกิน 7 ล้านบาท)
+</label>
+
+<br><br>
+
+<label for="allowance">ค่าลดหย่อนที่ใช้คำนวณภาษีเงินได้ (บาท)</label>
+
+<input
+type="number"
+inputmode="decimal"
+id="allowance"
+value="60000"
+min="0"
+step="any">
+
+<br><br>
+
+<button onclick="calculateTransfer()">
+
+คำนวณค่าใช้จ่ายวันโอน
+
+</button>
+
+<button type="button" onclick="resetForm()">
+
+ล้างข้อมูล
+
+</button>
+
+</div>
+
+<br>
+
+<div class="result" id="result">
+
+<p>
+
+ผลลัพธ์จะแสดงที่นี่
+
+</p>
+
+</div>
+
+<hr>
+
+<h2>📖 วิธีใช้งาน</h2>
+
+<ol>
+
+<li>กรอก <strong>ราคาประเมิน</strong> (ดูได้จากกรมที่ดินหรือสำนักงานที่ดินที่ทำการโอน) และราคาซื้อขายจริง</li>
+
+<li>ใส่วงเงินจำนองถ้ามีการกู้ธนาคาร</li>
+
+<li>ระบุจำนวนปีที่ผู้ขายถือครอง และวิธีได้มา เพื่อใช้ตัดสินว่าเสียภาษีธุรกิจเฉพาะหรืออากรแสตมป์</li>
+
+<li>กดปุ่ม <strong>คำนวณ</strong> แล้วกด <strong>คัดลอกผลลัพธ์</strong> เพื่อส่งต่อในแชตได้ทันที</li>
+
+</ol>
+
+<hr>
+
+<h2>📏 ตารางอัตราค่าใช้จ่ายวันโอน</h2>
+
+<table>
+
+<tr>
+<th>รายการ</th>
+<th>อัตรา</th>
+<th>คิดจาก</th>
+</tr>
+
+<tr>
+<td>ค่าธรรมเนียมการโอน</td>
+<td>2% (ลดเหลือ 0.01% ถ้าเข้าเงื่อนไข)</td>
+<td>ราคาประเมินทุนทรัพย์</td>
+</tr>
+
+<tr>
+<td>ค่าจดจำนอง</td>
+<td>1% (ลดเหลือ 0.01% ถ้าเข้าเงื่อนไข)</td>
+<td>วงเงินจำนอง</td>
+</tr>
+
+<tr>
+<td>ภาษีธุรกิจเฉพาะ</td>
+<td>3.3% (3% + ท้องถิ่น 10% ของภาษี)</td>
+<td>ราคาซื้อขายหรือราคาประเมิน แล้วแต่อย่างใดสูงกว่า</td>
+</tr>
+
+<tr>
+<td>อากรแสตมป์</td>
+<td>0.5%</td>
+<td>ราคาซื้อขายหรือราคาประเมิน แล้วแต่อย่างใดสูงกว่า (ไม่เสียถ้าเสียภาษีธุรกิจเฉพาะแล้ว)</td>
+</tr>
+
+<tr>
+<td>ภาษีเงินได้หัก ณ ที่จ่าย</td>
+<td>อัตราก้าวหน้า</td>
+<td>ราคาประเมิน หักค่าใช้จ่ายตามปีที่ถือครอง</td>
+</tr>
+
+</table>
+
+<hr>
+
+<section class="section">
+
+<h2>⚠️ ข้อควรทราบ</h2>
+
+<ul>
+
+<li>ผลลัพธ์เป็น <strong>ค่าประมาณเบื้องต้น</strong> ตัวเลขจริงขึ้นกับการประเมินของเจ้าพนักงานที่ดินในวันโอน</li>
+
+<li>เครื่องมือนี้คำนวณกรณี <strong>ผู้ขายเป็นบุคคลธรรมดา</strong> กรณีนิติบุคคลมีอัตราภาษีเงินได้หัก ณ ที่จ่ายต่างออกไป</li>
+
+<li>ภาษีเงินได้ใช้อัตราค่าใช้จ่ายเหมาตามปีที่ถือครอง (92% ปีแรก ลดลงจนเหลือ 50% ตั้งแต่ปีที่ 8) นับสูงสุด 10 ปี และไม่เกิน 20% ของราคาประเมิน ค่าลดหย่อนแก้ไขได้ในช่องกรอก</li>
+
+<li>มาตรการ 0.01% ใช้กับที่อยู่อาศัย (บ้านเดี่ยว บ้านแฝด บ้านแถว อาคารพาณิชย์ และห้องชุด) ที่ราคาซื้อขาย ราคาประเมิน และวงเงินจำนองไม่เกิน 7 ล้านบาท ตามเงื่อนไขและระยะเวลาที่รัฐกำหนด กรุณาตรวจสอบประกาศล่าสุดกับสำนักงานที่ดินก่อนโอน</li>
+
+<li>ใครเป็นผู้จ่ายแต่ละรายการ ผู้ซื้อและผู้ขายตกลงกันเองได้ ตามธรรมเนียมผู้ขายมักรับภาษีธุรกิจเฉพาะ/อากรแสตมป์และภาษีหัก ณ ที่จ่าย ส่วนค่าโอนมักแบ่งจ่ายคนละครึ่ง</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<section class="section">
+
+<h2>🔗 เครื่องมือที่เกี่ยวข้อง</h2>
+
+<ul>
+
+<li><a href="land-area-converter.html">📐 แปลงหน่วยที่ดิน ไร่-งาน-วา</a></li>
+
+<li><a href="loan-calculator.html">🏦 คำนวณสินเชื่อ/ผ่อนชำระ</a></li>
+
+<li><a href="tax-calculator.html">🧾 คำนวณภาษี &amp; เงินเดือนสุทธิ</a></li>
+
+</ul>
+
+</section>
+
+<section class="section">
+<div class="tool" style="margin-top: 20px;">
+<h2>📖 บทความที่เกี่ยวข้อง</h2>
+<p>สรุปค่าใช้จ่ายวันโอนที่ดิน บ้าน คอนโด ใครจ่ายอะไร พร้อมตัวอย่างคำนวณและมาตรการลดค่าโอน 0.01%</p>
+<a class="back" href="../blog/transfer-fee-calculator-guide.html">อ่านคู่มือค่าโอนที่ดิน →</a>
+</div>
+</section>
+
+</div>
+
+</main>
+
+<script>
+
+function formatNumber(num){
+
+return Number(num).toLocaleString("th-TH",{
+minimumFractionDigits:2,
+maximumFractionDigits:2
+});
+
+}
+
+// ค่าใช้จ่ายเหมาตามจำนวนปีที่ถือครอง (บุคคลธรรมดา, ปีที่ 1 - 8 ขึ้นไป)
+const EXPENSE_RATE=[0.92,0.84,0.77,0.71,0.65,0.60,0.55,0.50];
+
+// ภาษีเงินได้บุคคลธรรมดา อัตราก้าวหน้า
+const BRACKETS=[
+[150000,0],
+[300000,0.05],
+[500000,0.10],
+[750000,0.15],
+[1000000,0.20],
+[2000000,0.25],
+[5000000,0.30],
+[Infinity,0.35]
+];
+
+function progressiveTax(income){
+
+let tax=0;
+let prev=0;
+
+for(const [limit,rate] of BRACKETS){
+
+if(income>prev){
+
+tax+=(Math.min(income,limit)-prev)*rate;
+
+}
+
+prev=limit;
+
+}
+
+return tax;
+
+}
+
+function calculateTransfer(){
+
+const appraisal=parseFloat(document.getElementById("appraisal").value);
+const saleRaw=parseFloat(document.getElementById("salePrice").value);
+const mortgage=parseFloat(document.getElementById("mortgage").value)||0;
+const held=parseInt(document.getElementById("heldYears").value,10);
+const allowance=parseFloat(document.getElementById("allowance").value);
+const source=document.getElementById("source").value;
+const regUnder1=document.getElementById("regUnder1").checked;
+const wantReduce=document.getElementById("reduce").checked;
+
+const out=document.getElementById("result");
+
+if(isNaN(appraisal)||appraisal<=0){
+
+out.innerHTML="<p>กรุณากรอกราคาประเมินให้ถูกต้อง</p>";
+
+return;
+
+}
+
+if(isNaN(held)||held<0){
+
+out.innerHTML="<p>กรุณากรอกจำนวนปีที่ผู้ขายถือครอง (ใส่ 0 ถ้าไม่ถึงปี)</p>";
+
+return;
+
+}
+
+if(mortgage<0||(!isNaN(saleRaw)&&saleRaw<0)){
+
+out.innerHTML="<p>กรุณากรอกตัวเลขที่ไม่ติดลบ</p>";
+
+return;
+
+}
+
+const sale=isNaN(saleRaw)||saleRaw===0?appraisal:saleRaw;
+const base=Math.max(sale,appraisal);
+
+// มาตรการลดค่าโอน 0.01%
+const LIMIT=7000000;
+let reduced=false;
+let reduceNote="";
+
+if(wantReduce){
+
+if(sale<=LIMIT&&appraisal<=LIMIT&&mortgage<=LIMIT){
+
+reduced=true;
+
+}else{
+
+reduceNote="ราคาหรือวงเงินจำนองเกิน 7 ล้านบาท จึงไม่เข้ามาตรการ 0.01% (คิดอัตราปกติ)";
+
+}
+
+}
+
+const transferFee=appraisal*(reduced?0.0001:0.02);
+const mortgageFee=mortgage*(reduced?0.0001:0.01);
+
+// ภาษีธุรกิจเฉพาะ หรือ อากรแสตมป์
+const sbt=held<5||regUnder1;
+const sbtAmount=sbt?base*0.033:0;
+const stampAmount=sbt?0:base*0.005;
+
+// ภาษีเงินได้หัก ณ ที่จ่าย (บุคคลธรรมดา) - ประมาณการ
+const years=Math.min(Math.max(held,1),10);
+const expenseRate=source==="inherit"?0.5:EXPENSE_RATE[Math.min(years,8)-1];
+const netIncome=appraisal*(1-expenseRate);
+const perYear=netIncome/years;
+const taxable=Math.max(0,perYear-(isNaN(allowance)?0:allowance));
+let incomeTax=progressiveTax(taxable)*years;
+incomeTax=Math.min(incomeTax,appraisal*0.2);
+
+const total=transferFee+mortgageFee+sbtAmount+stampAmount+incomeTax;
+
+const rows=[];
+
+rows.push(`<tr><th>ราคาประเมิน / ราคาซื้อขาย</th><td>${formatNumber(appraisal)} / ${formatNumber(sale)} บาท</td></tr>`);
+
+rows.push(`<tr><th>ค่าธรรมเนียมการโอน (${reduced?"0.01%":"2%"})</th><td>${formatNumber(transferFee)} บาท</td></tr>`);
+
+if(mortgage>0){
+
+rows.push(`<tr><th>ค่าจดจำนอง (${reduced?"0.01%":"1%"})</th><td>${formatNumber(mortgageFee)} บาท</td></tr>`);
+
+}
+
+if(sbt){
+
+rows.push(`<tr><th>ภาษีธุรกิจเฉพาะ (3.3%)</th><td>${formatNumber(sbtAmount)} บาท</td></tr>`);
+
+}else{
+
+rows.push(`<tr><th>อากรแสตมป์ (0.5%)</th><td>${formatNumber(stampAmount)} บาท</td></tr>`);
+
+}
+
+rows.push(`<tr><th>ภาษีเงินได้หัก ณ ที่จ่าย (ประมาณการ)</th><td>${formatNumber(incomeTax)} บาท</td></tr>`);
+
+rows.push(`<tr><th>รวมค่าใช้จ่ายวันโอนโดยประมาณ</th><td><strong>${formatNumber(total)} บาท</strong></td></tr>`);
+
+out.innerHTML=
+
+`
+<h2>ผลการคำนวณ</h2>
+
+<table>
+
+${rows.join("\n")}
+
+</table>
+
+<p>${sbt?"ผู้ขายถือครองไม่ถึง 5 ปี (หรือชื่อในทะเบียนบ้านไม่ถึง 1 ปี) จึงเสียภาษีธุรกิจเฉพาะแทนอากรแสตมป์":"ผู้ขายถือครองตั้งแต่ 5 ปีขึ้นไป จึงเสียอากรแสตมป์แทนภาษีธุรกิจเฉพาะ"}</p>
+
+${reduceNote?`<p>${reduceNote}</p>`:""}
+
+<p>เป็นค่าประมาณเบื้องต้น ตัวเลขจริงขึ้นกับการประเมินของสำนักงานที่ดินในวันโอน</p>
+
+`;
+
+}
+
+function resetForm(){
+
+["appraisal","salePrice","mortgage","heldYears"].forEach(function(id){
+
+document.getElementById(id).value="";
+
+});
+
+document.getElementById("allowance").value="60000";
+
+document.getElementById("source").value="buy";
+
+document.getElementById("regUnder1").checked=false;
+
+document.getElementById("reduce").checked=false;
+
+document.getElementById("result").innerHTML=
+"<p>ผลลัพธ์จะแสดงที่นี่</p>";
+
+}
+
+</script>
+
+<footer>
+
+<h3>ToolHub TH</h3>
+
+<p>
+
+รวมเครื่องมือออนไลน์ฟรี สำหรับนักเรียน นักศึกษา และทุกคน.
+
+</p>
+
+<p>
+
+<a href="../index.html">หน้าแรก</a> |
+
+
+<a href="../blog.html">บทความ</a> |
+
+<a href="../about.html">เกี่ยวกับ</a> |
+
+<a href="../contact.html">ติดต่อ</a> |
+
+<a href="../privacy.html">นโยบายความเป็นส่วนตัว</a>
+
+</p>
+
+<p>
+
+© 2026 ToolHub TH. All Rights Reserved.
+
+</p>
+
+</footer>
+
+<!-- WebApplication Schema -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"คำนวณค่าธรรมเนียมโอนที่ดิน",
+  "url":"https://pinwaru.github.io/toolhub-th/tools/transfer-fee-calculator.html",
+  "applicationCategory":"FinanceApplication",
+  "operatingSystem":"Any",
+  "description":"เครื่องคำนวณค่าใช้จ่ายโอนกรรมสิทธิ์ที่ดิน บ้าน คอนโด ฟรี คำนวณค่าธรรมเนียมการโอน 2% ค่าจดจำนอง 1% อากรแสตมป์ 0.5% ภาษีธุรกิจเฉพาะ 3.3% และภาษีหัก ณ ที่จ่าย พร้อมมาตรการลดค่าโอน 0.01%",
+  "publisher":{
+    "@type":"Organization",
+    "name":"ToolHub TH",
+    "logo":{
+      "@type":"ImageObject",
+      "url":"https://pinwaru.github.io/toolhub-th/images/logo.png"
+    }
+  }
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "หน้าแรก",
+      "item": "https://pinwaru.github.io/toolhub-th/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "เครื่องมือ",
+      "item": "https://pinwaru.github.io/toolhub-th/tools.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "คำนวณค่าโอนที่ดิน",
+      "item": "https://pinwaru.github.io/toolhub-th/tools/transfer-fee-calculator.html"
+    }
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ค่าธรรมเนียมการโอนที่ดินคิดกี่เปอร์เซ็นต์?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ค่าธรรมเนียมการโอนปกติคิด 2% ของราคาประเมินทุนทรัพย์ หากเข้ามาตรการลดค่าโอนของรัฐ (ที่อยู่อาศัยราคาไม่เกิน 7 ล้านบาท) จะเหลือ 0.01% ตามเงื่อนไขและระยะเวลาที่กำหนด"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ภาษีธุรกิจเฉพาะกับอากรแสตมป์ต่างกันอย่างไร?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ถ้าผู้ขายถือครองไม่ถึง 5 ปี หรือมีชื่อในทะเบียนบ้านไม่ถึง 1 ปี จะเสียภาษีธุรกิจเฉพาะ 3.3% ของราคาซื้อขายหรือราคาประเมินที่สูงกว่า แต่ถ้าถือครองตั้งแต่ 5 ปีขึ้นไปจะเสียอากรแสตมป์ 0.5% แทน โดยไม่ต้องเสียทั้งสองอย่างพร้อมกัน"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "เครื่องคำนวณค่าโอนที่ดินของ ToolHub TH ใช้งานฟรีหรือไม่?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ใช้งานฟรี ไม่ต้องสมัครสมาชิก และคัดลอกผลลัพธ์ไปส่งต่อในแชตได้ทันที ผลลัพธ์เป็นค่าประมาณเบื้องต้น ควรตรวจสอบกับสำนักงานที่ดินก่อนโอนจริง"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+
+</html>
