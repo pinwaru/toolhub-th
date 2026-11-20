@@ -2485,3 +2485,23 @@ padding:25px;
 }
 .copy-btn:hover{background:#eff6ff;}
 .copy-wrap{text-align:center;margin:-6px 0 18px;}
+
+/* เน้นกรอบผลลัพธ์ */
+.result{
+    border-left:5px solid #2563eb;
+    box-shadow:0 6px 18px rgba(37,99,235,.10);
+}
+
+@keyframes resultPop{
+    0%{transform:scale(.97);box-shadow:0 0 0 0 rgba(37,99,235,.55);background:#dbeafe;}
+    45%{transform:scale(1.012);box-shadow:0 0 0 12px rgba(37,99,235,.22);}
+    100%{transform:scale(1);box-shadow:0 6px 18px rgba(37,99,235,.10);}
+}
+
+.result-pop{
+    animation:resultPop .9s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce){
+    .result-pop{animation:none;}
+}
