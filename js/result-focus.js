@@ -12,6 +12,7 @@
 
   function arm(ms) { armedUntil = Date.now() + (ms || 10000); }
   function disarm() { armedUntil = 0; }
+  window.resultFocusArm = function () { arm(); }; // ให้เครื่องมือที่ประมวลผลนาน เรียกซ้ำตอนเสร็จ
 
   document.addEventListener("click", function (e) {
     var t = e.target.closest && e.target.closest("button, input[type=button], input[type=submit], [role=button], .btn");
