@@ -108,7 +108,11 @@ function drawWheel() {
   }
 }
 
-itemsInput.addEventListener('input', drawWheel);
+itemsInput.addEventListener('input', () => {
+  drawWheel();
+  lastWinnerIndex = -1;
+  if (typeof removeWinnerBtn !== 'undefined') removeWinnerBtn.style.display = 'none';
+});
 
 // คำนวณว่าเข็มชี้ไปตรงรายการลำดับที่เท่าไร จากมุมองศาปัจจุบันของวงล้อ
 function getWinningIndex(angle, count) {
@@ -129,6 +133,7 @@ function spinWheel() {
 
   isSpinning = true;
   winnerBox.style.display = "none";
+  lastWinnerIndex = -1;
   clearConfetti();
 
   const baseAngle = startAngle;
@@ -168,6 +173,102 @@ function spinWheel() {
   requestAnimationFrame(animate);
 }
 
+// =========================
+// ลบรายชื่อที่สุ่มได้ / ประวัติผู้ที่ถูกสุ่มแล้ว
+// =========================
+
+const autoRemove = document.getElementById('autoRemove');
+const removeWinnerBtn = document.getElementById('removeWinnerBtn');
+const pickedBox = document.getElementById('pickedBox');
+const pickedList = document.getElementById('pickedList');
+const pickedCount = document.getElementById('pickedCount');
+
+let pickedHistory = [];   // รายชื่อที่ถูกลบออกจากวงล้อแล้ว (เรียงตามลำดับที่สุ่มได้)
+let lastWinnerIndex = -1; // ลำดับ (ในรายการที่ไม่ว่าง) ของผู้ชนะล่าสุด ถ้ายังไม่ถูกลบ
+
+try { autoRemove.checked = localStorage.getItem('rp_autoRemove') === '1'; } catch (e) {}
+autoRemove.addEventListener('change', () => {
+  try { localStorage.setItem('rp_autoRemove', autoRemove.checked ? '1' : '0'); } catch (e) {}
+});
+
+// ลบรายการลำดับที่ index (นับเฉพาะบรรทัดที่ไม่ว่าง) ออกจากช่องรายชื่อ
+function removeItemAt(index) {
+  const lines = itemsInput.value.split('\n');
+  let n = -1;
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i].trim().length > 0) {
+      n++;
+      if (n === index) {
+        lines.splice(i, 1);
+        break;
+      }
+    }
+  }
+  itemsInput.value = lines.join('\n');
+}
+
+function renderPicked() {
+  pickedCount.textContent = pickedHistory.length;
+  pickedBox.style.display = pickedHistory.length ? 'block' : 'none';
+  pickedList.innerHTML = '';
+  pickedHistory.forEach((name, i) => {
+    const li = document.createElement('li');
+    const label = document.createElement('span');
+    const no = document.createElement('span');
+    no.className = 'no';
+    no.textContent = (i + 1) + '.';
+    label.appendChild(no);
+    label.appendChild(document.createTextNode(name));
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'mini-btn';
+    btn.textContent = '↩️ นำกลับ';
+    btn.addEventListener('click', () => restoreOne(i));
+    li.appendChild(label);
+    li.appendChild(btn);
+    pickedList.appendChild(li);
+  });
+}
+
+function appendItems(names) {
+  const cur = itemsInput.value.replace(/\s+$/, '');
+  itemsInput.value = (cur ? cur + '\n' : '') + names.join('\n');
+  drawWheel();
+}
+
+function restoreOne(i) {
+  if (isSpinning) return;
+  const [name] = pickedHistory.splice(i, 1);
+  appendItems([name]);
+  renderPicked();
+}
+
+function restoreAll() {
+  if (isSpinning || !pickedHistory.length) return;
+  appendItems(pickedHistory);
+  pickedHistory = [];
+  renderPicked();
+}
+
+function clearPicked() {
+  pickedHistory = [];
+  renderPicked();
+}
+
+// ลบผู้ชนะล่าสุดด้วยปุ่มในกล่องผลลัพธ์ (กรณีไม่ได้เปิดลบอัตโนมัติ)
+function removeWinner() {
+  if (isSpinning || lastWinnerIndex < 0) return;
+  const items = getItems();
+  const name = items[lastWinnerIndex];
+  if (name === undefined) return;
+  removeItemAt(lastWinnerIndex);
+  pickedHistory.push(name);
+  lastWinnerIndex = -1;
+  removeWinnerBtn.style.display = 'none';
+  renderPicked();
+  drawWheel();
+}
+
 function stopRotateWheel() {
   isSpinning = false;
   const items = getItems();
@@ -183,6 +284,23 @@ function stopRotateWheel() {
 
   playWinSound();
   launchConfetti();
+
+  lastWinnerIndex = index;
+  if (autoRemove.checked) {
+    // ลบออกจากรายชื่อทันที (สุ่มครั้งต่อไปจะไม่มีชื่อนี้) แต่คงภาพวงล้อไว้ครู่หนึ่งให้เห็นผู้ชนะ
+    pickedHistory.push(items[index]);
+    removeItemAt(index);
+    lastWinnerIndex = -1;
+    removeWinnerBtn.style.display = 'none';
+    renderPicked();
+    itemCount.textContent = getItems().length;
+    setTimeout(() => { if (!isSpinning) drawWheel(); }, 1500);
+    if (getItems().length < 2) {
+      winnerText.textContent = items[index] + (getItems().length === 1 ? ' (เหลือ 1 รายการ เพิ่มรายชื่อหรือกดนำกลับเพื่อสุ่มต่อ)' : ' (ไม่เหลือรายการแล้ว)');
+    }
+  } else {
+    removeWinnerBtn.style.display = 'inline-block';
+  }
 }
 
 // =========================

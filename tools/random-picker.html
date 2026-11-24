@@ -110,6 +110,20 @@ textarea:focus {
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
 }
 
+
+.remove-opt{display:flex;align-items:center;gap:8px;margin-top:12px;padding:10px 14px;background:#f1f5f9;border-radius:10px;font-size:.92rem;color:#334155;cursor:pointer}
+.remove-opt input{width:18px;height:18px;accent-color:#2563eb;cursor:pointer}
+.mini-btn{border:1px solid #cbd5e1;background:#fff;color:#334155;font-family:'Kanit',sans-serif;font-size:.85rem;padding:6px 14px;border-radius:20px;cursor:pointer;transition:all .15s}
+.mini-btn:hover{background:#f1f5f9;border-color:#94a3b8}
+.mini-btn.danger{border-color:#fecaca;color:#b91c1c}
+.mini-btn.danger:hover{background:#fef2f2}
+.picked-box{margin-top:18px;padding:14px 16px;border:1px dashed #cbd5e1;border-radius:12px;display:none}
+.picked-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px;font-weight:600;color:#334155}
+.picked-list{list-style:none;margin:0;padding:0}
+.picked-list li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #f1f5f9;font-size:.95rem}
+.picked-list li:last-child{border-bottom:none}
+.picked-list .no{color:#2563eb;font-weight:600;margin-right:8px}
+
 .btn-spin {
   background-color: #2563eb;
   color: white;
@@ -417,6 +431,20 @@ textarea:focus {
       <div style="margin-top: 10px; font-size: 0.88rem; color: #64748b;">
         จำนวนรายการ: <strong id="itemCount" style="color: #2563eb;">4</strong> รายการ
       </div>
+      <label class="remove-opt">
+        <input type="checkbox" id="autoRemove">
+        <span>🗑️ ลบรายชื่อที่สุ่มได้ออกจากวงล้อโดยอัตโนมัติ (ไม่ให้ถูกสุ่มซ้ำ)</span>
+      </label>
+      <div id="pickedBox" class="picked-box">
+        <div class="picked-head">
+          <span>📋 สุ่มไปแล้ว (<span id="pickedCount">0</span>)</span>
+          <span>
+            <button type="button" class="mini-btn" onclick="restoreAll()">↩️ นำกลับทั้งหมด</button>
+            <button type="button" class="mini-btn danger" onclick="clearPicked()">ล้างประวัติ</button>
+          </span>
+        </div>
+        <ol id="pickedList" class="picked-list"></ol>
+      </div>
     </div>
 
   </div>
@@ -424,6 +452,7 @@ textarea:focus {
   <div id="winnerBox" class="winner-box">
     <div style="font-size: 0.9rem; color: #166534; font-weight: 500;">🎉 ผู้โชคดีที่สุ่มได้คือ:</div>
     <h3 id="winnerText">-</h3>
+    <button type="button" id="removeWinnerBtn" class="mini-btn danger" style="margin-top:10px;display:none" onclick="removeWinner()">🗑️ ลบชื่อนี้ออกจากวงล้อ</button>
   </div>
 
 </div>
@@ -443,6 +472,10 @@ textarea:focus {
     <div class="feature-card">
       <h3>🍕 สุ่มเลือกร้านอาหาร</h3>
       <p>ใส่เมนูหรือร้านอาหารโปรดเพื่อช่วยตัดสินใจกินอะไรดีในมื้อเที่ยง</p>
+    </div>
+    <div class="feature-card">
+      <h3>🗑️ ลบชื่อที่สุ่มได้ ไม่ให้ซ้ำ</h3>
+      <p>ติ๊ก "ลบรายชื่อที่สุ่มได้ออกจากวงล้อ" เพื่อสุ่มหลายรอบโดยไม่ได้คนเดิม หรือกดลบเองทีละชื่อ และกด "นำกลับ" ได้ทุกเมื่อ</p>
     </div>
   </div>
 </section>
